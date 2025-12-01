@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "role": "Marketing Manager",
+    "company": "TechGlobal Inc.",
+    "comment": "The communication skills training completely transformed how I interact with my team and clients. My presentations are now more engaging and impactful.",
+    "rating": 5,
+    "course": "Communication Skills"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "role": "Software Engineer",
+    "company": "Innovate Solutions",
+    "comment": "I used to struggle with expressing my ideas clearly in meetings. Now I'm confident presenting to executives and clients.",
+    "rating": 5,
+    "course": "Public Speaking"
+  },
+  {
+    "id": 3,
+    "name": "David Rodriguez",
+    "role": "Project Manager",
+    "company": "BuildCorp",
+    "comment": "The leadership frameworks taught here helped me transform my team's performance. Engagement scores improved by 40%.",
+    "rating": 5,
+    "course": "Leadership & Team Building"
+  },
+  {
+    "id": 4,
+    "name": "Priya Sharma",
+    "role": "Department Head",
+    "company": "HealthFirst",
+    "comment": "I gained confidence in my leadership abilities and learned practical tools to handle challenging team dynamics.",
+    "rating": 4,
+    "course": "Leadership & Team Building"
+  },
+  {
+    "id": 5,
+    "name": "Jennifer Kim",
+    "role": "Sales Director",
+    "company": "Growth Partners",
+    "comment": "I went from dreading presentations to actually enjoying them. My closing rate improved significantly after taking this course.",
+    "rating": 5,
+    "course": "Public Speaking"
+  },
+  {
+    "id": 6,
+    "name": "Thomas Anderson",
+    "role": "Recent Graduate",
+    "company": "",
+    "comment": "I landed my dream job after just two weeks of training. The mock interviews were invaluable preparation.",
+    "rating": 5,
+    "course": "Interview & Job Readiness"
+  }
+]
