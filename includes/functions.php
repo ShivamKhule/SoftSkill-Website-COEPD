@@ -15,10 +15,22 @@ function loadData($filename) {
         }
     }
     
+    // Debugging - show what file we're trying to load
+    // error_log("Trying to load file: " . $filepath);
+    
     if (file_exists($filepath)) {
         $json = file_get_contents($filepath);
-        return json_decode($json, true);
+        $data = json_decode($json, true);
+        
+        // Debugging - check if JSON was decoded properly
+        // error_log("Data loaded: " . (is_array($data) ? count($data) : 'Not an array'));
+        
+        return is_array($data) ? $data : [];
     }
+    
+    // Debugging - file doesn't exist
+    // error_log("File does not exist: " . $filepath);
+    
     return [];
 }
 

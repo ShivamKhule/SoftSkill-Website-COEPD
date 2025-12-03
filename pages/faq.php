@@ -7,7 +7,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h1>
         <p class="text-xl max-w-3xl mx-auto">Find answers to common questions about our training programs.</p>
@@ -15,13 +15,13 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
 </section>
 
 <!-- FAQ Section -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto">
             <div class="space-y-6">
                 <?php foreach ($faqs as $faq): ?>
-                <div class="border border-gray-200 rounded-lg overflow-hidden" data-faq-item>
-                    <button class="w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition duration-300" data-faq-button>
+                <div class="border border-gray-200 rounded-xl overflow-hidden shadow-md" data-faq-item>
+                    <button class="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-teal-50 transition duration-300" data-faq-button>
                         <h3 class="text-lg font-bold text-gray-800"><?php echo $faq['question']; ?></h3>
                         <i class="fas fa-chevron-down text-blue-600 transition duration-300"></i>
                     </button>
@@ -32,7 +32,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
                 <?php endforeach; ?>
             </div>
             
-            <div class="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
+            <div class="mt-12 bg-gradient-to-br from-blue-50 to-teal-50 border border-blue-200 rounded-xl p-8 text-center shadow-md">
                 <h3 class="text-xl font-bold mb-4">Still Have Questions?</h3>
                 <p class="text-gray-600 mb-6">Our team is here to help you with any additional inquiries about our programs.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -45,7 +45,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
 </section>
 
 <!-- Additional Information -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Important Information</h2>
@@ -53,7 +53,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-2xl mb-4">
                     <i class="fas fa-file-contract"></i>
                 </div>
@@ -61,7 +61,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
                 <p class="text-gray-600">Full refunds available up to 7 days before the program starts. After that, credits can be applied to future programs.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-2xl mb-4">
                     <i class="fas fa-certificate"></i>
                 </div>
@@ -69,7 +69,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
                 <p class="text-gray-600">Certificates are awarded to participants who attend at least 80% of sessions and complete all assignments.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-2xl mb-4">
                     <i class="fas fa-laptop"></i>
                 </div>
@@ -77,7 +77,7 @@ $faqs = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/faqs.json'
                 <p class="text-gray-600">For online sessions, stable internet connection and modern browser required. Detailed setup instructions provided upon enrollment.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-2xl mb-4">
                     <i class="fas fa-users"></i>
                 </div>

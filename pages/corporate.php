@@ -6,7 +6,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Corporate Soft Skills Training</h1>
         <p class="text-xl max-w-3xl mx-auto">Customized programs for teams to enhance workplace communication, collaboration, and productivity.</p>
@@ -14,13 +14,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 </section>
 
 <!-- Corporate Training Overview -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="rounded-lg shadow-lg">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="rounded-xl shadow-lg w-full">
             </div>
-            <div class="md:w-1/2 md:pl-12">
+            <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold mb-6">Transform Your Organization</h2>
                 <p class="text-gray-600 mb-6">We provide customized corporate soft-skills programs for teams and organizations to enhance workplace communication, collaboration, and productivity.</p>
                 <p class="text-gray-600 mb-6">Our corporate training solutions are designed to address specific organizational challenges and align with your company's goals and culture.</p>
@@ -35,7 +35,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 </section>
 
 <!-- Key Benefits -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Key Benefits</h2>
@@ -43,7 +43,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-chart-line"></i>
                 </div>
@@ -51,7 +51,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
                 <p class="text-gray-600">Enhanced communication leads to better collaboration and project outcomes.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-users"></i>
                 </div>
@@ -59,7 +59,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
                 <p class="text-gray-600">Build cohesive teams with improved trust and cooperation.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-redo"></i>
                 </div>
@@ -67,7 +67,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
                 <p class="text-gray-600">Investment in employee development boosts job satisfaction and loyalty.</p>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-lightbulb"></i>
                 </div>
@@ -79,7 +79,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 </section>
 
 <!-- Training Programs -->
-<section id="programs" class="py-16">
+<section id="programs" class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Our Corporate Training Programs</h2>
@@ -87,7 +87,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="border border-gray-200 rounded-lg p-8">
+            <div class="border border-gray-200 rounded-xl p-8 shadow-md">
                 <h3 class="text-2xl font-bold mb-4">Team Communication & Collaboration</h3>
                 <p class="text-gray-600 mb-6">Develop effective communication channels and collaborative workflows that enhance productivity and reduce misunderstandings.</p>
                 <ul class="space-y-3">
@@ -110,7 +110,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
                 </ul>
             </div>
             
-            <div class="border border-gray-200 rounded-lg p-8">
+            <div class="border border-gray-200 rounded-xl p-8 shadow-md">
                 <h3 class="text-2xl font-bold mb-4">Leadership Development</h3>
                 <p class="text-gray-600 mb-6">Cultivate authentic leaders who inspire teams and drive organizational success through emotional intelligence and effective management.</p>
                 <ul class="space-y-3">
@@ -133,7 +133,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
                 </ul>
             </div>
             
-            <div class="border border-gray-200 rounded-lg p-8">
+            <div class="border border-gray-200 rounded-xl p-8 shadow-md">
                 <h3 class="text-2xl font-bold mb-4">Customer Service Excellence</h3>
                 <p class="text-gray-600 mb-6">Equip your customer-facing teams with the empathy, problem-solving skills, and communication techniques needed to exceed expectations.</p>
                 <ul class="space-y-3">
@@ -156,7 +156,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
                 </ul>
             </div>
             
-            <div class="border border-gray-200 rounded-lg p-8">
+            <div class="border border-gray-200 rounded-xl p-8 shadow-md">
                 <h3 class="text-2xl font-bold mb-4">Workplace Productivity & Well-being</h3>
                 <p class="text-gray-600 mb-6">Help employees manage time effectively, reduce stress, and maintain work-life balance for sustained performance.</p>
                 <ul class="space-y-3">
@@ -180,7 +180,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
             </div>
         </div>
         
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-8">
+        <div class="bg-gradient-to-br from-blue-50 to-teal-50 border border-blue-200 rounded-xl p-8 shadow-md">
             <h3 class="text-2xl font-bold mb-4">Customized Workshops</h3>
             <p class="text-gray-600 mb-6">We also offer bespoke workshops tailored to your organization's unique challenges and objectives:</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -202,7 +202,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 </section>
 
 <!-- Approach -->
-<section class="py-16 bg-gray-800 text-white">
+<section class="py-16 bg-gradient-to-br from-gray-800 to-blue-900 text-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Our Corporate Training Approach</h2>
@@ -238,7 +238,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 </section>
 
 <!-- CTA Section -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Team?</h2>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Contact us to discuss your organization's training needs and receive a customized proposal.</p>

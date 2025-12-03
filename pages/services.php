@@ -7,7 +7,7 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Training Services</h1>
         <p class="text-xl max-w-3xl mx-auto">Comprehensive soft skills programs designed for individuals and organizations.</p>
@@ -15,7 +15,7 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
 </section>
 
 <!-- Services Overview -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Training Programs</h2>
@@ -24,9 +24,9 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php foreach ($services as $service): ?>
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+            <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
                 <div class="text-blue-600 text-3xl mb-4">
-                    <i class="fas fa-<?php echo $service['icon']; ?>"></i>
+                    <i class="fas <?php echo $service['icon']; ?>"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3"><?php echo $service['title']; ?></h3>
                 <p class="text-gray-600 mb-4"><?php echo $service['description']; ?></p>
@@ -41,36 +41,36 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
 </section>
 
 <!-- Corporate Training -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="rounded-lg shadow-lg">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Training" class="rounded-xl shadow-lg w-full">
             </div>
-            <div class="md:w-1/2 md:pl-12">
+            <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold mb-6">Corporate Soft Skills Training</h2>
                 <p class="text-gray-600 mb-6">We provide customized corporate soft-skills programs for teams and organizations to enhance workplace communication, collaboration, and productivity.</p>
                 
                 <div class="space-y-4 mb-8">
                     <div class="flex items-start">
                         <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                        <span>Team Communication & Collaboration</span>
+                        <span class="text-gray-700"><span class="font-semibold">Team Communication & Collaboration</span> - Build cohesive teams with improved trust and cooperation</span>
                     </div>
                     <div class="flex items-start">
                         <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                        <span>Leadership Development Programs</span>
+                        <span class="text-gray-700"><span class="font-semibold">Leadership Development Programs</span> - Cultivate authentic leaders who inspire teams</span>
                     </div>
                     <div class="flex items-start">
                         <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                        <span>Customer Service Excellence</span>
+                        <span class="text-gray-700"><span class="font-semibold">Customer Service Excellence</span> - Equip your customer-facing teams with empathy and problem-solving skills</span>
                     </div>
                     <div class="flex items-start">
                         <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                        <span>Change Management & Adaptability</span>
+                        <span class="text-gray-700"><span class="font-semibold">Change Management & Adaptability</span> - Help employees navigate transitions and embrace innovation</span>
                     </div>
                     <div class="flex items-start">
                         <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                        <span>Conflict Resolution & Workplace Etiquette</span>
+                        <span class="text-gray-700"><span class="font-semibold">Conflict Resolution & Workplace Etiquette</span> - Develop skills to handle disagreements constructively</span>
                     </div>
                 </div>
                 
@@ -81,7 +81,7 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
 </section>
 
 <!-- Training Formats -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Flexible Training Formats</h2>
@@ -89,7 +89,7 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-md text-center border-t-4 border-blue-500">
+            <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-md text-center border-t-4 border-blue-500">
                 <div class="text-blue-600 text-4xl mb-4">
                     <i class="fas fa-laptop"></i>
                 </div>
@@ -111,8 +111,8 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
                 </ul>
             </div>
             
-            <div class="bg-white p-8 rounded-lg shadow-md text-center border-t-4 border-green-500">
-                <div class="text-green-600 text-4xl mb-4">
+            <div class="bg-gradient-to-br from-teal-50 to-white p-8 rounded-xl shadow-md text-center border-t-4 border-teal-500">
+                <div class="text-teal-600 text-4xl mb-4">
                     <i class="fas fa-building"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-4">In-Person Classes</h3>
@@ -133,8 +133,8 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
                 </ul>
             </div>
             
-            <div class="bg-white p-8 rounded-lg shadow-md text-center border-t-4 border-purple-500">
-                <div class="text-purple-600 text-4xl mb-4">
+            <div class="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-xl shadow-md text-center border-t-4 border-indigo-500">
+                <div class="text-indigo-600 text-4xl mb-4">
                     <i class="fas fa-building"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-4">On-Site Corporate</h3>
@@ -159,7 +159,7 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+<section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Enhance Your Skills?</h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto">Join our next batch or contact us to learn more about our training programs.</p>

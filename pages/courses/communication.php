@@ -7,7 +7,7 @@ $course = getCourseById('communication');
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6"><?php echo $course['title']; ?></h1>
@@ -17,19 +17,19 @@ $course = getCourseById('communication');
 </section>
 
 <!-- Course Details -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <!-- Main Content -->
             <div class="lg:col-span-2">
                 <!-- Overview -->
-                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-bold mb-6">Course Overview</h2>
                     <p class="text-gray-600"><?php echo $course['overview']; ?></p>
                 </div>
                 
                 <!-- Skills You Will Learn -->
-                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-bold mb-6">Skills You Will Learn</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <?php foreach ($course['skills_learned'] as $skill): ?>
@@ -42,13 +42,13 @@ $course = getCourseById('communication');
                 </div>
                 
                 <!-- Who Should Attend -->
-                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-bold mb-6">Who Should Attend</h2>
                     <p class="text-gray-600"><?php echo $course['who_attend']; ?></p>
                 </div>
                 
                 <!-- Training Formats -->
-                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-bold mb-6">Training Formats</h2>
                     <div class="flex flex-wrap gap-4">
                         <?php foreach ($course['formats'] as $format): ?>
@@ -58,7 +58,7 @@ $course = getCourseById('communication');
                 </div>
                 
                 <!-- Curriculum -->
-                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-bold mb-6">Curriculum / Modules</h2>
                     <div class="space-y-4">
                         <?php foreach ($course['curriculum'] as $index => $module): ?>
@@ -73,7 +73,7 @@ $course = getCourseById('communication');
                 </div>
                 
                 <!-- Testimonials -->
-                <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-8">
                     <h2 class="text-2xl font-bold mb-6">Student Testimonials</h2>
                     <div class="space-y-6">
                         <?php foreach ($course['testimonials'] as $testimonial): ?>
@@ -90,7 +90,7 @@ $course = getCourseById('communication');
             <!-- Sidebar -->
             <div>
                 <!-- Course Info Card -->
-                <div class="bg-white rounded-lg shadow-md p-6 mb-8 sticky top-6">
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-md p-6 mb-8 sticky top-6">
                     <h3 class="text-xl font-bold mb-4">Course Information</h3>
                     <div class="space-y-4 mb-6">
                         <div class="flex justify-between">
@@ -115,7 +115,7 @@ $course = getCourseById('communication');
                 </div>
                 
                 <!-- Why Choose Us -->
-                <div class="bg-gray-50 rounded-lg p-6">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-md">
                     <h3 class="text-xl font-bold mb-4">Why Choose Us</h3>
                     <ul class="space-y-3">
                         <li class="flex items-start">
@@ -137,6 +137,18 @@ $course = getCourseById('communication');
                     </ul>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Communication Skills?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">Join our next batch and start your journey to becoming a confident communicator.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="../schedule.php" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">View Schedule</a>
+            <a href="../contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Contact Us</a>
         </div>
     </div>
 </section>

@@ -7,7 +7,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
         <p class="text-xl max-w-3xl mx-auto">Have questions about our training programs? Get in touch with our team.</p>
@@ -15,73 +15,84 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 </section>
 
 <!-- Contact Section -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Contact Form -->
             <div>
                 <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
-                <form class="bg-white p-8 rounded-lg shadow-md">
+                <form class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md">
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                        <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your name">
+                        <input type="text" id="name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your name">
                     </div>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your phone number">
+                            <input type="tel" id="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Your phone number">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your email address">
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Your email address">
                         </div>
                     </div>
-                    
+
                     <div class="mb-6">
                         <label for="course" class="block text-gray-700 font-medium mb-2">Course Interest</label>
-                        <select id="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <select id="course"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select a course</option>
                             <?php foreach ($courses as $course): ?>
-                            <option value="<?php echo $course['id']; ?>"><?php echo $course['title']; ?></option>
+                                <option value="<?php echo $course['id']; ?>"><?php echo $course['title']; ?></option>
                             <?php endforeach; ?>
                             <option value="corporate">Corporate Training</option>
                             <option value="other">Other Inquiry</option>
                         </select>
                     </div>
-                    
+
                     <div class="mb-6">
                         <label for="mode" class="block text-gray-700 font-medium mb-2">Preferred Mode</label>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <label class="flex items-center">
+                            <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50">
                                 <input type="radio" name="mode" value="online" class="mr-2">
                                 <span>Online</span>
                             </label>
-                            <label class="flex items-center">
+                            <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50">
                                 <input type="radio" name="mode" value="inperson" class="mr-2">
                                 <span>In-person</span>
                             </label>
-                            <label class="flex items-center">
+                            <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50">
                                 <input type="radio" name="mode" value="hybrid" class="mr-2">
                                 <span>Hybrid</span>
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="mb-6">
                         <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                        <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your message"></textarea>
+                        <textarea id="message" rows="5"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your message"></textarea>
                     </div>
-                    
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
+
+                    <button type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send
+                        Message</button>
                 </form>
             </div>
-            
+
             <!-- Contact Information -->
             <div>
                 <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md mb-8">
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
@@ -92,17 +103,19 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
                                 <p class="text-gray-600">123 Education Street, Learning City, LC 10001</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
-                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                                <p class="text-gray-600">+91 1234567890</p>
+                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/1234567890"
+                                        class="text-green-600 hover:text-green-800">Chat with us</a></p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
                                 <i class="fas fa-envelope"></i>
@@ -112,7 +125,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
                                 <p class="text-gray-600">info@softskillsacademy.com</p>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
                                 <i class="fas fa-clock"></i>
@@ -125,12 +138,12 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
                         </div>
                     </div>
                 </div>
-                
-                <div class="bg-gray-800 text-white p-8 rounded-lg">
+
+                <div class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md">
                     <h3 class="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
                     <p class="mb-4">For urgent inquiries, call our support line:</p>
-                    <p class="text-2xl font-bold">+1 (555) 987-6543</p>
-                    <p class="mt-4 text-gray-300">Available Monday-Friday, 8:00 AM - 8:00 PM</p>
+                    <p class="text-2xl font-bold">+91 1234567890</p>
+                    <p class="mt-4 text-blue-100">Available Monday-Friday, 8:00 AM - 8:00 PM</p>
                 </div>
             </div>
         </div>
@@ -138,17 +151,39 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 </section>
 
 <!-- Map Section -->
-<section class="py-16 bg-gray-100">
+<section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Find Us</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">Visit our training center for in-person sessions and consultations.</p>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+                Visit our training center for in-person sessions and consultations.
+            </p>
         </div>
-        
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="bg-gray-200 border-2 border-dashed w-full h-96 flex items-center justify-center">
-                <span class="text-gray-500">Interactive Map Placeholder</span>
-            </div>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden h-96">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.05546980793!2d73.85674387496354!3d18.520430873856254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06d14a8e0ef%3A0xdea3b1a0b0481218!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of professionals who have advanced their careers with
+            our proven training programs.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="../pages/courses/"
+                class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Explore
+                Courses</a>
+            <a href="../pages/downloads/"
+                class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Free
+                E-book</a>
         </div>
     </div>
 </section>

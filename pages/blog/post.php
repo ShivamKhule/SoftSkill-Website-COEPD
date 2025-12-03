@@ -3,15 +3,22 @@ $pageTitle = "Blog Post - SoftSkills Academy";
 include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 $posts = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/blog.json');
 
+// Ensure $posts is always an array
+if (!is_array($posts)) {
+    $posts = [];
+}
+
 // Get the post ID from URL parameter
 $postId = isset($_GET['id']) ? $_GET['id'] : '';
 
 // Find the post with matching ID
 $currentPost = null;
-foreach ($posts as $post) {
-    if ($post['id'] == $postId) {
-        $currentPost = $post;
-        break;
+if (is_array($posts) && count($posts) > 0) {
+    foreach ($posts as $post) {
+        if ($post['id'] == $postId) {
+            $currentPost = $post;
+            break;
+        }
     }
 }
 
@@ -25,7 +32,7 @@ if (!$currentPost) {
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6"><?php echo $currentPost['title']; ?></h1>
@@ -41,10 +48,10 @@ if (!$currentPost) {
 </section>
 
 <!-- Blog Post Content -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-gray-200 border-2 border-dashed w-full h-96 rounded-lg mb-12"></div>
+            <div class="bg-gray-200 border-2 border-dashed w-full h-96 rounded-xl mb-12"></div>
             
             <div class="prose max-w-none">
                 <p class="text-xl text-gray-600 mb-8"><?php echo $currentPost['excerpt']; ?></p>
@@ -57,14 +64,16 @@ if (!$currentPost) {
             <!-- Tags -->
             <div class="mt-12 pt-8 border-t border-gray-200">
                 <div class="flex flex-wrap gap-2">
-                    <?php foreach ($currentPost['tags'] as $tag): ?>
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"><?php echo ucfirst($tag); ?></span>
-                    <?php endforeach; ?>
+                    <?php if (isset($currentPost['tags']) && is_array($currentPost['tags'])): ?>
+                        <?php foreach ($currentPost['tags'] as $tag): ?>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"><?php echo ucfirst($tag); ?></span>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             
             <!-- Author Box -->
-            <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+            <div class="mt-12 p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md">
                 <div class="flex items-center">
                     <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mr-4"></div>
                     <div>
@@ -96,12 +105,12 @@ if (!$currentPost) {
 </section>
 
 <!-- Related Posts -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-12">Related Articles</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="bg-gray-200 border-2 border-dashed w-full h-48"></div>
                 <div class="p-6">
                     <div class="text-gray-500 text-sm mb-2">April 5, 2025 • Career Development</div>
@@ -111,7 +120,7 @@ if (!$currentPost) {
                 </div>
             </div>
             
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="bg-gray-200 border-2 border-dashed w-full h-48"></div>
                 <div class="p-6">
                     <div class="text-gray-500 text-sm mb-2">March 22, 2025 • Communication Skills</div>
@@ -121,7 +130,7 @@ if (!$currentPost) {
                 </div>
             </div>
             
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="bg-gray-200 border-2 border-dashed w-full h-48"></div>
                 <div class="p-6">
                     <div class="text-gray-500 text-sm mb-2">February 10, 2025 • Leadership</div>

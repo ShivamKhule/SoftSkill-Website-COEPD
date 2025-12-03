@@ -8,7 +8,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 <?php ob_start(); ?>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+<section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20">
     <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Batches & Schedule</h1>
         <p class="text-xl max-w-3xl mx-auto">Find the perfect batch timing that fits your schedule.</p>
@@ -16,7 +16,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 </section>
 
 <!-- Upcoming Batches -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Upcoming Batches</h2>
@@ -24,8 +24,8 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
         </div>
         
         <div class="overflow-x-auto">
-            <table class="min-w-full bg-white rounded-lg overflow-hidden">
-                <thead class="bg-gray-100">
+            <table class="min-w-full bg-white rounded-xl overflow-hidden shadow-md">
+                <thead class="bg-gradient-to-r from-blue-500 to-teal-400 text-white">
                     <tr>
                         <th class="py-3 px-4 text-left">Course</th>
                         <th class="py-3 px-4 text-left">Start Date</th>
@@ -75,7 +75,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 </section>
 
 <!-- Special Programs -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Special Programs</h2>
@@ -83,7 +83,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-calendar-week"></i>
                 </div>
@@ -106,7 +106,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
                 <a href="contact.php" class="text-blue-600 hover:text-blue-800 font-medium">Learn More →</a>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-building"></i>
                 </div>
@@ -129,7 +129,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
                 <a href="corporate.php" class="text-blue-600 hover:text-blue-800 font-medium">Learn More →</a>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md">
                 <div class="text-blue-600 text-3xl mb-4">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
@@ -156,7 +156,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 </section>
 
 <!-- How to Enroll -->
-<section class="py-16">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">How to Enroll</h2>
@@ -200,7 +200,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+<section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join a Batch?</h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto">Secure your spot in our upcoming training sessions.</p>
