@@ -66,41 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// FAQ Accordion
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('[data-faq-item]');
-    
-    faqItems.forEach(item => {
-        const button = item.querySelector('[data-faq-button]');
-        const content = item.querySelector('[data-faq-content]');
-        const icon = button.querySelector('i');
-        
-        button.addEventListener('click', () => {
-            const isOpen = !content.classList.contains('hidden');
-            
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.querySelector('[data-faq-content]').classList.add('hidden');
-                    const otherIcon = otherItem.querySelector('[data-faq-button] i');
-                    otherIcon.classList.remove('fa-chevron-up');
-                    otherIcon.classList.add('fa-chevron-down');
-                }
-            });
-            
-            // Toggle current item
-            content.classList.toggle('hidden');
-            if (isOpen) {
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
-            } else {
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
-            }
-        });
-    });
-});
-
 // Enhanced hover effects for cards
 document.addEventListener('DOMContentLoaded', function() {
     // Add hover effects to testimonial cards

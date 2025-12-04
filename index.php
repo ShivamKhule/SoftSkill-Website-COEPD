@@ -290,9 +290,9 @@ $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/servic
 </section>
 
 <!-- Lead Capture Form -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <div class="bg-gradient-to-br from-blue-50 to-teal-50 rounded-xl p-8 shadow-lg">
+<section class="bg-white">
+    <div class="mx-auto max-w-screen">
+        <div class="bg-gradient-to-br from-blue-50 to-teal-50 py-16 shadow-lg">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold mb-4">Get Our Free E-book</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Download "7-Day Communication Mastery Guide" - Transform your

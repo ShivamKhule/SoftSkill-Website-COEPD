@@ -103,6 +103,20 @@
         }
 
         /* Responsive improvements */
+        @media (max-width: 1024px) {
+            .counter {
+                font-size: 2.25rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .counter {
                 font-size: 2rem;

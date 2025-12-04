@@ -26,7 +26,7 @@ $resources = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/resou
         </div>
 
         <!-- Proper Responsive Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
             <?php foreach ($resources as $resource): ?>
                 <div
@@ -72,7 +72,7 @@ $resources = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/resou
 <!-- Featured Resource -->
 <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="flex flex-col sm:flex-row items-center gap-12">
 
             <div class="lg:w-1/2">
                 <div class="w-full h-96 bg-gray-200 border-2 border-dashed overflow-hidden rounded-xl">
@@ -123,9 +123,9 @@ $resources = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/resou
 
 
 <!-- Email Signup -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4 max-w-3xl">
-        <div class="bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl p-8 text-white text-center shadow-lg">
+<section class="bg-white">
+    <div class="mx-auto max-w-screeen">
+        <div class="bg-gradient-to-br from-blue-500 to-teal-500 p-16 text-white text-center shadow-lg">
             <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
             <p class="text-xl mb-6">Subscribe to our newsletter for exclusive resources, tips, and special offers.</p>
             <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">

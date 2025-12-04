@@ -1,13 +1,13 @@
 <footer class="bg-gray-900 text-white">
     <div class="container mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
             <div class="lg:col-span-2">
                 <h3 class="text-2xl font-bold mb-4 text-blue-400">SoftSkills Academy</h3>
                 <p class="text-gray-400 mb-6 leading-relaxed">
                     Empowering individuals and organizations with essential soft skills for professional success. Transform your career with our expert-led training programs.
                 </p>
                 <div class="flex space-x-4 mb-6">
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                    <a href="#" class="text-gray-400 hover:text-blue-800 transition duration-300">
                         <i class="fab fa-facebook-f text-xl"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
@@ -16,7 +16,7 @@
                     <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
                         <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                    <a href="#" class="text-gray-400 hover:text-red-400 transition duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
                     <a href="https://wa.me/1234567890" class="text-gray-400 hover:text-green-500 transition duration-300">

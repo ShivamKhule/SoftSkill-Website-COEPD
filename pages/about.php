@@ -65,7 +65,7 @@ $trainers = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/traine
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-md text-center">
+            <div class="bg-blue-50 hover:bg-blue-200 p-8 rounded-xl shadow-md text-center">
                 <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-users text-blue-600 text-3xl"></i>
                 </div>
@@ -74,7 +74,7 @@ $trainers = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/traine
                     in a supportive environment.</p>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-md text-center">
+            <div class="bg-teal-50 hover:bg-teal-200 p-8 rounded-xl shadow-md text-center">
                 <div class="bg-teal-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-chart-line text-teal-600 text-3xl"></i>
                 </div>
@@ -83,7 +83,7 @@ $trainers = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/traine
                     translates to real-world improvement.</p>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-md text-center">
+            <div class="bg-indigo-50 hover:bg-indigo-200 p-8 rounded-xl shadow-md text-center">
                 <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-sync-alt text-indigo-600 text-3xl"></i>
                 </div>

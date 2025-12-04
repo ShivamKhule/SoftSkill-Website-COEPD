@@ -61,8 +61,10 @@ $trainer = getTrainerById('alex-morgan');
             <!-- Sidebar -->
             <div>
                 <!-- Profile Card -->
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-6 mb-8 sticky top-6">
-                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 mb-6"></div>
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md p-6 mb-8">
+                    <div class="w-full h-64 mb-6 rounded-xl overflow-hidden">
+                        <img src="<?php echo $trainer['image']; ?>" alt="<?php echo $trainer['name']; ?>" class="w-full h-full object-cover" />
+                    </div>
                     <h3 class="text-xl font-bold mb-2"><?php echo $trainer['name']; ?></h3>
                     <p class="text-blue-600 mb-4"><?php echo $trainer['title']; ?></p>
                     
