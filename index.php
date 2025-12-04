@@ -5,6 +5,10 @@ $testimonials = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/te
 $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses.json');
 $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/services.json');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/db.php';
+$db = new Database();
+
+$db->connectServer();
+$db->createDatabase();
 ?>
 
 <?php ob_start(); ?>

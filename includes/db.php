@@ -2,128 +2,149 @@
 
 class Database
 {
-
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
     private $dbname = "softskill";
 
-    public $conn;
+    public $conn; // main PDO connection
 
     // -------------------------------------------
-    // CONNECT TO MYSQL SERVER
+    // 1. CONNECT TO MYSQL SERVER ONLY
     // -------------------------------------------
     public function connectServer()
     {
-        $this->conn = new mysqli($this->servername, $this->username, $this->password);
+        try {
+            $this->conn = new PDO("mysql:host={$this->servername}", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if ($this->conn->connect_error) {
-            die("❌ Server Connection Failed: " . $this->conn->connect_error);
+            echo "✔ Connected to MySQL server successfully<br>";
+        } catch (PDOException $e) {
+            die("❌ Server connection failed: " . $e->getMessage());
         }
+    }
 
-        echo "✔ Server Connected Successfully<br>";
+    public function connectServerWithDB()
+    {
+        try {
+            $this->conn = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            echo "✔ Connected to MySQL server Database '{$this->dbname}' successfully<br>";
+        } catch (PDOException $e) {
+            die("❌ Server connection failed: " . $e->getMessage());
+        }
     }
 
     // -------------------------------------------
-    // CREATE DATABASE IF NOT EXISTS
+    // 2. CREATE DATABASE IF NOT EXISTS
     // -------------------------------------------
     public function createDatabase()
     {
-        $check = $this->conn->query("SHOW DATABASES LIKE '$this->dbname'");
+        try {
+            // Check if database exists
+            $stmt = $this->conn->query("SHOW DATABASES LIKE '{$this->dbname}'");
 
-        if ($check->num_rows > 0) {
-            echo "✔ Database already exists<br>";
-        } else {
-            $sql = "CREATE DATABASE $this->dbname";
-            if ($this->conn->query($sql) === TRUE) {
-                echo "✔ Database created successfully<br>";
+            if ($stmt->rowCount() > 0) {
+                echo "✔ Database '{$this->dbname}' already exists<br>";
             } else {
-                echo "❌ Error creating database: " . $this->conn->error . "<br>";
+                $this->conn->exec("CREATE DATABASE {$this->dbname}");
+                echo "✔ Database '{$this->dbname}' created successfully<br>";
             }
-        }
 
-        // Select database
-        $this->conn->select_db($this->dbname);
+            // Now connect to the newly created database
+            $this->conn = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            die("❌ Error creating database: " . $e->getMessage());
+        }
     }
 
     // -------------------------------------------
-    // CREATE TABLE IF NOT EXISTS
+    // 3. CREATE USERS TABLE IF NOT EXISTS
     // -------------------------------------------
     public function createUsersTable()
     {
-        $sql = "CREATE TABLE IF NOT EXISTS users (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    name VARCHAR(100) NOT NULL,
-                    email VARCHAR(100) NOT NULL UNIQUE,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )";
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS users (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        firstname VARCHAR(30) NOT NULL,
+                        lastname VARCHAR(30) NOT NULL,
+                        email VARCHAR(100) NOT NULL UNIQUE,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )";
 
-        if ($this->conn->query($sql) === TRUE) {
+            $this->conn->exec($sql);
+
             echo "✔ Table 'users' created or already exists<br>";
-        } else {
-            echo "❌ Error creating table: " . $this->conn->error . "<br>";
+
+        } catch (PDOException $e) {
+            echo "❌ Error creating users table: " . $e->getMessage() . "<br>";
         }
     }
 
+    // -------------------------------------------
+    // 4. CREATE CONTACT US TABLE IF NOT EXISTS
+    // -------------------------------------------
     public function createContactUsTable()
     {
-        $sql = "CREATE TABLE IF NOT EXISTS contactus (
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS contact_us (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    name VARCHAR(100) NOT NULL,
-                    email VARCHAR(100) NOT NULL UNIQUE,
+                    name VARCHAR(150) NOT NULL,
+                    phone VARCHAR(20) NULL,
+                    email VARCHAR(150) NULL,
+                    course VARCHAR(100) NULL,
+                    mode ENUM('online', 'inperson', 'hybrid') NULL,
+                    message TEXT NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )";
 
-        if ($this->conn->query($sql) === TRUE) {
-            echo "✔ Table 'contactus' created or already exists<br>";
-        } else {
-            echo "❌ Error creating table: " . $this->conn->error . "<br>";
+            $this->conn->exec($sql);
+
+            echo "✔ Table 'contact_us' created or already exists<br>";
+
+        } catch (PDOException $e) {
+            echo "❌ Error creating contact_us table: " . $e->getMessage() . "<br>";
+        }
+    }
+
+    // -------------------------------------------
+    // 5. INSERT DATA INTO CONTACT US TABLE
+    // -------------------------------------------
+    public function insertContactMessage($name, $phone, $email, $course, $mode, $message)
+    {
+        try {
+            $sql = "INSERT INTO contact_us (name, phone, email, course, mode, message)
+                VALUES (:name, :phone, :email, :course, :mode, :message)";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // Bind values (prepared statement)
+            $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+            $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->bindValue(':course', $course, PDO::PARAM_STR);
+            $stmt->bindValue(':mode', $mode, PDO::PARAM_STR);
+            $stmt->bindValue(':message', $message, PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+                return "✔ Contact form submitted successfully";
+            } else {
+                return "❌ Failed to submit contact form";
+            }
+
+        } catch (PDOException $e) {
+            return "❌ Error inserting contact form: " . $e->getMessage();
         }
     }
 }
 
+// $db = new Database();
 
-$db = new Database();
-
-$db->connectServer();
-$db->createDatabase();
-$db->createUsersTable();
-
+// $db->connectServer();
+// $db->createDatabase();
+// $db->createUsersTable();
+// $db->createContactUsTable();
 ?>
-
-
-
-
-<!-- <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "softskill";
-
-// Connect to MySQL server (no DB selected yet)
-$conn = new mysqli($servername, $username, $password);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully<br>";
-
-// Check if database exists
-$check = $conn->query("SHOW DATABASES LIKE '$dbname'");
-
-if ($check && $check->num_rows > 0) {
-    echo "Database already exists<br>";
-} else {
-
-    // Try to create database
-    $create = $conn->query("CREATE DATABASE $dbname");
-
-    if ($create === TRUE) {
-        echo "Database created successfully<br>";
-    } else {
-        echo "Error creating database: " . $conn->error . "<br>";
-    }
-}
-
-$conn->close();
-?> -->

@@ -2,8 +2,14 @@
 $pageTitle = "Contact Us - SoftSkills Academy";
 include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses.json');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/db.php';
+
+$db = new Database();
+$db->connectServerWithDB();
+$db->createContactUsTable();
 
 $name = $phone = $email = $course = $mode = $message = '';
+$show_success_alert = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = test_input($_POST["name"]);
@@ -12,6 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $course = test_input($_POST["course"]);
     $mode = test_input($_POST["mode"]);
     $message = test_input($_POST["message"]);
+
+    $result = $db->insertContactMessage($name, $phone, $email, $course, $mode, $message);
+    
+    if (strpos($result, '✔') !== false) {
+        $show_success_alert = true;
+        // Clear form fields after successful submission
+        $name = $phone = $email = $course = $mode = $message = '';
+    }
 }
 
 function test_input($data)
@@ -21,19 +35,6 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $phone;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $course;
-echo "<br>";
-echo $mode;
-echo "<br>";
-echo $message;
 ?>
 
 <?php ob_start(); ?>
@@ -53,26 +54,27 @@ echo $message;
             <!-- Contact Form -->
             <div>
                 <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
-                <form method="post" action="" class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md">
+                
+                <form method="post" action="" class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md" id="contactForm">
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                        <input type="text" id="name" name="name"
+                        <input type="text" id="name" name="name" value="<?php echo $name; ?>"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Your name">
+                            placeholder="Your name" required>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone"
+                            <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Your phone number">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                            <input type="email" id="email" name="email"
+                            <input type="email" id="email" name="email" value="<?php echo $email; ?>"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Your email address">
+                                placeholder="Your email address" required>
                         </div>
                     </div>
 
@@ -81,11 +83,11 @@ echo $message;
                         <select id="course" name="course"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select a course</option>
-                            <?php foreach ($courses as $course): ?>
-                                <option value="<?php echo $course['id']; ?>"><?php echo $course['title']; ?></option>
+                            <?php foreach ($courses as $course_item): ?>
+                                <option value="<?php echo $course_item['id']; ?>" <?php echo ($course == $course_item['id']) ? 'selected' : ''; ?>><?php echo $course_item['title']; ?></option>
                             <?php endforeach; ?>
-                            <option value="corporate">Corporate Training</option>
-                            <option value="other">Other Inquiry</option>
+                            <option value="corporate" <?php echo ($course == 'corporate') ? 'selected' : ''; ?>>Corporate Training</option>
+                            <option value="other" <?php echo ($course == 'other') ? 'selected' : ''; ?>>Other Inquiry</option>
                         </select>
                     </div>
 
@@ -93,15 +95,15 @@ echo $message;
                         <label for="mode" class="block text-gray-700 font-medium mb-2">Preferred Mode</label>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50">
-                                <input type="radio" name="mode" value="online" class="mr-2">
+                                <input type="radio" name="mode" value="online" class="mr-2" <?php echo ($mode == 'online') ? 'checked' : ''; ?>>
                                 <span>Online</span>
                             </label>
                             <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50">
-                                <input type="radio" name="mode" value="inperson" class="mr-2">
+                                <input type="radio" name="mode" value="inperson" class="mr-2" <?php echo ($mode == 'inperson') ? 'checked' : ''; ?>>
                                 <span>In-person</span>
                             </label>
                             <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50">
-                                <input type="radio" name="mode" value="hybrid" class="mr-2">
+                                <input type="radio" name="mode" value="hybrid" class="mr-2" <?php echo ($mode == 'hybrid') ? 'checked' : ''; ?>>
                                 <span>Hybrid</span>
                             </label>
                         </div>
@@ -111,7 +113,7 @@ echo $message;
                         <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
                         <textarea id="message" rows="5" name="message"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Your message"></textarea>
+                            placeholder="Your message"><?php echo $message; ?></textarea>
                     </div>
 
                     <button type="submit"
@@ -224,3 +226,29 @@ echo $message;
 $content = ob_get_clean();
 include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/components/layout.php';
 ?>
+
+<!-- Include SweetAlert2 library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+// Show alert if form was successfully submitted
+<?php if ($show_success_alert): ?>
+    window.onload = function() {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Thank you! Your message has been sent successfully.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(function() {
+            // Redirect to prevent alert from showing on refresh
+            window.location.href = window.location.pathname;
+        });
+    };
+<?php endif; ?>
+
+// Prevent form resubmission on page refresh
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+</script>
