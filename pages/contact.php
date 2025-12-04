@@ -10,6 +10,7 @@ $db->createContactUsTable();
 
 $name = $phone = $email = $course = $mode = $message = '';
 $show_success_alert = false;
+$success_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = test_input($_POST["name"]);
@@ -23,9 +24,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (strpos($result, '✔') !== false) {
         $show_success_alert = true;
+        $success_message = 'Thank you! Your message has been sent successfully.';
         // Clear form fields after successful submission
         $name = $phone = $email = $course = $mode = $message = '';
+        
+        // Use GET parameter to indicate success
+        header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
+        exit();
     }
+}
+
+// Check for success parameter
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $show_success_alert = true;
+    $success_message = 'Thank you! Your message has been sent successfully.';
 }
 
 function test_input($data)
@@ -227,28 +239,41 @@ $content = ob_get_clean();
 include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/components/layout.php';
 ?>
 
-<!-- Include SweetAlert2 library -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Include Notyf CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
 <script>
 // Show alert if form was successfully submitted
 <?php if ($show_success_alert): ?>
-    window.onload = function() {
-        Swal.fire({
-            title: 'Success!',
-            text: 'Thank you! Your message has been sent successfully.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then(function() {
-            // Redirect to prevent alert from showing on refresh
-            window.location.href = window.location.pathname;
+    // Initialize Notyf
+    window.addEventListener('load', function() {
+        const notyf = new Notyf({
+            duration: 3000,
+            position: {
+                x: 'right',
+                y: 'top'
+            }
         });
-    };
+
+        // Show success notification
+        notyf.success('<?php echo $success_message; ?>');
+        
+        // Remove success parameter from URL without refresh
+        if (window.history.replaceState) {
+            const url = new URL(window.location);
+            url.searchParams.delete('success');
+            window.history.replaceState({}, document.title, url.toString());
+        }
+    });
 <?php endif; ?>
 
-// Prevent form resubmission on page refresh
-if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-}
+// Include Notyf JS
+document.addEventListener('DOMContentLoaded', function() {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js';
+    script.onload = function() {
+        console.log('Notyf library loaded');
+    };
+    document.head.appendChild(script);
+});
 </script>
