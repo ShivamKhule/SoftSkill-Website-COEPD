@@ -2,6 +2,38 @@
 $pageTitle = "Contact Us - SoftSkills Academy";
 include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses.json');
+
+$name = $phone = $email = $course = $mode = $message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = test_input($_POST["name"]);
+    $phone = test_input($_POST["phone"]);
+    $email = test_input($_POST["email"]);
+    $course = test_input($_POST["course"]);
+    $mode = test_input($_POST["mode"]);
+    $message = test_input($_POST["message"]);
+}
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $phone;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $course;
+echo "<br>";
+echo $mode;
+echo "<br>";
+echo $message;
 ?>
 
 <?php ob_start(); ?>
@@ -21,10 +53,10 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
             <!-- Contact Form -->
             <div>
                 <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
-                <form class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md">
+                <form method="post" action="" class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md">
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                        <input type="text" id="name"
+                        <input type="text" id="name" name="name"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Your name">
                     </div>
@@ -32,13 +64,13 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                            <input type="tel" id="phone"
+                            <input type="tel" id="phone" name="phone"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Your phone number">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                            <input type="email" id="email"
+                            <input type="email" id="email" name="email"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Your email address">
                         </div>
@@ -46,7 +78,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 
                     <div class="mb-6">
                         <label for="course" class="block text-gray-700 font-medium mb-2">Course Interest</label>
-                        <select id="course"
+                        <select id="course" name="course"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select a course</option>
                             <?php foreach ($courses as $course): ?>
@@ -77,7 +109,7 @@ $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses
 
                     <div class="mb-6">
                         <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                        <textarea id="message" rows="5"
+                        <textarea id="message" rows="5" name="message"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Your message"></textarea>
                     </div>

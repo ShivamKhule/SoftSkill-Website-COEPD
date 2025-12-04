@@ -4,6 +4,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/functions.php';
 $testimonials = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/testimonials.json');
 $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/courses.json');
 $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/softskill_website/data/services.json');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/softskill_website/includes/db.php';
 ?>
 
 <?php ob_start(); ?>
