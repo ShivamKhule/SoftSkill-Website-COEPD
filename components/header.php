@@ -27,7 +27,7 @@
 
                     <li>
                         <!-- <a href="/learn/pages/about.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="#" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./pages/about.php"  id="desktop-about-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -206,7 +206,7 @@
                 <a href="/" id="mobile-home-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <!-- <a href="/learn/pages/about.php" -->
-                <a href="#"
+                <a href="/pages/about.php" id="mobile-about-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">About
                     Us</a>
 
@@ -299,6 +299,7 @@
             // Get all navigation links
             const homeLinks = document.querySelectorAll('#home-link, #desktop-home-link, #mobile-home-link');
             const contactLinks = document.querySelectorAll('#desktop-contact-link, #mobile-contact-link');
+            const aboutLinks = document.querySelectorAll('#desktop-about-link, #mobile-about-link');
             
             // Detect if we're on localhost with /learn subdirectory or on production
             const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
@@ -311,6 +312,10 @@
             
             contactLinks.forEach(link => {
                 link.href = basePath + '/pages/contact.php';
+            });
+            
+            aboutLinks.forEach(link => {
+                link.href = basePath + '/pages/about.php';
             });
             
             // Handle navigation link clicks to close menu before navigating

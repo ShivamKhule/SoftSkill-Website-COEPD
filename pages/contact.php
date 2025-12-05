@@ -228,10 +228,12 @@ function test_input($data)
         <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of professionals who have advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="../pages/courses/"
+            <!-- <a href="../pages/courses/" -->
+            <a href="#"
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Explore
                 Courses</a>
-            <a href="../pages/downloads/"
+            <!-- <a href="../pages/downloads/" -->
+            <a href="#"
                 class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Free
                 E-book</a>
         </div>
