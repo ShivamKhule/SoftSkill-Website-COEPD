@@ -317,10 +317,10 @@ $db->createDatabase();
             <p class="text-gray-600 max-w-2xl mx-auto">Download "7-Day Communication Mastery Guide" - Transform your
                 communication skills in just one week!</p>
         </div>
-        <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-            <input type="text" placeholder="Your Name"
+        <form id="downloadForm" action="process_download.php" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+            <input type="text" id="userName" name="name" placeholder="Your Name"
                 class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <input type="email" placeholder="Your Email"
+            <input type="email" id="userEmail" name="email" placeholder="Your Email"
                 class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <button type="submit"
                 class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Download
@@ -353,6 +353,35 @@ $db->createDatabase();
 
             updateCount();
         });
+        
+        // Form validation
+        const downloadForm = document.getElementById('downloadForm');
+        if (downloadForm) {
+            downloadForm.addEventListener('submit', function(e) {
+                const name = document.getElementById('userName').value.trim();
+                const email = document.getElementById('userEmail').value.trim();
+                
+                if (!name) {
+                    alert('Please enter your name');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (!email) {
+                    alert('Please enter your email');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Simple email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        }
     });
 </script>
 
