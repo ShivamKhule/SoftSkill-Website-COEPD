@@ -1,7 +1,7 @@
 <header class="bg-white shadow-md sticky top-0 z-[1001]">
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-            <a href="/learn/index.php">
+            <a href="./index.php" id="home-link">
                 <div class="flex items-center">
                     <h1 class="text-2xl font-bold text-blue-600">SoftSkills Academy</h1>
                 </div>
@@ -13,14 +13,14 @@
 
                     <!-- Hover underline + smooth color -->
                     <li>
-                        <a href="/learn/index.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./index.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
           after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0
           after:bg-blue-600 after:rounded-full
           after:transition-all after:duration-300
-          hover:after:w-full">
+          hover:after:w-full" id="desktop-home-link">
                             Home
                         </a>
                     </li>
@@ -159,14 +159,14 @@
 
                     <li>
                         <!-- <a href="/learn/pages/contact.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="/learn/pages/contact.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./pages/contact.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
           after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0
           after:bg-blue-600 after:rounded-full
           after:transition-all after:duration-300
-          hover:after:w-full">
+          hover:after:w-full" id="desktop-contact-link">
                             Contact
                         </a>
                     </li>
@@ -203,7 +203,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="lg:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mt-2">
-                <a href="/learn/index.php"
+                <a href="./index.php" id="mobile-home-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <!-- <a href="/learn/pages/about.php" -->
                 <a href="#"
@@ -265,7 +265,7 @@
                 <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Success
                     Stories</a>
-                <a href="/learn/pages/contact.php"
+                <a href="./pages/contact.php" id="mobile-contact-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
                 <!-- <a href="/learn/pages/downloads/" -->
                 <a href="#"
@@ -280,6 +280,32 @@
     <script>
         // Mobile menu toggle - inline script to avoid conflicts
         document.addEventListener('DOMContentLoaded', function () {
+            // Adjust navigation links based on current location to prevent double navigation issues
+            const currentPage = window.location.pathname;
+            
+            // Get all navigation links
+            const homeLinks = document.querySelectorAll('#home-link, #desktop-home-link, #mobile-home-link');
+            const contactLinks = document.querySelectorAll('#desktop-contact-link, #mobile-contact-link');
+            
+            // Adjust home links
+            homeLinks.forEach(link => {
+                if (currentPage.startsWith('/learn/pages/')) {
+                    link.href = '../index.php';
+                } else {
+                    link.href = './index.php';
+                }
+            });
+            
+            // Adjust contact links
+            contactLinks.forEach(link => {
+                if (currentPage.startsWith('/learn/pages/')) {
+                    link.href = 'contact.php';
+                } else {
+                    link.href = './pages/contact.php';
+                }
+            });
+            
+            // Rest of the existing JavaScript code
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const servicesToggle = document.getElementById('services-toggle');
@@ -290,6 +316,7 @@
             if (mobileMenuButton && mobileMenu) {
                 // Handle both click and touch events for better mobile support
                 const toggleMobileMenu = function (e) {
+                    e.preventDefault(); // Prevent default touch behavior
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
                 };
