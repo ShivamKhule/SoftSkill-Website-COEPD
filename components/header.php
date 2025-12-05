@@ -287,22 +287,17 @@
             const homeLinks = document.querySelectorAll('#home-link, #desktop-home-link, #mobile-home-link');
             const contactLinks = document.querySelectorAll('#desktop-contact-link, #mobile-contact-link');
             
-            // Adjust home links
+            // Detect if we're on localhost with /learn subdirectory or on production
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const basePath = isLocalhost ? '/learn' : '';
+            
+            // Set paths based on environment
             homeLinks.forEach(link => {
-                if (currentPage.startsWith('/learn/pages/')) {
-                    link.href = '../index.php';
-                } else {
-                    link.href = './index.php';
-                }
+                link.href = basePath + '/index.php';
             });
             
-            // Adjust contact links
             contactLinks.forEach(link => {
-                if (currentPage.startsWith('/learn/pages/')) {
-                    link.href = 'contact.php';
-                } else {
-                    link.href = './pages/contact.php';
-                }
+                link.href = basePath + '/pages/contact.php';
             });
             
             // Rest of the existing JavaScript code
