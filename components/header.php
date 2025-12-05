@@ -298,7 +298,9 @@
             }
 
             // Function to toggle services submenu
-            function toggleServicesMenu() {
+            function toggleServicesMenu(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 servicesSubmenu.classList.toggle('hidden');
                 // Rotate the chevron icon
                 const icon = servicesToggle.querySelector('i');
@@ -308,7 +310,9 @@
             }
 
             // Function to toggle FAQ submenu
-            function toggleFaqMenu() {
+            function toggleFaqMenu(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 faqSubmenu.classList.toggle('hidden');
                 // Rotate the chevron icon
                 const icon = faqToggle.querySelector('i');
@@ -350,32 +354,14 @@
 
             // Toggle services submenu
             if (servicesToggle && servicesSubmenu) {
-                servicesToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleServicesMenu();
-                });
-                
-                servicesToggle.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleServicesMenu();
-                });
+                servicesToggle.addEventListener('click', toggleServicesMenu);
+                servicesToggle.addEventListener('touchend', toggleServicesMenu);
             }
 
             // Toggle FAQ submenu
             if (faqToggle && faqSubmenu) {
-                faqToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleFaqMenu();
-                });
-                
-                faqToggle.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleFaqMenu();
-                });
+                faqToggle.addEventListener('click', toggleFaqMenu);
+                faqToggle.addEventListener('touchend', toggleFaqMenu);
             }
         });
     </script>
