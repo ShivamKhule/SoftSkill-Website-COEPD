@@ -1,19 +1,12 @@
 <?php
+
+// Include configuration file
+require_once __DIR__ . '/../config.php';
+
 function loadData($filename) {
-    // Handle absolute paths
-    if (strpos($filename, $_SERVER['DOCUMENT_ROOT']) === 0) {
-        $filepath = $filename;
-    } else {
-        // Convert relative paths to absolute paths
-        $baseDir = $_SERVER['DOCUMENT_ROOT'] . '/learn';
-        if (strpos($filename, '../') === 0) {
-            // Remove ../ prefix and construct absolute path
-            $filename = substr($filename, 3);
-            $filepath = $baseDir . '/data/' . $filename;
-        } else {
-            $filepath = $baseDir . '/data/' . $filename;
-        }
-    }
+    // Always try to load from the data directory relative to this file
+    $basename = basename($filename);
+    $filepath = __DIR__ . '/../data/' . $basename;
     
     // Debugging - show what file we're trying to load
     // error_log("Trying to load file: " . $filepath);
@@ -35,7 +28,7 @@ function loadData($filename) {
 }
 
 function getCourseById($id) {
-    $courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/courses.json');
+    $courses = loadData(__DIR__ . '/../data/courses.json');
     foreach ($courses as $course) {
         if ($course['id'] == $id) {
             return $course;
@@ -45,7 +38,7 @@ function getCourseById($id) {
 }
 
 function getServiceById($id) {
-    $services = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/services.json');
+    $services = loadData(__DIR__ . '/../data/services.json');
     foreach ($services as $service) {
         if ($service['id'] == $id) {
             return $service;

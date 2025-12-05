@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($pageTitle) ? $pageTitle : 'Soft Skills Training'; ?></title>
+    <title><?php echo isset($pageTitle) ? $pageTitle : 'SoftSkills Academy'; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -161,7 +161,7 @@
 </head>
 
 <body class="bg-gray-50">
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/learn/components/header.php'; ?>
+    <?php include __DIR__ . '/header.php'; ?>
 
     <main>
         <?php
@@ -177,16 +177,16 @@
         <?php } ?>
     </main>
 
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/learn/components/footer.php'; ?>
+    <?php include __DIR__ . '/footer.php'; ?>
 
     <!-- WhatsApp Widget -->
     <div class="whatsapp-widget">
-        <a href="https://wa.me/1234567890" target="_blank" title="Chat with us on WhatsApp">
+        <a href="https://wa.me/9876543210" target="_blank" title="Chat with us on WhatsApp">
             <i class="fab fa-whatsapp text-3xl"></i>
         </a>
     </div>
 
-    <script src="/learn/js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

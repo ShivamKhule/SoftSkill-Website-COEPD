@@ -1,17 +1,15 @@
 <?php
 
+// Include configuration file
+require_once __DIR__ . '/../config.php';
+
 class Database
 {
-    // Database credentials for local testing
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "softskill";
-
-    // For Hostinger database
-    // private $username = "your_hostinger_db_username";
-    // private $password = "your_hostinger_db_password";
-    // private $dbname = "your_hostinger_db_name";
+    // Database credentials from config
+    private $servername = DB_HOST;
+    private $username = DB_USER;
+    private $password = DB_PASS;
+    private $dbname = DB_NAME;
 
     public $conn; // main PDO connection
 

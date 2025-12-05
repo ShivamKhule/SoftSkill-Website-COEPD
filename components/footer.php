@@ -19,7 +19,7 @@
                     <a href="#" class="text-gray-400 hover:text-red-400 transition duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="https://wa.me/1234567890" class="text-gray-400 hover:text-green-500 transition duration-300">
+                    <a href="https://wa.me/9876543210" class="text-gray-400 hover:text-green-500 transition duration-300">
                         <i class="fab fa-whatsapp text-xl"></i>
                     </a>
                 </div>
@@ -37,7 +37,7 @@
                     <li><a href="/softskill_website/pages/services.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
                     <li><a href="/softskill_website/pages/contact.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
                     <li><a href="/softskill_website/pages/faq.php" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li> -->
-                    <li><a href="/softskill_website/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
+                    <li><a href="/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
@@ -70,11 +70,11 @@
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-phone mr-3"></i>
-                        <span>+91 1234567890</span>
+                        <span>+91 9876543210</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-envelope mr-3"></i>
-                        <span>info@softskillsacademy.com</span>
+                        <span>info@softskillmentor.com</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-clock mr-3"></i>

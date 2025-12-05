@@ -1,8 +1,12 @@
 <?php
 $pageTitle = "Contact Us - SoftSkills Academy";
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/includes/functions.php';
-$courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/courses.json');
-require_once $_SERVER['DOCUMENT_ROOT'] . '/learn/includes/db.php';
+
+// Include configuration file
+require_once __DIR__ . '/../config.php';
+
+include __DIR__ . '/../includes/functions.php';
+$courses = loadData(__DIR__ . '/../data/courses.json');
+require_once __DIR__ . '/../includes/db.php';
 
 $db = new Database();
 $db->connectServerWithDB();
@@ -157,7 +161,7 @@ function test_input($data)
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
                                 <p class="text-gray-600">+91 1234567890</p>
-                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/1234567890"
+                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/9876543210"
                                         class="text-green-600 hover:text-green-800">Chat with us</a></p>
                             </div>
                         </div>
@@ -168,7 +172,7 @@ function test_input($data)
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Email Address</h3>
-                                <p class="text-gray-600">info@softskillsacademy.com</p>
+                                <p class="text-gray-600">info@softskillmentor.com</p>
                             </div>
                         </div>
 
@@ -188,7 +192,7 @@ function test_input($data)
                 <div class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md">
                     <h3 class="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
                     <p class="mb-4">For urgent inquiries, call our support line:</p>
-                    <p class="text-2xl font-bold">+91 1234567890</p>
+                    <p class="text-2xl font-bold">+91 9876543210</p>
                     <p class="mt-4 text-blue-100">Available Monday-Friday, 8:00 AM - 8:00 PM</p>
                 </div>
             </div>
@@ -236,7 +240,7 @@ function test_input($data)
 
 <?php
 $content = ob_get_clean();
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/components/layout.php';
+include __DIR__ . '/../components/layout.php';
 ?>
 
 <!-- Include Notyf CSS -->

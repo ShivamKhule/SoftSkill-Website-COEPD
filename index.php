@@ -1,10 +1,14 @@
 <?php
 $pageTitle = "Home - SoftSkills Academy";
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/includes/functions.php';
-$testimonials = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/testimonials.json');
-$courses = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/courses.json');
-$services = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/services.json');
-require_once $_SERVER['DOCUMENT_ROOT'] . '/learn/includes/db.php';
+
+// Include configuration file
+require_once __DIR__ . '/config.php';
+
+include __DIR__ . '/includes/functions.php';
+$testimonials = loadData(__DIR__ . '/data/testimonials.json');
+$courses = loadData(__DIR__ . '/data/courses.json');
+$services = loadData(__DIR__ . '/data/services.json');
+require_once __DIR__ . '/includes/db.php';
 $db = new Database();
 
 $db->connectServer();
@@ -354,5 +358,5 @@ $db->createDatabase();
 
 <?php
 $content = ob_get_clean();
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/components/layout.php';
+include __DIR__ . '/components/layout.php';
 ?>

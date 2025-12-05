@@ -1,9 +1,9 @@
 <header class="bg-white shadow-md sticky top-0 z-[1001]">
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-            <a href="/learn/index.php">
+            <a href="/index.php">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-blue-600">Academy</h1>
+                    <h1 class="text-2xl font-bold text-blue-600">SoftSkills Academy</h1>
                 </div>
                 <!-- <img src="/learn/assets/images/logo.png" alt="Academy Logo" class="w-10 h-10 ml-2"> -->
             </a>
@@ -13,7 +13,7 @@
 
                     <!-- Hover underline + smooth color -->
                     <li>
-                        <a href="/learn/index.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="/index.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -203,7 +203,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="lg:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mt-2">
-                <a href="/learn/index.php"
+                <a href="/index.php"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <!-- <a href="/learn/pages/about.php" -->
                 <a href="#"
