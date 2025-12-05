@@ -27,7 +27,8 @@ $db->createDatabase();
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-4xl mx-auto text-center animate-slide-up">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-down">Transform Your Professional Skills</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-delay">Master communication, leadership, and workplace skills
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-delay">Master communication,
+                leadership, and workplace skills
                 to accelerate your career and boost confidence.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
                 <!-- <a href="pages/courses/" -->
@@ -85,9 +86,11 @@ $db->createDatabase();
                     <h3 class="text-xl font-bold mb-2"><?php echo $service['title']; ?></h3>
                     <p class="text-gray-600 mb-4"><?php echo $service['description']; ?></p>
                     <!-- <a href="pages/services.php" -->
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transform hover:translate-x-1 transition-transform">
+                    <a href="#"
+                        class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transform hover:translate-x-1 transition-transform">
                         Learn more
-                        <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        <i
+                            class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -107,7 +110,8 @@ $db->createDatabase();
         <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="lg:w-1/2 animate-slide-in-left">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Team Collaboration" class="rounded-xl shadow-lg w-full transform hover:scale-105 transition duration-500">
+                    alt="Team Collaboration"
+                    class="rounded-xl shadow-lg w-full transform hover:scale-105 transition duration-500">
             </div>
             <div class="lg:w-1/2 animate-slide-in-right">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Soft Skills Matter</h2>
@@ -116,22 +120,26 @@ $db->createDatabase();
                     environments.</p>
                 <ul class="space-y-4">
                     <li class="flex items-start animate-fade-in-left delay-1">
-                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
+                        <i
+                            class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
                         <span class="text-gray-700"><span class="font-semibold">Career advancement</span> depends more
                             on soft skills than technical expertise</span>
                     </li>
                     <li class="flex items-start animate-fade-in-left delay-2">
-                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
+                        <i
+                            class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
                         <span class="text-gray-700"><span class="font-semibold">Strong communication</span> improves
                             team collaboration and productivity</span>
                     </li>
                     <li class="flex items-start animate-fade-in-left delay-3">
-                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
+                        <i
+                            class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
                         <span class="text-gray-700"><span class="font-semibold">Leadership skills</span> are essential
                             for career progression</span>
                     </li>
                     <li class="flex items-start animate-fade-in-left delay-4">
-                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
+                        <i
+                            class="fas fa-check-circle text-green-500 mt-1 mr-3 transform rotate-0 animate-rotate-in"></i>
                         <span class="text-gray-700"><span class="font-semibold">Emotional intelligence</span> drives
                             better workplace relationships</span>
                     </li>
@@ -162,8 +170,9 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Students & Graduates</h3>
                 <p class="text-gray-600 mb-4">Prepare for the professional world with essential workplace skills</p>
                 <!-- <a href="pages/courses/interview.php" class="text-blue-600 hover:text-blue-800 font-medium">Explore -->
-                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
-                    Explore Programs 
+                <a href="#"
+                    class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
+                    Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
@@ -175,8 +184,9 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Working Professionals</h3>
                 <p class="text-gray-600 mb-4">Advance your career with improved communication and leadership</p>
                 <!-- <a href="pages/courses/leadership.php" class="text-teal-600 hover:text-teal-800 font-medium">Explore -->
-                <a href="#" class="text-teal-600 hover:text-teal-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
-                    Explore Programs 
+                <a href="#"
+                    class="text-teal-600 hover:text-teal-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
+                    Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
@@ -188,8 +198,9 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Organizations</h3>
                 <p class="text-gray-600 mb-4">Enhance team performance with customized corporate training</p>
                 <!-- <a href="pages/corporate.php" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore Programs -->
-                <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
-                    Explore Programs 
+                <a href="#"
+                    class="text-indigo-600 hover:text-indigo-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
+                    Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
@@ -294,7 +305,8 @@ $db->createDatabase();
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Transform Your Skills?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have advanced their careers with
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have
+            advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <!-- <a href="pages/courses/" -->
@@ -317,231 +329,261 @@ $db->createDatabase();
             <p class="text-gray-600 max-w-2xl mx-auto">Download "7-Day Communication Mastery Guide" - Transform your
                 communication skills in just one week!</p>
         </div>
-        <form id="downloadForm" action="includes/process_download.php" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto text-center items-center animate-fade-in-up">
+
+        <!-- Key fixes here -->
+        <form id="downloadForm" action="includes/process_download.php" method="POST"
+            class="flex flex-wrap gap-4 max-w-2xl mx-auto items-center justify-center">
+
             <input type="text" id="userName" name="name" placeholder="Your Name"
-                class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
+                class="flex-1 min-w-[200px] px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
+
             <input type="email" id="userEmail" name="email" placeholder="Your Email"
-                class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
+                class="flex-1 min-w-[200px] px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
+
             <button type="submit"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Download
-                Now</button>
+                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-md whitespace-nowrap">
+                Download Now
+            </button>
         </form>
-        <p class="text-gray-500 text-xs mt-4 text-center animate-fade-in-delay">By downloading, you agree to our privacy policy and
-            consent to receive updates.</p>
+
+        <p class="text-gray-500 text-xs mt-4 text-center animate-fade-in-delay">
+            By downloading, you agree to our privacy policy and consent to receive updates.
+        </p>
     </div>
 </section>
 
 <style>
     /* Animation classes */
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-    
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeInDown {
         from {
             opacity: 0;
             transform: translateY(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeInLeft {
         from {
             opacity: 0;
             transform: translateX(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateX(0);
         }
     }
-    
+
     @keyframes slideUp {
         from {
             transform: translateY(50px);
             opacity: 0;
         }
+
         to {
             transform: translateY(0);
             opacity: 1;
         }
     }
-    
+
     @keyframes slideInLeft {
         from {
             transform: translateX(-100px);
             opacity: 0;
         }
+
         to {
             transform: translateX(0);
             opacity: 1;
         }
     }
-    
+
     @keyframes slideInRight {
         from {
             transform: translateX(100px);
             opacity: 0;
         }
+
         to {
             transform: translateX(0);
             opacity: 1;
         }
     }
-    
+
     @keyframes zoomIn {
         from {
             transform: scale(1.1);
         }
+
         to {
             transform: scale(1);
         }
     }
-    
+
     @keyframes float {
         0% {
             transform: translateY(0px);
         }
+
         50% {
             transform: translateY(-10px);
         }
+
         100% {
             transform: translateY(0px);
         }
     }
-    
+
     @keyframes bounce {
-        0%, 100% {
+
+        0%,
+        100% {
             transform: translateY(0);
         }
+
         50% {
             transform: translateY(-10px);
         }
     }
-    
+
     @keyframes pulseSlow {
-        0%, 100% {
+
+        0%,
+        100% {
             opacity: 1;
         }
+
         50% {
             opacity: 0.8;
         }
     }
-    
+
     @keyframes rotateIn {
         from {
             transform: rotate(-45deg);
             opacity: 0;
         }
+
         to {
             transform: rotate(0);
             opacity: 1;
         }
     }
-    
+
     /* Base animation classes */
     .animate-fade-in {
         animation: fadeIn 0.8s ease-out forwards;
     }
-    
+
     .animate-fade-in-up {
         animation: fadeInUp 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-down {
         animation: fadeInDown 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-left {
         animation: fadeInLeft 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-slide-up {
         animation: slideUp 0.8s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-slide-in-left {
         animation: slideInLeft 0.8s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-slide-in-right {
         animation: slideInRight 0.8s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-zoom-in {
         animation: zoomIn 1.2s ease-out forwards;
     }
-    
+
     .animate-float {
         animation: float 3s ease-in-out infinite;
     }
-    
+
     .animate-bounce {
         animation: bounce 1s ease-in-out infinite;
     }
-    
+
     .animate-pulse-slow {
         animation: pulseSlow 2s ease-in-out infinite;
     }
-    
+
     .animate-rotate-in {
         animation: rotateIn 0.5s ease-out forwards;
         opacity: 0;
     }
-    
+
     /* Delay classes */
     .delay-1 {
         animation-delay: 0.1s;
     }
-    
+
     .delay-2 {
         animation-delay: 0.2s;
     }
-    
+
     .delay-3 {
         animation-delay: 0.3s;
     }
-    
+
     .delay-4 {
         animation-delay: 0.4s;
     }
-    
+
     .animate-fade-in-delay {
         animation: fadeIn 0.8s ease-out 0.3s forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-delay-2 {
         animation: fadeIn 0.8s ease-out 0.6s forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-delay-3 {
         animation: fadeIn 0.8s ease-out 0.9s forwards;
         opacity: 0;
     }
-    
+
     /* Ensure elements with delayed animations are initially hidden */
     .animate-fade-in-up,
     .animate-fade-in-down,
@@ -554,48 +596,97 @@ $db->createDatabase();
     .animate-fade-in-delay-3 {
         opacity: 0;
     }
-    
+
     /* Stagger animations for service cards */
-    .service-cards-container .service-card:nth-child(1) { animation-delay: 0.1s; }
-    .service-cards-container .service-card:nth-child(2) { animation-delay: 0.2s; }
-    .service-cards-container .service-card:nth-child(3) { animation-delay: 0.3s; }
-    .service-cards-container .service-card:nth-child(4) { animation-delay: 0.4s; }
-    .service-cards-container .service-card:nth-child(5) { animation-delay: 0.5s; }
-    .service-cards-container .service-card:nth-child(6) { animation-delay: 0.6s; }
-    
+    .service-cards-container .service-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .service-cards-container .service-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .service-cards-container .service-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .service-cards-container .service-card:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .service-cards-container .service-card:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .service-cards-container .service-card:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
     /* Stagger animations for who join cards */
-    .who-join-card:nth-child(1) { animation-delay: 0.1s; }
-    .who-join-card:nth-child(2) { animation-delay: 0.2s; }
-    .who-join-card:nth-child(3) { animation-delay: 0.3s; }
-    
+    .who-join-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .who-join-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .who-join-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
     /* Stagger animations for course cards */
-    .course-card:nth-child(1) { animation-delay: 0.1s; }
-    .course-card:nth-child(2) { animation-delay: 0.2s; }
-    
+    .course-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .course-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
     /* Stagger animations for testimonial cards */
-    .testimonial-container .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-    .testimonial-container .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-    .testimonial-container .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
-    
+    .testimonial-container .testimonial-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .testimonial-container .testimonial-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .testimonial-container .testimonial-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
     /* Stagger animations for trust indicators */
-    .animate-float:nth-child(1) { animation-delay: 0s; }
-    .animate-float:nth-child(2) { animation-delay: 0.1s; }
-    .animate-float:nth-child(3) { animation-delay: 0.2s; }
-    .animate-float:nth-child(4) { animation-delay: 0.3s; }
+    .animate-float:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .animate-float:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    .animate-float:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .animate-float:nth-child(4) {
+        animation-delay: 0.3s;
+    }
 </style>
 
 <script>
     // Counter animation
     document.addEventListener('DOMContentLoaded', function () {
         const counters = document.querySelectorAll('.counter');
-        
+
         // Intersection Observer for animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
-        
+
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -604,22 +695,22 @@ $db->createDatabase();
                 }
             });
         }, observerOptions);
-        
+
         // Observe elements with fade-in-up animations
         document.querySelectorAll('.animate-fade-in-up').forEach(el => {
             observer.observe(el);
         });
-        
+
         // Observe elements with fade-in-left animations
         document.querySelectorAll('.animate-fade-in-left').forEach(el => {
             observer.observe(el);
         });
-        
+
         // Observe elements with slide animations
         document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right, .animate-slide-up').forEach(el => {
             observer.observe(el);
         });
-        
+
         // Counter animation
         const counterObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -644,30 +735,30 @@ $db->createDatabase();
                 }
             });
         }, observerOptions);
-        
+
         counters.forEach(counter => {
             counterObserver.observe(counter);
         });
-        
+
         // Form validation
         const downloadForm = document.getElementById('downloadForm');
         if (downloadForm) {
-            downloadForm.addEventListener('submit', function(e) {
+            downloadForm.addEventListener('submit', function (e) {
                 const name = document.getElementById('userName').value.trim();
                 const email = document.getElementById('userEmail').value.trim();
-                
+
                 if (!name) {
                     alert('Please enter your name');
                     e.preventDefault();
                     return false;
                 }
-                
+
                 if (!email) {
                     alert('Please enter your email');
                     e.preventDefault();
                     return false;
                 }
-                
+
                 // Simple email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {

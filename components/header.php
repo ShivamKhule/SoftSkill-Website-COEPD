@@ -3,13 +3,13 @@
         <div class="flex justify-between items-center">
             <a href="./index.php" id="home-link">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-blue-600">SoftSkills Academy</h1>
+                    <h1 class="text-2xl font-bold text-blue-600">SoftSkills</h1>
                 </div>
                 <!-- <img src="/learn/assets/images/logo.png" alt="Academy Logo" class="w-10 h-10 ml-2"> -->
             </a>
 
             <nav class="hidden lg:block">
-                <ul class="flex flex-wrap space-x-2">
+                <ul class="flex flex-wrap space-x-1">
 
                     <!-- Hover underline + smooth color -->
                     <li>
@@ -85,20 +85,6 @@
           after:transition-all after:duration-300
           hover:after:w-full">
                             Batches
-                        </a>
-                    </li>
-
-                    <li>
-                        <!-- <a href="/learn/pages/blog/" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="#" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
-          transition-all duration-300
-          hover:text-blue-600 hover:bg-blue-50
-          
-          after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0
-          after:bg-blue-600 after:rounded-full
-          after:transition-all after:duration-300
-          hover:after:w-full">
-                            Resources
                         </a>
                     </li>
 
