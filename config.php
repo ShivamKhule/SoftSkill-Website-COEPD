@@ -13,8 +13,8 @@ if ($environment === 'development') {
 } else {
     // Production (Hostinger) settings
     define('DB_HOST', 'localhost');
-    define('DB_USER', 'u233781988_db_user');
-    define('DB_PASS', 'your_actual_db_password_here');
+    define('DB_USER', 'u233781988_softskill');
+    define('DB_PASS', 'Coepd@#2025');
     define('DB_NAME', 'u233781988_softskill');
 }
 
