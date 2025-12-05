@@ -203,7 +203,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="lg:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mt-2">
-                <a href="/learn/index.php"
+                <a href="./index.php"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <!-- <a href="/learn/pages/about.php" -->
                 <a href="#"
@@ -265,7 +265,7 @@
                 <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Success
                     Stories</a>
-                <a href="/learn/pages/contact.php"
+                <a href="./pages/contact.php"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
                 <!-- <a href="/learn/pages/downloads/" -->
                 <a href="#"
@@ -287,81 +287,74 @@
             const faqToggle = document.getElementById('faq-toggle');
             const faqSubmenu = document.getElementById('faq-submenu');
 
-            // Function to toggle mobile menu
-            function toggleMobileMenu() {
-                mobileMenu.classList.toggle('hidden');
-            }
-
-            // Function to close mobile menu
-            function closeMobileMenu() {
-                mobileMenu.classList.add('hidden');
-            }
-
-            // Function to toggle services submenu
-            function toggleServicesMenu(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                servicesSubmenu.classList.toggle('hidden');
-                // Rotate the chevron icon
-                const icon = servicesToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-rotate-180');
-                }
-            }
-
-            // Function to toggle FAQ submenu
-            function toggleFaqMenu(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                faqSubmenu.classList.toggle('hidden');
-                // Rotate the chevron icon
-                const icon = faqToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-rotate-180');
-                }
-            }
-
             if (mobileMenuButton && mobileMenu) {
                 // Handle both click and touch events for better mobile support
-                mobileMenuButton.addEventListener('click', function(e) {
+                const toggleMobileMenu = function (e) {
                     e.stopPropagation();
-                    toggleMobileMenu();
-                });
+                    mobileMenu.classList.toggle('hidden');
+                };
                 
-                mobileMenuButton.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleMobileMenu();
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuButton.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default touch behavior
+                    toggleMobileMenu(e);
                 });
 
                 // Close mobile menu when clicking/touching outside
-                document.addEventListener('click', function(event) {
+                const closeMobileMenu = function (event) {
+                    // Check if the click/touch is outside the mobile menu and menu button
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         if (!mobileMenu.contains(event.target) && mobileMenuButton !== event.target && !mobileMenuButton.contains(event.target)) {
-                            closeMobileMenu();
+                            mobileMenu.classList.add('hidden');
                         }
                     }
-                });
+                };
                 
-                document.addEventListener('touchend', function(event) {
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        if (!mobileMenu.contains(event.target) && mobileMenuButton !== event.target && !mobileMenuButton.contains(event.target)) {
-                            closeMobileMenu();
-                        }
-                    }
-                });
+                document.addEventListener('click', closeMobileMenu);
+                document.addEventListener('touchstart', function(e) {
+                    // For touch events, we need to be more careful about preventing defaults
+                    closeMobileMenu(e);
+                }, { passive: true }); // Use passive listener for better performance
             }
 
             // Toggle services submenu
             if (servicesToggle && servicesSubmenu) {
-                servicesToggle.addEventListener('click', toggleServicesMenu);
-                servicesToggle.addEventListener('touchend', toggleServicesMenu);
+                const toggleServices = function(e) {
+                    e.preventDefault(); // Prevent default behavior
+                    e.stopPropagation(); // Stop event from bubbling up
+                    servicesSubmenu.classList.toggle('hidden');
+                    // Rotate the chevron icon
+                    const icon = servicesToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-rotate-180');
+                    }
+                };
+                
+                servicesToggle.addEventListener('click', toggleServices);
+                servicesToggle.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default touch behavior
+                    toggleServices(e);
+                });
             }
 
             // Toggle FAQ submenu
             if (faqToggle && faqSubmenu) {
-                faqToggle.addEventListener('click', toggleFaqMenu);
-                faqToggle.addEventListener('touchend', toggleFaqMenu);
+                const toggleFaq = function(e) {
+                    e.preventDefault(); // Prevent default behavior
+                    e.stopPropagation(); // Stop event from bubbling up
+                    faqSubmenu.classList.toggle('hidden');
+                    // Rotate the chevron icon
+                    const icon = faqToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-rotate-180');
+                    }
+                };
+                
+                faqToggle.addEventListener('click', toggleFaq);
+                faqToggle.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default touch behavior
+                    toggleFaq(e);
+                });
             }
         });
     </script>
