@@ -212,9 +212,14 @@
 
                 <!-- Services section with sub-items -->
                 <!-- <a href="/learn/pages/services.php" -->
-                <a href="#"
-                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Services</a>
-                <div class="pl-4 space-y-1">
+                <div class="flex justify-between items-center">
+                    <a href="#"
+                        class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow">Services</a>
+                    <button id="services-toggle" class="text-gray-700 px-3 py-2">
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                </div>
+                <div id="services-submenu" class="pl-4 space-y-1 hidden">
                     <!-- <a href="/learn/pages/corporate.php" -->
                     <a href="#"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Corporate
@@ -231,11 +236,17 @@
                 <!-- <a href="/learn/pages/blog/" -->
                 <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Resources</a>
+                
                 <!-- FAQ section with sub-items -->
                 <!-- <a href="/learn/pages/faq.php" -->
-                <a href="#"
-                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
-                <div class="pl-4 space-y-1">
+                <div class="flex justify-between items-center">
+                    <a href="#"
+                        class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow">FAQ</a>
+                    <button id="faq-toggle" class="text-gray-700 px-3 py-2">
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                </div>
+                <div id="faq-submenu" class="pl-4 space-y-1 hidden">
                     <!-- <a href="/learn/pages/faq.php" -->
                     <a href="#"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">General
@@ -249,6 +260,7 @@
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Payment
                         FAQ</a>
                 </div>
+                
                 <!-- <a href="/learn/pages/stories.php" -->
                 <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Success
@@ -270,6 +282,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const servicesToggle = document.getElementById('services-toggle');
+            const servicesSubmenu = document.getElementById('services-submenu');
+            const faqToggle = document.getElementById('faq-toggle');
+            const faqSubmenu = document.getElementById('faq-submenu');
 
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', function (e) {
@@ -283,6 +299,32 @@
                         if (!mobileMenu.contains(event.target) && mobileMenuButton !== event.target && !mobileMenuButton.contains(event.target)) {
                             mobileMenu.classList.add('hidden');
                         }
+                    }
+                });
+            }
+
+            // Toggle services submenu
+            if (servicesToggle && servicesSubmenu) {
+                servicesToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    servicesSubmenu.classList.toggle('hidden');
+                    // Rotate the chevron icon
+                    const icon = servicesToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-rotate-180');
+                    }
+                });
+            }
+
+            // Toggle FAQ submenu
+            if (faqToggle && faqSubmenu) {
+                faqToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    faqSubmenu.classList.toggle('hidden');
+                    // Rotate the chevron icon
+                    const icon = faqToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-rotate-180');
                     }
                 });
             }

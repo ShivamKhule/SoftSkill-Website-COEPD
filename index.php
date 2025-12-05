@@ -317,7 +317,7 @@ $db->createDatabase();
             <p class="text-gray-600 max-w-2xl mx-auto">Download "7-Day Communication Mastery Guide" - Transform your
                 communication skills in just one week!</p>
         </div>
-        <form id="downloadForm" action="process_download.php" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+        <form id="downloadForm" action="includes/process_download.php" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
             <input type="text" id="userName" name="name" placeholder="Your Name"
                 class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <input type="email" id="userEmail" name="email" placeholder="Your Email"

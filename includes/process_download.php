@@ -22,11 +22,11 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     // For now, we'll just redirect to the download
     
     // Redirect to download the PDF
-    header('Location: includes/downloadPDF.php?file=pdf-sample_0');
+    header('Location: downloadPDF.php?file=pdf-sample_0');
     exit;
 } else {
     // If form wasn't submitted properly, redirect back to home
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 ?>
