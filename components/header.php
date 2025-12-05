@@ -280,6 +280,19 @@
     <script>
         // Mobile menu toggle - inline script to avoid conflicts
         document.addEventListener('DOMContentLoaded', function () {
+            // Get mobile menu elements
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuElement = document.getElementById('mobile-menu');
+            const servicesToggle = document.getElementById('services-toggle');
+            const servicesSubmenu = document.getElementById('services-submenu');
+            const faqToggle = document.getElementById('faq-toggle');
+            const faqSubmenu = document.getElementById('faq-submenu');
+            
+            // Close mobile menu on page load to ensure it's closed when navigating back
+            if (mobileMenuElement) {
+                mobileMenuElement.classList.add('hidden');
+            }
+            
             // Adjust navigation links based on current location to prevent double navigation issues
             const currentPage = window.location.pathname;
             
@@ -300,20 +313,22 @@
                 link.href = basePath + '/pages/contact.php';
             });
             
-            // Rest of the existing JavaScript code
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const servicesToggle = document.getElementById('services-toggle');
-            const servicesSubmenu = document.getElementById('services-submenu');
-            const faqToggle = document.getElementById('faq-toggle');
-            const faqSubmenu = document.getElementById('faq-submenu');
+            // Handle navigation link clicks to close menu before navigating
+            const navigationLinks = document.querySelectorAll('#mobile-menu a:not([href="#"])');
+            navigationLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (mobileMenuElement) {
+                        mobileMenuElement.classList.add('hidden');
+                    }
+                });
+            });
 
-            if (mobileMenuButton && mobileMenu) {
+            if (mobileMenuButton && mobileMenuElement) {
                 // Handle both click and touch events for better mobile support
                 const toggleMobileMenu = function (e) {
                     e.preventDefault(); // Prevent default touch behavior
                     e.stopPropagation();
-                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuElement.classList.toggle('hidden');
                 };
                 
                 mobileMenuButton.addEventListener('click', toggleMobileMenu);
@@ -325,9 +340,9 @@
                 // Close mobile menu when clicking/touching outside
                 const closeMobileMenu = function (event) {
                     // Check if the click/touch is outside the mobile menu and menu button
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        if (!mobileMenu.contains(event.target) && mobileMenuButton !== event.target && !mobileMenuButton.contains(event.target)) {
-                            mobileMenu.classList.add('hidden');
+                    if (mobileMenuElement && !mobileMenuElement.classList.contains('hidden')) {
+                        if (!mobileMenuElement.contains(event.target) && mobileMenuButton !== event.target && !mobileMenuButton.contains(event.target)) {
+                            mobileMenuElement.classList.add('hidden');
                         }
                     }
                 };
@@ -337,6 +352,13 @@
                     // For touch events, we need to be more careful about preventing defaults
                     closeMobileMenu(e);
                 }, { passive: true }); // Use passive listener for better performance
+                
+                // Close menu when browser back/forward buttons are used
+                window.addEventListener('popstate', function() {
+                    if (mobileMenuElement) {
+                        mobileMenuElement.classList.add('hidden');
+                    }
+                });
             }
 
             // Toggle services submenu
@@ -377,6 +399,16 @@
                     e.preventDefault(); // Prevent default touch behavior
                     toggleFaq(e);
                 });
+            }
+        });
+        
+        // Additional handler to close menu when page visibility changes (helps with mobile back navigation)
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+                const mobileMenuElement = document.getElementById('mobile-menu');
+                if (mobileMenuElement) {
+                    mobileMenuElement.classList.add('hidden');
+                }
             }
         });
     </script>
