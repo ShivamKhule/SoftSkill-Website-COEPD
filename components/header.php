@@ -203,7 +203,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="lg:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mt-2">
-                <a href="./index.php"
+                <a href="/learn/index.php"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <!-- <a href="/learn/pages/about.php" -->
                 <a href="#"
@@ -265,7 +265,7 @@
                 <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Success
                     Stories</a>
-                <a href="./pages/contact.php"
+                <a href="/learn/pages/contact.php"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
                 <!-- <a href="/learn/pages/downloads/" -->
                 <a href="#"
