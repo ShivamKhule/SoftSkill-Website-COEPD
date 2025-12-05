@@ -288,24 +288,31 @@
             const faqSubmenu = document.getElementById('faq-submenu');
 
             if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function (e) {
+                // Handle both click and touch events for better mobile support
+                const toggleMobileMenu = function (e) {
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
-                });
+                };
+                
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuButton.addEventListener('touchstart', toggleMobileMenu);
 
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function (event) {
+                // Close mobile menu when clicking/touching outside
+                const closeMobileMenu = function (event) {
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         if (!mobileMenu.contains(event.target) && mobileMenuButton !== event.target && !mobileMenuButton.contains(event.target)) {
                             mobileMenu.classList.add('hidden');
                         }
                     }
-                });
+                };
+                
+                document.addEventListener('click', closeMobileMenu);
+                document.addEventListener('touchstart', closeMobileMenu);
             }
 
             // Toggle services submenu
             if (servicesToggle && servicesSubmenu) {
-                servicesToggle.addEventListener('click', function(e) {
+                const toggleServices = function(e) {
                     e.stopPropagation();
                     servicesSubmenu.classList.toggle('hidden');
                     // Rotate the chevron icon
@@ -313,12 +320,15 @@
                     if (icon) {
                         icon.classList.toggle('fa-rotate-180');
                     }
-                });
+                };
+                
+                servicesToggle.addEventListener('click', toggleServices);
+                servicesToggle.addEventListener('touchstart', toggleServices);
             }
 
             // Toggle FAQ submenu
             if (faqToggle && faqSubmenu) {
-                faqToggle.addEventListener('click', function(e) {
+                const toggleFaq = function(e) {
                     e.stopPropagation();
                     faqSubmenu.classList.toggle('hidden');
                     // Rotate the chevron icon
@@ -326,7 +336,10 @@
                     if (icon) {
                         icon.classList.toggle('fa-rotate-180');
                     }
-                });
+                };
+                
+                faqToggle.addEventListener('click', toggleFaq);
+                faqToggle.addEventListener('touchstart', toggleFaq);
             }
         });
     </script>
