@@ -1,0 +1,57 @@
+[
+  {
+    "id": "communication-tips",
+    "title": "7 Essential Communication Tips for the Modern Workplace",
+    "image": "https://www.invensislearning.com/blog/wp-content/uploads/2015/08/Banner-image-7-Tips-to-Develop-Effective-Workplace-Communications-1.jpg",
+    "excerpt": "Discover practical techniques to enhance your communication skills and build stronger professional relationships.",
+    "content": "Effective communication is the cornerstone of success in today's interconnected workplace. Whether you're collaborating with colleagues, presenting to stakeholders, or managing a team, your ability to convey ideas clearly and listen actively can make or break your professional relationships. In this article, we explore seven essential communication tips that can transform your workplace interactions...",
+    "author": "Alex Morgan",
+    "date": "2025-11-15",
+    "category": "Communication Skills",
+    "tags": ["communication", "workplace", "professional development"]
+  },
+  {
+    "id": "career-growth",
+    "title": "How Soft Skills Drive Career Advancement",
+    "image": "https://wcc.ca/wp-content/uploads/2025/08/wcc-blog-Soft-skills-vs.-technical-skills-in-career-development.jpg",
+    "excerpt": "While technical skills may get you in the door, soft skills are what propel you up the career ladder.",
+    "content": "In today's competitive job market, technical expertise alone isn't enough to guarantee career advancement. Employers increasingly value professionals who possess strong soft skills—those interpersonal abilities that enable effective collaboration, leadership, and adaptability. Research consistently shows that individuals with well-developed soft skills advance faster and earn higher salaries than their technically skilled but socially challenged counterparts...",
+    "author": "Jamie Chen",
+    "date": "2025-10-22",
+    "category": "Career Development",
+    "tags": ["career", "leadership", "professional growth"]
+  },
+  {
+    "id": "interview-prep",
+    "title": "Mastering the Behavioral Interview: A Complete Guide",
+    "image": "https://cdn.uconnectlabs.com/wp-content/uploads/sites/123/2022/06/1-1.png",
+    "excerpt": "Learn how to prepare for and excel in behavioral interviews with the STAR method and strategic storytelling.",
+    "content": "Behavioral interviews have become the gold standard for employers seeking to predict future performance based on past behavior. Understanding how to navigate these interviews effectively can be the difference between landing your dream job and continuing your job search. In this comprehensive guide, we'll break down everything you need to know about behavioral interviews...",
+    "author": "Marcus Johnson",
+    "date": "2025-09-30",
+    "category": "Interview Preparation",
+    "tags": ["interview", "job search", "career advice"]
+  },
+  {
+    "id": "leadership-skills",
+    "title": "The Evolution of Leadership in the Digital Age",
+    "image": "https://www.leanwisdom.com/blog/wp-content/uploads/2025/11/Master-Digital-Era-Leadership.png",
+    "excerpt": "Modern leadership requires a new set of skills adapted to remote teams, digital communication, and rapid change.",
+    "content": "The traditional command-and-control leadership model is rapidly becoming obsolete in today's fast-paced, digitally connected world. Successful leaders now need to embrace a more collaborative, adaptive approach that empowers teams and fosters innovation. This shift has been accelerated by remote work trends and the increasing pace of technological change...",
+    "author": "Jamie Chen",
+    "date": "2025-08-17",
+    "category": "Leadership",
+    "tags": ["leadership", "digital transformation", "team management"]
+  },
+  {
+    "id": "workplace-soft-skills",
+    "title": "Why Soft Skills Matter More Than Ever in the Hybrid Workplace",
+    "image": "https://imarticus.org/blog/wp-content/uploads/2020/04/ft1.jpg",
+    "excerpt": "As work models evolve, the importance of emotional intelligence and interpersonal skills continues to grow.",
+    "content": "The hybrid workplace model has fundamentally changed how we interact with colleagues, collaborate on projects, and build professional relationships. While technology enables seamless virtual communication, it also creates new challenges that require enhanced soft skills to navigate effectively. In this new environment, emotional intelligence, adaptability, and clear communication have become even more critical...",
+    "author": "Alex Morgan",
+    "date": "2025-07-05",
+    "category": "Workplace Skills",
+    "tags": ["hybrid work", "emotional intelligence", "collaboration"]
+  }
+]

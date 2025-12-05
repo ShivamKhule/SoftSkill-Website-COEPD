@@ -1,0 +1,38 @@
+[
+  {
+    "id": "communication-guide",
+    "title": "7-Day Communication Mastery Guide",
+    "description": "A comprehensive guide to transforming your communication skills in just one week with daily exercises and practical tips.",
+    "format": "PDF",
+    "size": "2.4 MB",
+    "preview": "Learn active listening techniques, overcome communication barriers, and master non-verbal communication...",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978"
+  },
+  {
+    "id": "career-handbook",
+    "title": "Soft Skills for Career Growth Handbook",
+    "description": "Essential soft skills that drive professional advancement with real-world examples and actionable strategies.",
+    "format": "PDF",
+    "size": "3.1 MB",
+    "preview": "Discover how emotional intelligence, adaptability, and interpersonal skills accelerate career progression...",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+  },
+  {
+    "id": "interview-checklist",
+    "title": "Interview Ready Checklist Guide",
+    "description": "A step-by-step checklist to prepare for any type of job interview with confidence-building exercises.",
+    "format": "PDF",
+    "size": "1.8 MB",
+    "preview": "Master common interview questions, optimize your resume, and develop compelling personal narratives...",
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "etiquette-guide",
+    "title": "Professional Etiquette Quick Guide",
+    "description": "Essential workplace etiquette rules for emails, meetings, networking, and professional interactions.",
+    "format": "PDF",
+    "size": "1.5 MB",
+    "preview": "Navigate office politics, communicate professionally, and build strong workplace relationships...",
+    "image": "https://images.unsplash.com/photo-1551836022-4c4c79ecde51"
+  }
+]

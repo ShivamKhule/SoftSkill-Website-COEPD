@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "How long is the training?",
+    "answer": "Course durations vary depending on the program. Most individual courses range from 2-6 weeks with sessions typically lasting 2 hours. We also offer intensive weekend workshops and corporate programs that can be customized to your organization's needs."
+  },
+  {
+    "id": 2,
+    "question": "Is there certification?",
+    "answer": "Yes, all our courses include a certificate of completion for participants who attend at least 80% of sessions and successfully complete the final assessment. Our certificates are recognized by industry partners and can be added to your professional credentials."
+  },
+  {
+    "id": 3,
+    "question": "Are sessions recorded?",
+    "answer": "For online sessions, we provide recordings to enrolled students for review purposes. However, we encourage live participation for interactive activities and discussions. Recordings are typically available within 24 hours after each session."
+  },
+  {
+    "id": 4,
+    "question": "Is the schedule flexible?",
+    "answer": "We offer multiple batch timings to accommodate different schedules. If you miss a session, we can arrange makeup sessions or provide materials to catch up. For corporate clients, we can customize schedules to minimize disruption to business operations."
+  },
+  {
+    "id": 5,
+    "question": "What is the fee structure?",
+    "answer": "Fees vary by course and delivery format. Individual courses range from $199-$399. Early bird discounts and group enrollment rates are available. Corporate training packages are priced based on team size and customization requirements. Payment plans are offered for select programs."
+  },
+  {
+    "id": 6,
+    "question": "What learning formats are available?",
+    "answer": "We offer online live sessions, in-person classes at our training centers, and hybrid options. Corporate clients can opt for on-site training at their premises. All formats include the same high-quality curriculum and materials."
+  },
+  {
+    "id": 7,
+    "question": "Do you offer job placement assistance?",
+    "answer": "While we don't guarantee job placement, our Interview & Job Readiness program includes resume review, mock interviews, and networking guidance. We also maintain relationships with hiring partners who regularly recruit from our programs."
+  },
+  {
+    "id": 8,
+    "question": "Can I switch between online and in-person formats?",
+    "answer": "Yes, you can transfer between formats if seats are available in your preferred option. A nominal transfer fee may apply. Please contact our support team at least 48 hours before the session to make arrangements."
+  }
+]

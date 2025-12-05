@@ -1,0 +1,85 @@
+[
+  {
+    "id": "alex-morgan",
+    "name": "Alex Morgan",
+    "title": "Communication Specialist",
+    "image": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww",
+    "bio": "With over 15 years of experience in corporate training, Alex specializes in communication skills development. She has worked with Fortune 500 companies and educational institutions to enhance interpersonal effectiveness.",
+    "certifications": [
+      "Certified Communication Specialist",
+      "Professional Speaker Association Member",
+      "NLP Practitioner"
+    ],
+    "experience": "15+ years in corporate communication training",
+    "expertise": [
+      "Verbal & Non-verbal Communication",
+      "Presentation Skills",
+      "Cross-cultural Communication",
+      "Conflict Resolution"
+    ],
+    "philosophy": "Effective communication is the foundation of personal and professional success. My approach focuses on practical techniques that can be immediately applied.",
+    "industries_trained": [
+      "Technology",
+      "Healthcare",
+      "Finance",
+      "Education",
+      "Manufacturing"
+    ]
+  },
+  {
+    "id": "jamie-chen",
+    "name": "Jamie Chen",
+    "title": "Leadership Development Expert",
+    "image": "https://images.unsplash.com/photo-1732550216149-41c470c95e53?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFN0YW5kYXJkJTIwcHJvZmlsZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
+    "bio": "Jamie brings a unique blend of academic knowledge and real-world leadership experience. As a former executive and now full-time trainer, she helps emerging leaders develop authentic leadership styles.",
+    "certifications": [
+      "Executive Coaching Certification",
+      "Change Management Specialist",
+      "Emotional Intelligence Assessor"
+    ],
+    "experience": "12 years in leadership development and executive coaching",
+    "expertise": [
+      "Leadership Styles",
+      "Team Building",
+      "Change Management",
+      "Emotional Intelligence",
+      "Coaching & Mentoring"
+    ],
+    "philosophy": "Leadership is not about titles but about influence and impact. I believe in developing leaders who inspire others to achieve extraordinary results.",
+    "industries_trained": [
+      "Consulting",
+      "Non-profit",
+      "Government",
+      "Retail",
+      "Hospitality"
+    ]
+  },
+  {
+    "id": "marcus-johnson",
+    "name": "Marcus Johnson",
+    "image": "https://images.unsplash.com/photo-1695927621677-ec96e048dce2?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww",
+    "title": "Public Speaking Coach",
+    "bio": "A former TEDx speaker and communications professor, Marcus has helped thousands overcome their fear of public speaking and become confident communicators.",
+    "certifications": [
+      "Public Speaking Coach Certification",
+      "Toastmasters International Accredited Trainer",
+      "Voice & Speech Specialist"
+    ],
+    "experience": "10 years in public speaking training and performance coaching",
+    "expertise": [
+      "Stage Presence",
+      "Speech Writing",
+      "Voice Modulation",
+      "Audience Engagement",
+      "Presentation Design"
+    ],
+    "philosophy": "Every person has a story worth telling. My mission is to help people find their voice and share their message with confidence and impact.",
+    "industries_trained": [
+      "Media & Entertainment",
+      "Education",
+      "Entrepreneurship",
+      "Politics",
+      "Arts & Culture"
+    ]
+  }
+]

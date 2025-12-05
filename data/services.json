@@ -1,0 +1,62 @@
+[
+  {
+    "id": "communication",
+    "title": "Communication Skills Training",
+    "description": "Enhance your ability to express ideas clearly, listen actively, and connect with others effectively.",
+    "icon": "fa-comments"
+  },
+  {
+    "id": "personality",
+    "title": "Personality Development",
+    "description": "Build confidence, improve self-awareness, and develop a strong personal brand.",
+    "icon": "fa-user-circle"
+  },
+  {
+    "id": "public-speaking",
+    "title": "Public Speaking & Presentation Skills",
+    "description": "Conquer stage fright and deliver compelling presentations with confidence.",
+    "icon": "fa-microphone"
+  },
+  {
+    "id": "interview",
+    "title": "Interview & Job Readiness",
+    "description": "Prepare for interviews and boost your career prospects with proven strategies.",
+    "icon": "fa-briefcase"
+  },
+  {
+    "id": "corporate",
+    "title": "Corporate Soft Skills Training",
+    "description": "Customized programs for teams to enhance workplace communication and collaboration.",
+    "icon": "fa-building"
+  },
+  {
+    "id": "business-writing",
+    "title": "Business Writing & Email Etiquette",
+    "description": "Master professional writing skills for emails, reports, and business correspondence.",
+    "icon": "fa-pen-alt"
+  },
+  {
+    "id": "customer-service",
+    "title": "Customer Service Skills",
+    "description": "Develop empathy, problem-solving abilities, and service excellence techniques.",
+    "icon": "fa-headset"
+  },
+  {
+    "id": "leadership",
+    "title": "Leadership & Team Building",
+    "description": "Learn essential leadership skills to inspire and guide teams toward success.",
+    "icon": "fa-users"
+  },
+  {
+    "id": "time-management",
+    "title": "Time Management & Productivity Skills",
+    "description": "Maximize efficiency and achieve work-life balance with proven productivity techniques.",
+    "icon": "fa-clock"
+  },
+  {
+    "id": "sales",
+    "title": "Sales & Negotiation Skills",
+    "description": "Develop persuasive communication and win-win negotiation strategies.",
+    "icon": "fa-handshake"
+  }
+]

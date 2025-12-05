@@ -1,0 +1,46 @@
+[
+  {
+    "id": "story-1",
+    "name": "Emma Thompson",
+    "role": "Junior Developer",
+    "company": "CodeCraft Studios",
+    "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+    "before": "Emma struggled with presenting her technical ideas to non-technical stakeholders and often felt overlooked in team meetings.",
+    "after": "After completing our Communication Skills course, Emma became more confident in cross-functional meetings and was promoted to Senior Developer within a year.",
+    "improvement": "Enhanced communication led to better collaboration and recognition of her technical contributions.",
+    "quote": "The training helped me bridge the gap between technical expertise and effective communication. I'm now leading client presentations with confidence."
+  },
+  {
+    "id": "story-2",
+    "name": "Raj Patel",
+    "role": "Customer Service Representative",
+    "company": "Global Support Solutions",
+    "image": "https://images.unsplash.com/photo-1595152772835-219674b2a8a6",
+    "before": "Raj had difficulty handling irate customers and often escalated situations that could have been resolved amicably.",
+    "after": "Following our Customer Service Skills program, Raj became one of the top performers in his department with a 95% customer satisfaction rating.",
+    "improvement": "Improved conflict resolution skills and emotional intelligence resulted in better customer outcomes.",
+    "quote": "I learned to truly listen to customers and respond with empathy. My approach completely transformed how I handle difficult situations."
+  },
+  {
+    "id": "story-3",
+    "name": "Lisa Wong",
+    "role": "Marketing Team Lead",
+    "company": "Creative Minds Agency",
+    "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    "before": "Lisa was promoted to a leadership position but lacked experience managing teams and delegating effectively.",
+    "after": "After completing our Leadership & Team Building course, Lisa's team productivity increased by 35% and employee satisfaction scores improved significantly.",
+    "improvement": "Developed strong leadership capabilities that resulted in a more engaged and productive team.",
+    "quote": "The leadership training gave me the tools and confidence to inspire my team. We've achieved our best performance metrics since I started applying what I learned."
+  },
+  {
+    "id": "story-4",
+    "name": "Carlos Mendez",
+    "role": "Recent Graduate",
+    "company": "",
+    "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+    "before": "Carlos was struggling to secure interviews despite having a strong academic record and technical skills.",
+    "after": "After our Interview & Job Readiness program, Carlos received three job offers within two months and accepted a position at a leading tech company.",
+    "improvement": "Enhanced interview skills and professional presentation led to successful job placement.",
+    "quote": "The mock interviews and personalized feedback were game-changers. I finally understood how to showcase my strengths and connect with hiring managers."
+  }
+]
