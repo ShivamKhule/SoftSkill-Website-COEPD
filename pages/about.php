@@ -33,7 +33,7 @@ $trainers = loadData(__DIR__ . '/../data/trainers.json');
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mission-vision-container">
             <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-1">
                 <div class="text-blue-600 text-4xl mb-4">
-                    <i class="fas fa-bullseye"></i>
+                    <i class="fas fa-bullseye animate-bounce"></i>
                 </div>
                 <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
                 <p class="text-gray-600">To empower individuals and organizations with essential soft skills that drive
@@ -44,7 +44,7 @@ $trainers = loadData(__DIR__ . '/../data/trainers.json');
 
             <div class="bg-gradient-to-br from-teal-50 to-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-2">
                 <div class="text-teal-600 text-4xl mb-4">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-eye animate-bounce"></i>
                 </div>
                 <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
                 <p class="text-gray-600">To be the leading provider of soft skills training globally, recognized for our

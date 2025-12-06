@@ -13,7 +13,6 @@ $db = new Database();
 
 $db->connectServer();
 $db->createDatabase();
-$db->createFreeEBookUsersTable();
 ?>
 
 <?php ob_start(); ?>
@@ -50,31 +49,19 @@ $db->createFreeEBookUsersTable();
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div class="text-center animate-float">
-                <div class="flex items-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="10000">0</div>
-                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
-                </div>
+                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="10000">0</div>
                 <div class="counter-label text-gray-600 mt-2">Students Trained</div>
             </div>
             <div class="text-center animate-float delay-1">
-                <div class="flex items-center text-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="250">0</div>
-                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
-                </div>
+                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="250">0</div>
                 <div class="counter-label text-gray-600 mt-2">Corporate Clients</div>
             </div>
             <div class="text-center animate-float delay-2">
-                <div class="flex items-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="95">0</div>
-                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">%</span>
-                </div>
-                <div class="counter-label text-gray-600 mt-2">Success Rate</div>
+                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="95">0</div>
+                <div class="counter-label text-gray-600 mt-2">Success Rate %</div>
             </div>
             <div class="text-center animate-float delay-3">
-                <div class="flex items-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="50">0</div>
-                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
-                </div>
+                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="50">0</div>
                 <div class="counter-label text-gray-600 mt-2">Expert Trainers</div>
             </div>
         </div>

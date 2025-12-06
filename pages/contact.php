@@ -146,7 +146,7 @@ function test_input($data)
                     <div class="space-y-6">
                         <div class="flex items-start animate-fade-in-left delay-1">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
-                                <i class="fas fa-map-marker-alt"></i>
+                                <i class="fas fa-map-marker-alt animate-bounce"></i>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Our Location</h3>
@@ -156,7 +156,7 @@ function test_input($data)
 
                         <div class="flex items-start animate-fade-in-left delay-2">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
-                                <i class="fas fa-phone"></i>
+                                <i class="fas fa-phone animate-bounce"></i>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
@@ -168,7 +168,7 @@ function test_input($data)
 
                         <div class="flex items-start animate-fade-in-left delay-3">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope animate-bounce"></i>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Email Address</h3>
@@ -178,7 +178,7 @@ function test_input($data)
 
                         <div class="flex items-start animate-fade-in-left delay-4">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
-                                <i class="fas fa-clock"></i>
+                                <i class="fas fa-clock animate-bounce"></i>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Working Hours</h3>
