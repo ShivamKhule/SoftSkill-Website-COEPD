@@ -49,11 +49,17 @@ $db->createDatabase();
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div class="text-center animate-float">
-                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="10000">0</div>
+                <div class="flex flex-row items-center">
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="10000">0</div>
+                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
+                </div>
                 <div class="counter-label text-gray-600 mt-2">Students Trained</div>
             </div>
             <div class="text-center animate-float delay-1">
-                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="250">0</div>
+                <div class="flex flex-row items-center">
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="250">0</div>
+                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
+                </div>
                 <div class="counter-label text-gray-600 mt-2">Corporate Clients</div>
             </div>
             <div class="text-center animate-float delay-2">
@@ -61,7 +67,10 @@ $db->createDatabase();
                 <div class="counter-label text-gray-600 mt-2">Success Rate %</div>
             </div>
             <div class="text-center animate-float delay-3">
-                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="50">0</div>
+                <div class="flex flex-row items-center">
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="50">0</div>
+                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
+                </div>
                 <div class="counter-label text-gray-600 mt-2">Expert Trainers</div>
             </div>
         </div>
@@ -145,7 +154,7 @@ $db->createDatabase();
                     </li>
                 </ul>
                 <!-- <a href="pages/about.php" -->
-                <a href="#"
+                <a href="pages/about.php"
                     class="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Learn
                     More About Us</a>
             </div>

@@ -351,7 +351,7 @@ function test_input($data)
     }
     
     .animate-bounce {
-        animation: bounce 1s ease-in-out infinite;
+        animation: bounce 2s ease-in-out infinite;
     }
     
     .animate-pulse-slow {

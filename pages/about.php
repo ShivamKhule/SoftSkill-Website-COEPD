@@ -353,7 +353,7 @@ $trainers = loadData(__DIR__ . '/../data/trainers.json');
     }
     
     .animate-bounce {
-        animation: bounce 1s ease-in-out infinite;
+        animation: bounce 3s ease-in-out infinite;
     }
     
     .animate-pulse {
