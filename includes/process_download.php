@@ -1,4 +1,11 @@
 <?php
+require_once __DIR__ . '/db.php';
+$db = new Database();
+
+$db->connectServer();
+$db->connectServerWithDB();
+$db->createFreeEBookUsersTable();
+
 // Process download form submission
 if (isset($_POST['name']) && isset($_POST['email'])) {
     $name = trim($_POST['name']);
@@ -20,6 +27,8 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     
     // In a real application, you would save this data to a database here
     // For now, we'll just redirect to the download
+
+    $db->insertFreeEBookUsers($name, $email, 'pdf-sample_0');
     
     // Redirect to download the PDF
     header('Location: downloadPDF.php?file=pdf-sample_0');

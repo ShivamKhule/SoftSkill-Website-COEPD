@@ -115,6 +115,29 @@ class Database
     }
 
     // -------------------------------------------
+    // 4. CREATE FREE-E-BOOK USERS TABLE IF NOT EXISTS
+    // -------------------------------------------
+    public function createFreeEBookUsersTable()
+    {
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS free_e_book_users (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(150) NOT NULL,
+                    email VARCHAR(150) NULL,
+                    bookname VARCHAR(150) NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )";
+
+            $this->conn->exec($sql);
+
+            // echo "✔ Table 'free_e_book_users' created or already exists<br>";
+
+        } catch (PDOException $e) {
+            echo "❌ Error creating free_e_book_users table: " . $e->getMessage() . "<br>";
+        }
+    }
+
+    // -------------------------------------------
     // 5. INSERT DATA INTO CONTACT US TABLE
     // -------------------------------------------
     public function insertContactMessage($name, $phone, $email, $course, $mode, $message)
@@ -137,6 +160,33 @@ class Database
                 return "✔ Contact form submitted successfully";
             } else {
                 return "❌ Failed to submit contact form";
+            }
+
+        } catch (PDOException $e) {
+            return "❌ Error inserting contact form: " . $e->getMessage();
+        }
+    }
+
+    // -------------------------------------------
+    // 5. INSERT DATA INTO FREE-E-BOOK USERS TABLE
+    // -------------------------------------------
+    public function insertFreeEBookUsers($name, $email, $bookname)
+    {
+        try {
+            $sql = "INSERT INTO free_e_book_users (name, email, bookname)
+                VALUES (:name, :email, :bookname)";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // Bind values (prepared statement)
+            $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->bindValue(':bookname', $bookname, PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+                return "✔ Free E-Book form submitted successfully";
+            } else {
+                return "❌ Failed to submit Free E-Book form";
             }
 
         } catch (PDOException $e) {
