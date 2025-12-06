@@ -63,8 +63,11 @@ $db->createDatabase();
                 <div class="counter-label text-gray-600 mt-2">Corporate Clients</div>
             </div>
             <div class="text-center animate-float delay-2">
-                <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="95">0</div>
-                <div class="counter-label text-gray-600 mt-2">Success Rate %</div>
+                <div class="flex flex-row items-center">
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="95">0</div>
+                    <span class="text-blue-600 text-4xl md:text-5xl font-bold">%</span>
+                </div>
+                <div class="counter-label text-gray-600 mt-2">Success Rate</div>
             </div>
             <div class="text-center animate-float delay-3">
                 <div class="flex flex-row items-center">
