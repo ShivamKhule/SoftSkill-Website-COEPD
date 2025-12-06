@@ -27,7 +27,7 @@
 
                     <li>
                         <!-- <a href="/learn/pages/about.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="./pages/about.php"  id="desktop-about-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./pages/about.php" id="desktop-about-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -42,7 +42,7 @@
                     <!-- Dropdown -->
                     <li class="group relative">
                         <!-- <a href="/learn/pages/services.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="#" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./pages/services.php" id="desktop-services-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -51,7 +51,8 @@
           after:transition-all after:duration-300
           hover:after:w-full">
                             Services
-                            <i class="fas fa-chevron-down ml-1 text-xs transform transition-transform duration-300 group-hover:rotate-180"></i>
+                            <i
+                                class="fas fa-chevron-down ml-1 text-xs transform transition-transform duration-300 group-hover:rotate-180"></i>
                         </a>
 
                         <!-- Dropdown menu -->
@@ -76,14 +77,11 @@
 
                     <li>
                         <!-- <a href="/learn/pages/schedule.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="#" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
-          transition-all duration-300
-          hover:text-blue-600 hover:bg-blue-50
-          
-          after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0
-          after:bg-blue-600 after:rounded-full
-          after:transition-all after:duration-300
-          hover:after:w-full">
+                        <a href="./pages/schedule.php" id="desktop-schedule-link"
+                        class=" text-gray-700 font-medium relative px-3 py-1 rounded-md transition-all duration-300
+                            hover:text-blue-600 hover:bg-blue-50 after:absolute after:left-0 after:bottom-0 after:h-0.5
+                            after:w-0 after:bg-blue-600 after:rounded-full after:transition-all after:duration-300
+                            hover:after:w-full">
                             Batches
                         </a>
                     </li>
@@ -91,7 +89,7 @@
                     <!-- FAQ Dropdown -->
                     <li class="group relative">
                         <!-- <a href="/learn/pages/faq.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="#" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./pages/faq.php" id="desktop-faq-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -100,7 +98,8 @@
           after:transition-all after:duration-300
           hover:after:w-full">
                             FAQ
-                            <i class="fas fa-chevron-down ml-1 text-xs transform transition-transform duration-300 group-hover:rotate-180"></i>
+                            <i
+                                class="fas fa-chevron-down ml-1 text-xs transform transition-transform duration-300 group-hover:rotate-180"></i>
                         </a>
 
                         <!-- Dropdown menu -->
@@ -131,7 +130,8 @@
 
                     <li>
                         <!-- <a href="/learn/pages/stories.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md -->
-                        <a href="#" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="./pages/stories.php" id="desktop-stories-link"
+                        class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -180,17 +180,21 @@
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300 shadow-md hover:shadow-lg hidden lg:block">
                     Enroll Now
                 </button>
-                <button id="mobile-menu-button" class="lg:hidden text-gray-700 z-[1002] relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                <button id="mobile-menu-button"
+                    class="lg:hidden text-gray-700 z-[1002] relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors duration-300">
                     <div class="w-6 h-6 flex flex-col justify-center items-center">
-                        <span class="block w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 transform origin-center"></span>
-                        <span class="block w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 transform origin-center mt-1"></span>
+                        <span
+                            class="block w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 transform origin-center"></span>
+                        <span
+                            class="block w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300 transform origin-center mt-1"></span>
                     </div>
                 </button>
             </div>
         </div>
 
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="lg:hidden fixed top-16 left-0 right-0 bg-white shadow-lg z-50 opacity-0 invisible transition-all duration-300 ease-in-out transform translate-y-[-10px]">
+        <div id="mobile-menu"
+            class="lg:hidden fixed top-16 left-0 right-0 bg-white shadow-lg z-50 opacity-0 invisible transition-all duration-300 ease-in-out transform translate-y-[-10px]">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mx-4 mt-2">
                 <a href="/" id="mobile-home-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Home</a>
@@ -202,13 +206,14 @@
                 <!-- Services section with sub-items -->
                 <!-- <a href="/learn/pages/services.php" -->
                 <div class="flex justify-between items-center">
-                    <a href="#"
+                    <a href="/pages/services.php" id="mobile-services-link"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow transition-all duration-200 transform hover:translate-x-1">Services</a>
                     <button id="services-toggle" class="text-gray-700 px-3 py-2 transition-transform duration-300">
                         <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i>
                     </button>
                 </div>
-                <div id="services-submenu" class="pl-4 space-y-1 hidden opacity-0 transition-all duration-300 ease-in-out transform translate-y-[-5px]">
+                <div id="services-submenu"
+                    class="pl-4 space-y-1 hidden opacity-0 transition-all duration-300 ease-in-out transform translate-y-[-5px]">
                     <!-- <a href="/learn/pages/corporate.php" -->
                     <a href="#"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Corporate
@@ -220,22 +225,23 @@
                 </div>
 
                 <!-- <a href="/learn/pages/schedule.php" -->
-                <a href="#"
+                <a href="/pages/schecule.php" id="mobile-schedule-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Batches</a>
                 <!-- <a href="/learn/pages/blog/" -->
-                <a href="#"
-                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Resources</a>
-                
+                <!-- <a href="#"
+                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Resources</a> -->
+
                 <!-- FAQ section with sub-items -->
                 <!-- <a href="/learn/pages/faq.php" -->
                 <div class="flex justify-between items-center">
-                    <a href="#"
+                    <a href="/pages/faq.php" id="mobile-faq-link"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow transition-all duration-200 transform hover:translate-x-1">FAQ</a>
                     <button id="faq-toggle" class="text-gray-700 px-3 py-2 transition-transform duration-300">
                         <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i>
                     </button>
                 </div>
-                <div id="faq-submenu" class="pl-4 space-y-1 hidden opacity-0 transition-all duration-300 ease-in-out transform translate-y-[-5px]">
+                <div id="faq-submenu"
+                    class="pl-4 space-y-1 hidden opacity-0 transition-all duration-300 ease-in-out transform translate-y-[-5px]">
                     <!-- <a href="/learn/pages/faq.php" -->
                     <a href="#"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">General
@@ -249,9 +255,9 @@
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Payment
                         FAQ</a>
                 </div>
-                
+
                 <!-- <a href="/learn/pages/stories.php" -->
-                <a href="#"
+                <a href="/pages/stories.php" id="mobile-stories-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Success
                     Stories</a>
                 <a href="/pages/contact.php" id="mobile-contact-link"
@@ -276,55 +282,75 @@
             const servicesSubmenu = document.getElementById('services-submenu');
             const faqToggle = document.getElementById('faq-toggle');
             const faqSubmenu = document.getElementById('faq-submenu');
-            
+
             // Get hamburger icon elements
             const hamburgerLines = mobileMenuButton ? mobileMenuButton.querySelectorAll('span') : [];
-            
+
             // Close mobile menu on page load to ensure it's closed when navigating back
             if (mobileMenuElement) {
                 mobileMenuElement.classList.add('hidden');
             }
-            
+
             // Adjust navigation links based on current location to prevent double navigation issues
             const currentPage = window.location.pathname;
-            
+
             // Get all navigation links
             const homeLinks = document.querySelectorAll('#home-link, #desktop-home-link, #mobile-home-link');
             const contactLinks = document.querySelectorAll('#desktop-contact-link, #mobile-contact-link');
             const aboutLinks = document.querySelectorAll('#desktop-about-link, #mobile-about-link');
-            
+            const servicesLinks = document.querySelectorAll('#desktop-services-link, #mobile-services-link');
+            const scheduleLinks = document.querySelectorAll('#desktop-schedule-link, #mobile-schedule-link');
+            const faqLinks = document.querySelectorAll('#desktop-faq-link, #mobile-faq-link');
+            const storiesLinks = document.querySelectorAll('#desktop-stories-link, #mobile-stories-link');
+
             // Detect if we're on localhost with /learn subdirectory or on production
             const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             const basePath = isLocalhost ? '/learn' : '';
-            
+
             // Set paths based on environment
             homeLinks.forEach(link => {
                 link.href = basePath + '/index.php';
             });
-            
+
             contactLinks.forEach(link => {
                 link.href = basePath + '/pages/contact.php';
             });
-            
+
             aboutLinks.forEach(link => {
                 link.href = basePath + '/pages/about.php';
             });
-            
+
+            servicesLinks.forEach(link => {
+                link.href = basePath + '/pages/services.php';
+            });
+
+            scheduleLinks.forEach(link => {
+                link.href = basePath + '/pages/schedule.php';
+            });
+
+            faqLinks.forEach(link => {
+                link.href = basePath + '/pages/faq.php';
+            });
+
+            storiesLinks.forEach(link => {
+                link.href = basePath + '/pages/stories.php';
+            });
+
             // Handle navigation link clicks to close menu before navigating
             const navigationLinks = document.querySelectorAll('#mobile-menu a:not([href="#"])');
             navigationLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function () {
                     if (mobileMenuElement) {
                         // Animate menu closing
                         mobileMenuElement.classList.remove('opacity-100', 'visible', 'translate-y-0');
                         mobileMenuElement.classList.add('opacity-0', 'invisible', 'translate-y-[-10px]');
-                        
+
                         // Reset hamburger icon
                         if (hamburgerLines.length > 0) {
                             hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
                             hamburgerLines[1].classList.remove('hidden', '-rotate-45', '-translate-y-1');
                         }
-                        
+
                         // Hide menu after animation completes
                         setTimeout(() => {
                             mobileMenuElement.classList.add('hidden');
@@ -338,13 +364,13 @@
                 const toggleMobileMenu = function (e) {
                     e.preventDefault(); // Prevent default touch behavior
                     e.stopPropagation();
-                    
+
                     // Toggle menu visibility with animation
                     if (mobileMenuElement.classList.contains('hidden')) {
                         // Show menu with animation
                         mobileMenuElement.classList.remove('hidden', 'opacity-0', 'invisible', 'translate-y-[-10px]');
                         mobileMenuElement.classList.add('opacity-100', 'visible', 'translate-y-0');
-                        
+
                         // Animate hamburger to cross
                         if (hamburgerLines.length > 0) {
                             hamburgerLines[0].classList.add('rotate-45', 'translate-y-1.5');
@@ -358,7 +384,7 @@
                         // Hide menu with animation
                         mobileMenuElement.classList.remove('opacity-100', 'visible', 'translate-y-0');
                         mobileMenuElement.classList.add('opacity-0', 'invisible', 'translate-y-[-10px]');
-                        
+
                         // Animate cross back to hamburger
                         if (hamburgerLines.length > 0) {
                             hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
@@ -370,16 +396,16 @@
                                 hamburgerLines[1].classList.remove('hidden');
                             }, 300);
                         }
-                        
+
                         // Hide menu after animation completes
                         setTimeout(() => {
                             mobileMenuElement.classList.add('hidden');
                         }, 300);
                     }
                 };
-                
+
                 mobileMenuButton.addEventListener('click', toggleMobileMenu);
-                mobileMenuButton.addEventListener('touchstart', function(e) {
+                mobileMenuButton.addEventListener('touchstart', function (e) {
                     e.preventDefault(); // Prevent default touch behavior
                     toggleMobileMenu(e);
                 });
@@ -392,7 +418,7 @@
                             // Hide menu with animation
                             mobileMenuElement.classList.remove('opacity-100', 'visible', 'translate-y-0');
                             mobileMenuElement.classList.add('opacity-0', 'invisible', 'translate-y-[-10px]');
-                            
+
                             // Animate cross back to hamburger
                             if (hamburgerLines.length > 0) {
                                 hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
@@ -404,7 +430,7 @@
                                     hamburgerLines[1].classList.remove('hidden');
                                 }, 300);
                             }
-                            
+
                             // Hide menu after animation completes
                             setTimeout(() => {
                                 mobileMenuElement.classList.add('hidden');
@@ -412,26 +438,26 @@
                         }
                     }
                 };
-                
+
                 document.addEventListener('click', closeMobileMenu);
-                document.addEventListener('touchstart', function(e) {
+                document.addEventListener('touchstart', function (e) {
                     // For touch events, we need to be more careful about preventing defaults
                     closeMobileMenu(e);
                 }, { passive: true }); // Use passive listener for better performance
-                
+
                 // Close menu when browser back/forward buttons are used
-                window.addEventListener('popstate', function() {
+                window.addEventListener('popstate', function () {
                     if (mobileMenuElement) {
                         // Hide menu with animation
                         mobileMenuElement.classList.remove('opacity-100', 'visible', 'translate-y-0');
                         mobileMenuElement.classList.add('opacity-0', 'invisible', 'translate-y-[-10px]');
-                        
+
                         // Reset hamburger icon
                         if (hamburgerLines.length > 0) {
                             hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
                             hamburgerLines[1].classList.remove('hidden', '-rotate-45', '-translate-y-1');
                         }
-                        
+
                         // Hide menu after animation completes
                         setTimeout(() => {
                             mobileMenuElement.classList.add('hidden');
@@ -442,15 +468,15 @@
 
             // Toggle services submenu
             if (servicesToggle && servicesSubmenu) {
-                const toggleServices = function(e) {
+                const toggleServices = function (e) {
                     e.preventDefault(); // Prevent default behavior
                     e.stopPropagation(); // Stop event from bubbling up
-                    
+
                     // Toggle submenu visibility with animation
                     if (servicesSubmenu.classList.contains('hidden')) {
                         servicesSubmenu.classList.remove('hidden', 'opacity-0', 'translate-y-[-5px]');
                         servicesSubmenu.classList.add('opacity-100', 'translate-y-0');
-                        
+
                         // Rotate the chevron icon
                         const icon = servicesToggle.querySelector('i');
                         if (icon) {
@@ -459,22 +485,22 @@
                     } else {
                         servicesSubmenu.classList.remove('opacity-100', 'translate-y-0');
                         servicesSubmenu.classList.add('opacity-0', 'translate-y-[-5px]');
-                        
+
                         // Rotate the chevron icon back
                         const icon = servicesToggle.querySelector('i');
                         if (icon) {
                             icon.classList.remove('rotate-180');
                         }
-                        
+
                         // Hide submenu after animation completes
                         setTimeout(() => {
                             servicesSubmenu.classList.add('hidden');
                         }, 300);
                     }
                 };
-                
+
                 servicesToggle.addEventListener('click', toggleServices);
-                servicesToggle.addEventListener('touchstart', function(e) {
+                servicesToggle.addEventListener('touchstart', function (e) {
                     e.preventDefault(); // Prevent default touch behavior
                     toggleServices(e);
                 });
@@ -482,15 +508,15 @@
 
             // Toggle FAQ submenu
             if (faqToggle && faqSubmenu) {
-                const toggleFaq = function(e) {
+                const toggleFaq = function (e) {
                     e.preventDefault(); // Prevent default behavior
                     e.stopPropagation(); // Stop event from bubbling up
-                    
+
                     // Toggle submenu visibility with animation
                     if (faqSubmenu.classList.contains('hidden')) {
                         faqSubmenu.classList.remove('hidden', 'opacity-0', 'translate-y-[-5px]');
                         faqSubmenu.classList.add('opacity-100', 'translate-y-0');
-                        
+
                         // Rotate the chevron icon
                         const icon = faqToggle.querySelector('i');
                         if (icon) {
@@ -499,46 +525,46 @@
                     } else {
                         faqSubmenu.classList.remove('opacity-100', 'translate-y-0');
                         faqSubmenu.classList.add('opacity-0', 'translate-y-[-5px]');
-                        
+
                         // Rotate the chevron icon back
                         const icon = faqToggle.querySelector('i');
                         if (icon) {
                             icon.classList.remove('rotate-180');
                         }
-                        
+
                         // Hide submenu after animation completes
                         setTimeout(() => {
                             faqSubmenu.classList.add('hidden');
                         }, 300);
                     }
                 };
-                
+
                 faqToggle.addEventListener('click', toggleFaq);
-                faqToggle.addEventListener('touchstart', function(e) {
+                faqToggle.addEventListener('touchstart', function (e) {
                     e.preventDefault(); // Prevent default touch behavior
                     toggleFaq(e);
                 });
             }
         });
-        
+
         // Additional handler to close menu when page visibility changes (helps with mobile back navigation)
-        document.addEventListener('visibilitychange', function() {
+        document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible') {
                 const mobileMenuElement = document.getElementById('mobile-menu');
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
                 const hamburgerLines = mobileMenuButton ? mobileMenuButton.querySelectorAll('span') : [];
-                
+
                 if (mobileMenuElement) {
                     // Hide menu with animation
                     mobileMenuElement.classList.remove('opacity-100', 'visible', 'translate-y-0');
                     mobileMenuElement.classList.add('opacity-0', 'invisible', 'translate-y-[-10px]');
-                    
+
                     // Reset hamburger icon
                     if (hamburgerLines.length > 0) {
                         hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
                         hamburgerLines[1].classList.remove('hidden', '-rotate-45', '-translate-y-1');
                     }
-                    
+
                     // Hide menu after animation completes
                     setTimeout(() => {
                         mobileMenuElement.classList.add('hidden');
