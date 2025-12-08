@@ -1,5 +1,9 @@
 <?php
 $pageTitle = "FAQ - SoftSkills Academy";
+
+// Include configuration file
+require_once __DIR__ . '/../config.php';
+
 include __DIR__ . '/../includes/functions.php';
 $faqs = loadData(__DIR__ . '/../data/faqs.json');
 ?>

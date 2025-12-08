@@ -1,5 +1,9 @@
 <?php
 $pageTitle = "Success Stories - SoftSkills Academy";
+
+// Include configuration file
+require_once __DIR__ . '/../config.php';
+
 include __DIR__ . '/../includes/functions.php';
 $stories = loadData(__DIR__ . '/../data/success-stories.json');
 ?>

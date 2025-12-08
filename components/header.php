@@ -1,12 +1,12 @@
 <?php
 // Include configuration file
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../config.php';
 ?>
 
 <header class="bg-white shadow-md sticky top-0 z-[1001]">
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-            <a href="./index.php" id="home-link">
+            <a href="<?php echo BASE_PATH; ?>/index.php" id="home-link">
                 <div class="flex items-center">
                     <h1 class="text-2xl font-bold text-blue-600">SoftSkills</h1>
                 </div>
@@ -17,7 +17,7 @@ require_once __DIR__ . '/config.php';
                 <ul class="flex flex-wrap space-x-1">
 
                     <li>
-                        <a href="./index.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="<?php echo BASE_PATH; ?>/index.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -30,7 +30,7 @@ require_once __DIR__ . '/config.php';
                     </li>
 
                     <li>
-                        <a href="./pages/about.php" id="desktop-about-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="<?php echo BASE_PATH; ?>/pages/about.php" id="desktop-about-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -43,7 +43,7 @@ require_once __DIR__ . '/config.php';
                     </li>
 
                     <li class="group relative">
-                        <a href="./pages/services.php" id="desktop-services-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="<?php echo BASE_PATH; ?>/pages/services.php" id="desktop-services-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -77,7 +77,7 @@ require_once __DIR__ . '/config.php';
                     </li>
 
                     <li>
-                        <a href="./pages/schedule.php" id="desktop-schedule-link"
+                        <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" id="desktop-schedule-link"
                         class=" text-gray-700 font-medium relative px-3 py-1 rounded-md transition-all duration-300
                             hover:text-blue-600 hover:bg-blue-50 after:absolute after:left-0 after:bottom-0 after:h-0.5
                             after:w-0 after:bg-blue-600 after:rounded-full after:transition-all after:duration-300
@@ -87,7 +87,7 @@ require_once __DIR__ . '/config.php';
                     </li>
 
                     <li class="group relative">
-                        <a href="./pages/faq.php" id="desktop-faq-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="<?php echo BASE_PATH; ?>/pages/faq.php" id="desktop-faq-link" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -114,7 +114,7 @@ require_once __DIR__ . '/config.php';
                     </li> -->
 
                     <li>
-                        <a href="./pages/contact.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+                        <a href="<?php echo BASE_PATH; ?>/pages/contact.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
           hover:text-blue-600 hover:bg-blue-50
           
@@ -233,27 +233,6 @@ require_once __DIR__ . '/config.php';
             }
 
             // Handle navigation link clicks to close menu before navigating
-            const navigationLinks = document.querySelectorAll('#mobile-menu a:not([href="#"])');
-            navigationLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    if (mobileMenuElement) {
-                        // Animate menu closing
-                        mobileMenuElement.classList.remove('opacity-100', 'visible', 'translate-y-0');
-                        mobileMenuElement.classList.add('opacity-0', 'invisible', 'translate-y-[-10px]');
-
-                        // Reset hamburger icon
-                        if (hamburgerLines.length > 0) {
-                            hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
-                            hamburgerLines[1].classList.remove('hidden', '-rotate-45', '-translate-y-1');
-                        }
-
-                        // Hide menu after animation completes
-                        setTimeout(() => {
-                            mobileMenuElement.classList.add('hidden');
-                        }, 300);
-                    }
-                });
-            });
 
             if (mobileMenuButton && mobileMenuElement) {
                 // Handle both click and touch events for better mobile support

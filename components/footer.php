@@ -1,6 +1,6 @@
 <?php
 // Include configuration file
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../config.php';
 ?>
 
 <footer class="bg-gray-900 text-white">
