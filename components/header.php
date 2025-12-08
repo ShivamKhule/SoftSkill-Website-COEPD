@@ -12,10 +12,10 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
             <a href="<?php echo BASE_PATH; ?>/index.php" id="home-link">
-                <div class="flex items-center">
+                <!-- <div class="flex items-center">
                     <h1 class="text-2xl font-bold text-blue-600">SoftSkills</h1>
-                </div>
-                <!-- <img src="/learn/assets/images/logo.png" alt="Academy Logo" class="w-10 h-10 ml-2"> -->
+                </div> -->
+                <img src="<?php echo BASE_PATH; ?>/assets/SOFT SKILL MENTOR hz.png" alt="SoftSkill Mentor Logo" class="w-50 h-14 ml-2">
             </a>
 
             <nav class="hidden lg:block">
@@ -179,7 +179,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <a href="<?php echo BASE_PATH; ?>/pages/services.php" id="mobile-services-link"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow transition-all duration-200 transform hover:translate-x-1">Services</a>
                     <button id="services-toggle" class="text-gray-700 px-3 py-2 transition-transform duration-300">
-                        <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i>
+                        <!-- <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i> -->
                     </button>
                 </div>
                 <!-- <div id="services-submenu"
@@ -199,7 +199,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <a href="<?php echo BASE_PATH; ?>/pages/faq.php" id="mobile-faq-link"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow transition-all duration-200 transform hover:translate-x-1">FAQ</a>
                     <button id="faq-toggle" class="text-gray-700 px-3 py-2 transition-transform duration-300">
-                        <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i>
+                        <!-- <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i> -->
                     </button>
                 </div>
 
@@ -209,9 +209,9 @@ if (session_status() == PHP_SESSION_NONE) {
                 <a href="<?php echo BASE_PATH; ?>/pages/contact.php" id="mobile-contact-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Contact</a>
                 <!-- <a href="/learn/pages/downloads/" -->
-                <a href="#"
+                <!-- <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Free
-                    Resources</a>
+                    Resources</a> -->
                 <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-2 transition-all duration-300 transform hover:scale-[1.02]">Enroll
                     Now</a>
