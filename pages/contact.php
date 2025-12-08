@@ -6,15 +6,42 @@ require_once __DIR__ . '/../config.php';
 
 include __DIR__ . '/../includes/functions.php';
 $courses = loadData(__DIR__ . '/../data/courses.json');
+$batches = loadData(__DIR__ . '/../data/batches.json');
 require_once __DIR__ . '/../includes/db.php';
 
 $db = new Database();
 $db->connectServerWithDB();
 $db->createContactUsTable();
+$db->createEnrollmentsTable();
+$db->createBatchesTable();
 
 $name = $phone = $email = $course = $mode = $message = '';
 $show_success_alert = false;
 $success_message = '';
+$is_enrollment = false;
+
+// Check if this is an enrollment request
+if (isset($_GET['batch']) && isset($_GET['course'])) {
+    $is_enrollment = true;
+    $selected_batch_id = $_GET['batch'];
+    $selected_course_id = $_GET['course'];
+    
+    // Find the selected batch
+    foreach ($batches as $batch) {
+        if ($batch['id'] == $selected_batch_id) {
+            $selected_batch = $batch;
+            break;
+        }
+    }
+    
+    // Find the selected course
+    foreach ($courses as $course_item) {
+        if ($course_item['id'] == $selected_course_id) {
+            $selected_course = $course_item;
+            break;
+        }
+    }
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = test_input($_POST["name"]);
@@ -23,25 +50,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $course = test_input($_POST["course"]);
     $mode = test_input($_POST["mode"]);
     $message = test_input($_POST["message"]);
-
-    $result = $db->insertContactMessage($name, $phone, $email, $course, $mode, $message);
     
-    if (strpos($result, '✔') !== false) {
-        $show_success_alert = true;
-        $success_message = 'Thank you! Your message has been sent successfully.';
-        // Clear form fields after successful submission
-        $name = $phone = $email = $course = $mode = $message = '';
+    // Check if this is an enrollment
+    if (isset($_POST["is_enrollment"]) && $_POST["is_enrollment"] == "1") {
+        $batch_id = test_input($_POST["batch_id"]);
         
-        // Use GET parameter to indicate success
-        header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
-        exit();
+        // Insert enrollment into database
+        $enrollment_id = $db->insertEnrollment($name, $email, $phone, $batch_id, $course);
+        
+        if ($enrollment_id) {
+            // Send confirmation email
+            sendEnrollmentEmail($name, $email, $batch_id, $course, $batches, $courses);
+            
+            $show_success_alert = true;
+            $success_message = 'Thank you for enrolling! A confirmation email has been sent to your email address.';
+            // Clear form fields after successful submission
+            $name = $phone = $email = $course = $mode = $message = '';
+            
+            // Use GET parameter to indicate success
+            header("Location: " . $_SERVER['PHP_SELF'] . "?success=enrollment");
+            exit();
+        } else {
+            $error_message = 'There was an error processing your enrollment. Please try again.';
+        }
+    } else {
+        // Regular contact form submission
+        $result = $db->insertContactMessage($name, $phone, $email, $course, $mode, $message);
+        
+        if (strpos($result, '✔') !== false) {
+            $show_success_alert = true;
+            $success_message = 'Thank you! Your message has been sent successfully.';
+            // Clear form fields after successful submission
+            $name = $phone = $email = $course = $mode = $message = '';
+            
+            // Use GET parameter to indicate success
+            header("Location: " . $_SERVER['PHP_SELF'] . "?success=contact");
+            exit();
+        }
     }
 }
 
 // Check for success parameter
-if (isset($_GET['success']) && $_GET['success'] == 1) {
-    $show_success_alert = true;
-    $success_message = 'Thank you! Your message has been sent successfully.';
+if (isset($_GET['success'])) {
+    if ($_GET['success'] == 'enrollment') {
+        $show_success_alert = true;
+        $success_message = 'Thank you for enrolling! A confirmation email has been sent to your email address.';
+    } elseif ($_GET['success'] == 'contact') {
+        $show_success_alert = true;
+        $success_message = 'Thank you! Your message has been sent successfully.';
+    }
 }
 
 function test_input($data)
@@ -51,6 +108,79 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
+function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $courses) {
+    // Find batch and course details
+    $batch_details = null;
+    $course_details = null;
+    
+    foreach ($batches as $batch) {
+        if ($batch['id'] == $batch_id) {
+            $batch_details = $batch;
+            break;
+        }
+    }
+    
+    foreach ($courses as $course) {
+        if ($course['id'] == $course_id) {
+            $course_details = $course;
+            break;
+        }
+    }
+    
+    if (!$batch_details || !$course_details) {
+        return false;
+    }
+    
+    // Email content
+    $subject = "Enrollment Confirmation - " . $course_details['title'];
+    
+    $message = "
+    <html>
+    <head>
+        <title>Enrollment Confirmation</title>
+    </head>
+    <body>
+        <h2>Enrollment Confirmation</h2>
+        <p>Dear " . $name . ",</p>
+        <p>Thank you for enrolling in our program. Here are the details of your enrollment:</p>
+        
+        <h3>Program Details</h3>
+        <ul>
+            <li><strong>Program:</strong> " . $course_details['title'] . "</li>
+            <li><strong>Batch ID:</strong> " . $batch_details['id'] . "</li>
+            <li><strong>Start Date:</strong> " . date('M j, Y', strtotime($batch_details['startDate'])) . "</li>
+            <li><strong>End Date:</strong> " . date('M j, Y', strtotime($batch_details['endDate'])) . "</li>
+            <li><strong>Timings:</strong> " . $batch_details['timings'] . "</li>
+            <li><strong>Mode:</strong> " . $batch_details['mode'] . "</li>
+            <li><strong>Instructor:</strong> " . $batch_details['instructor'] . "</li>
+        </ul>
+        
+        <h3>Next Steps</h3>
+        <ol>
+            <li>Please check your email for payment instructions.</li>
+            <li>You will receive joining instructions 24 hours before the program starts.</li>
+            <li>Download our mobile app for daily micro-learning sessions.</li>
+        </ol>
+        
+        <p>If you have any questions, please contact us at info@softskillmentor.com</p>
+        
+        <p>Best regards,<br/>
+        The SoftSkills Academy Team</p>
+    </body>
+    </html>
+    ";
+    
+    // Headers
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: SoftSkills Academy <info@softskillmentor.com>" . "\r\n";
+    
+    // Send email
+    mail($email, $subject, $message, $headers);
+    
+    return true;
+}
 ?>
 
 <?php ob_start(); ?>
@@ -58,8 +188,8 @@ function test_input($data)
 <!-- Hero Section -->
 <section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20 animate-fade-in">
     <div class="container mx-auto px-4 text-center animate-slide-up">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">Contact Us</h1>
-        <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">Have questions about our training programs? Get in touch with our team.</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down"><?php echo $is_enrollment ? 'Enroll Now' : 'Contact Us'; ?></h1>
+        <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay"><?php echo $is_enrollment ? 'Complete your enrollment in our program' : 'Have questions about our training programs? Get in touch with our team.'; ?></p>
     </div>
 </section>
 
@@ -69,9 +199,27 @@ function test_input($data)
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 contact-container">
             <!-- Contact Form -->
             <div class="animate-fade-in-left">
-                <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
+                <h2 class="text-3xl font-bold mb-6"><?php echo $is_enrollment ? 'Complete Your Enrollment' : 'Send Us a Message'; ?></h2>
+                
+                <?php if ($is_enrollment && isset($selected_batch) && isset($selected_course)): ?>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-bold text-lg mb-2">Program Enrollment Details</h3>
+                    <p><strong>Program:</strong> <?php echo $selected_course['title']; ?></p>
+                    <p><strong>Batch:</strong> <?php echo $selected_batch['id']; ?></p>
+                    <p><strong>Start Date:</strong> <?php echo date('M j, Y', strtotime($selected_batch['startDate'])); ?></p>
+                    <p><strong>Timings:</strong> <?php echo $selected_batch['timings']; ?></p>
+                    <p><strong>Mode:</strong> <?php echo $selected_batch['mode']; ?></p>
+                </div>
+                <?php endif; ?>
                 
                 <form method="post" action="" class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md animate-fade-in-up" id="contactForm">
+                    <?php if ($is_enrollment): ?>
+                    <input type="hidden" name="is_enrollment" value="1">
+                    <input type="hidden" name="batch_id" value="<?php echo $is_enrollment ? $selected_batch_id : ''; ?>">
+                    <input type="hidden" name="course" value="<?php echo $is_enrollment ? $selected_course_id : ''; ?>">
+                    <input type="hidden" name="mode" value="<?php echo $is_enrollment && isset($selected_batch) ? strtolower($selected_batch['mode']) : ''; ?>">
+                    <?php endif; ?>
+                    
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
                         <input type="text" id="name" name="name" value="<?php echo $name; ?>"
@@ -94,6 +242,7 @@ function test_input($data)
                         </div>
                     </div>
 
+                    <?php if (!$is_enrollment): ?>
                     <div class="mb-6">
                         <label for="course" class="block text-gray-700 font-medium mb-2">Course Interest</label>
                         <select id="course" name="course"
@@ -124,17 +273,17 @@ function test_input($data)
                             </label>
                         </div>
                     </div>
+                    <?php endif; ?>
 
                     <div class="mb-6">
                         <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
                         <textarea id="message" rows="5" name="message"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300"
-                            placeholder="Your message"><?php echo $message; ?></textarea>
+                            placeholder="<?php echo $is_enrollment ? 'Any special requirements or questions?' : 'Your message'; ?>"><?php echo $message; ?></textarea>
                     </div>
 
                     <button type="submit"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Send
-                        Message</button>
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md"><?php echo $is_enrollment ? 'Complete Enrollment' : 'Send Message'; ?></button>
                 </form>
             </div>
 
@@ -228,11 +377,9 @@ function test_input($data)
         <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <!-- <a href="../pages/courses/" -->
-            <a href="#"
+            <a href="/learn/pages/schedule.php"
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore
                 Courses</a>
-            <!-- <a href="../pages/downloads/" -->
             <a href="#"
                 class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Free
                 E-book</a>
@@ -413,7 +560,7 @@ function test_input($data)
     // Initialize Notyf
     window.addEventListener('load', function() {
         const notyf = new Notyf({
-            duration: 3000,
+            duration: 5000,
             position: {
                 x: 'right',
                 y: 'top'
@@ -469,11 +616,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Observe elements with fade-in-right animations
     document.querySelectorAll('.animate-fade-in-right').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Observe elements with slide animations
-    document.querySelectorAll('.animate-slide-up').forEach(el => {
         observer.observe(el);
     });
 });

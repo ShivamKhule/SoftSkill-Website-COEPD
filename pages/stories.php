@@ -108,10 +108,10 @@ $stories = loadData(__DIR__ . '/../data/success-stories.json');
         <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="courses/"
+            <a href="/learn/pages/schedule.php"
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore
                 Courses</a>
-            <a href="contact.php"
+            <a href="/learn/pages/contact.php"
                 class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact
                 Us</a>
         </div>

@@ -2,7 +2,12 @@
 // Configuration file for environment-specific settings
 
 // Automatically detect environment
-$environment = (strpos($_SERVER['HTTP_HOST'] ?? '', 'localhost') !== false || strpos($_SERVER['HTTP_HOST'] ?? '', '127.0.0.1') !== false) ? 'development' : 'production';
+// Check if running from command line
+if (php_sapi_name() === 'cli') {
+    $environment = 'development';
+} else {
+    $environment = (strpos($_SERVER['HTTP_HOST'] ?? '', 'localhost') !== false || strpos($_SERVER['HTTP_HOST'] ?? '', '127.0.0.1') !== false) ? 'development' : 'production';
+}
 
 if ($environment === 'development') {
     // Local development settings

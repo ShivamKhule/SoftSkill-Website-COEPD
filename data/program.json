@@ -1,0 +1,136 @@
+{
+  "title": "COMPLETE 3-MONTH PROGRAM",
+  "duration": "12 Weeks",
+  "dailyTime": "60 Minutes/Day",
+  "practicalPercentage": "95%",
+  "audience": "Ages 22–50 (Students, Homemakers, Working Professionals, Mid-Career)",
+  "structure": [
+    {
+      "month": 1,
+      "title": "Communication & Confidence",
+      "weeks": [
+        {
+          "week": 1,
+          "title": "Fluency, Expression & Everyday English",
+          "techniques": ["Chunking", "Shadowing", "Think–Speak", "Rhythm Control"],
+          "addons": ["Voice Feedback", "Conversation Templates"],
+          "challenge": "Speak to a stranger (30 sec)"
+        },
+        {
+          "week": 2,
+          "title": "Business English & Writing Power",
+          "techniques": ["BLUF", "CLEAR", "Tone Ladder"],
+          "addons": ["25 Email Templates", "Chat-to-Email Conversions"],
+          "challenge": "Send one professional email"
+        },
+        {
+          "week": 3,
+          "title": "Pronunciation, Accent, Voice & Clarity",
+          "techniques": ["Stress-Rhythm-Intonation", "Pausing", "Pace Control"],
+          "addons": ["Personalized Pronunciation Correction"],
+          "challenge": "2-minute English recording"
+        },
+        {
+          "week": 4,
+          "title": "Presentation Mastery",
+          "techniques": ["PSI", "TED Hooks", "Storytelling"],
+          "addons": ["1-slide pitch", "body language guide"],
+          "challenge": "1-minute talk"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "title": "Career Growth & Workplace Intelligence",
+      "weeks": [
+        {
+          "week": 5,
+          "title": "Interview Domination (Master Week 1)",
+          "techniques": ["STAR", "PPF", "CAR", "Answer Engineering"],
+          "addons": ["100-answer bank", "gap scripts"],
+          "challenge": "AI Interview Simulator"
+        },
+        {
+          "week": 6,
+          "title": "Resume, LinkedIn & Branding",
+          "techniques": ["Impact Bullets", "Brand Story"],
+          "addons": ["Resume rewrite", "LinkedIn headline formulas"],
+          "challenge": "Update profile"
+        },
+        {
+          "week": 7,
+          "title": "Workplace Intelligence & Leadership Basics",
+          "techniques": ["SBI", "Radical Candor", "Stakeholder Mapping"],
+          "addons": ["Conflict scripts", "leadership playbook"]
+        },
+        {
+          "week": 8,
+          "title": "Negotiation, Productivity & Career Planning",
+          "techniques": ["BATNA", "Anchoring", "Time Boxing"],
+          "addons": ["Negotiation scripts", "2-year career plan"],
+          "touchpoint": "Career Clarity Sprint"
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "title": "Personality, EQ, Leadership & AI",
+      "weeks": [
+        {
+          "week": 9,
+          "title": "Personality & Confidence Upgrade",
+          "techniques": ["Confidence Ladder", "Charisma Triad"],
+          "addons": ["Presence Audit", "Grooming Guide"]
+        },
+        {
+          "week": 10,
+          "title": "Emotional Intelligence & Assertiveness",
+          "techniques": ["Emotional Labeling", "Boundary Sandwich"],
+          "addons": ["30 assertiveness scripts"]
+        },
+        {
+          "week": 11,
+          "title": "Critical Thinking & Creativity",
+          "techniques": ["5 Whys", "MECE", "SCAMPER"],
+          "addons": ["25 case studies"]
+        },
+        {
+          "week": 12,
+          "title": "AI for Communication & Career (Master Week 2)",
+          "techniques": ["AI Resume Builder", "AI Email Polisher", "AI Interview Coach"],
+          "addons": ["100 AI prompts", "personal AI system"],
+          "deliverable": "Final Showcase + Certification"
+        }
+      ]
+    }
+  ],
+  "dailyFormat": {
+    "warmup": "5 minutes",
+    "technique": "20 minutes",
+    "lab": "25 minutes",
+    "coaching": "10 minutes"
+  },
+  "weeklyElements": [
+    "Weekly Review",
+    "Real Life Challenge",
+    "Habit Tracking",
+    "Reflection Sheets",
+    "Gamification Points"
+  ],
+  "biweeklyElements": [
+    "Skill Assessments",
+    "Fluency, Writing & Confidence Scores"
+  ],
+  "monthlyElements": [
+    "Personalized Feedback Video",
+    "Portfolio Progress Check"
+  ],
+  "programDeliverables": [
+    "Daily WhatsApp Micro-Learning",
+    "Gamification System",
+    "Success Vault (templates, prompts, scripts)",
+    "3 Personalized Feedback Videos",
+    "30-Day Post-Program Follow-Up",
+    "Full Portfolio (Resume, LinkedIn, Intro Video, Presentation)"
+  ]
+}

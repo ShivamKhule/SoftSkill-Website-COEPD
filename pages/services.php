@@ -3,6 +3,7 @@ $pageTitle = "Our Services - SoftSkills Academy";
 include __DIR__ . '/../includes/functions.php';
 // include __DIR__ . '/../pages/services.php';
 $services = loadData(__DIR__ . '/../data/services.json');
+$program = loadData(__DIR__ . '/../data/program.json');
 ?>
 
 <?php ob_start(); ?>
@@ -31,8 +32,8 @@ $services = loadData(__DIR__ . '/../data/services.json');
                 </div>
                 <h3 class="text-xl font-bold mb-3"><?php echo $service['title']; ?></h3>
                 <p class="text-gray-600 mb-4"><?php echo $service['description']; ?></p>
-                <a href="courses/<?php echo str_replace(' ', '-', strtolower($service['title'])); ?>.php" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transform hover:translate-x-1 transition-transform">
-                    Learn more
+                <a href="<?php echo ($service['id'] == 'complete-program') ? 'schedule.php' : 'contact.php?service=' . $service['id']; ?>" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transform hover:translate-x-1 transition-transform">
+                    <?php echo ($service['id'] == 'complete-program') ? 'View Details & Schedule' : 'Learn more'; ?>
                     <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
@@ -41,8 +42,74 @@ $services = loadData(__DIR__ . '/../data/services.json');
     </div>
 </section>
 
-<!-- Corporate Training -->
+<!-- Program Highlights -->
 <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Why Our <?php echo $program['title']; ?>?</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">Discover what makes our program unique and transformative</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow">
+                <div class="text-blue-600 text-3xl mb-4">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">95% Practical</h3>
+                <p class="text-gray-600">Hands-on exercises and real-world simulations</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow">
+                <div class="text-teal-600 text-3xl mb-4">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Daily 60-Minute Sessions</h3>
+                <p class="text-gray-600">Consistent daily practice for lasting results</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow">
+                <div class="text-indigo-600 text-3xl mb-4">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Expert Instructors</h3>
+                <p class="text-gray-600">Industry professionals with proven track records</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow">
+                <div class="text-purple-600 text-3xl mb-4">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Certification</h3>
+                <p class="text-gray-600">Recognized credential upon completion</p>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold mb-6 text-center">Program Structure</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <?php foreach ($program['structure'] as $monthIndex => $month): ?>
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-blue-300 transition-colors">
+                    <div class="text-center mb-4">
+                        <span class="inline-block bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-full">Month <?php echo ($monthIndex + 1); ?></span>
+                        <h4 class="text-xl font-bold mt-4"><?php echo $month['title']; ?></h4>
+                    </div>
+                    <ul class="space-y-2 mt-4">
+                        <?php foreach ($month['weeks'] as $week): ?>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-blue-500 text-xs mt-2 mr-2"></i>
+                            <span class="text-sm"><?php echo $week['title']; ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Corporate Training -->
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="flex flex-col lg:flex-row items-center gap-12 corporate-training-container">
             <div class="lg:w-1/2 animate-slide-in-left">
@@ -75,85 +142,7 @@ $services = loadData(__DIR__ . '/../data/services.json');
                     </div>
                 </div>
                 
-                <a href="corporate.php" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Learn About Corporate Programs</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Training Formats -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Flexible Training Formats</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">Choose the learning format that best fits your schedule and preferences.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 training-formats-container">
-            <div class="bg-gradient-to-br from-blue-50 to-white hover:from-blue-200 to-blue-100 p-8 rounded-xl shadow-md text-center border-t-4 border-blue-500 transform hover:scale-105 transition-all duration-300 training-format-card animate-fade-in-up delay-1">
-                <div class="text-blue-600 text-4xl mb-4">
-                    <i class="fas fa-laptop animate-pulse"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4">Online Training</h3>
-                <p class="text-gray-600 mb-4">Live interactive sessions from anywhere with our virtual classroom technology.</p>
-                <ul class="text-left text-gray-600 space-y-2">
-                    <li class="flex items-center animate-fade-in-left delay-1">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Live instructor-led sessions</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-2">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Session recordings for review</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-3">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Interactive exercises and activities</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="bg-gradient-to-br from-teal-50 to-white hover:from-teal-200 to-teal-100 p-8 rounded-xl shadow-md text-center border-t-4 border-teal-500 transform hover:scale-105 transition-all duration-300 training-format-card animate-fade-in-up delay-2">
-                <div class="text-teal-600 text-4xl mb-4">
-                    <i class="fas fa-building animate-pulse"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4">In-Person Classes</h3>
-                <p class="text-gray-600 mb-4">Traditional classroom experience at our training centers with direct interaction.</p>
-                <ul class="text-left text-gray-600 space-y-2">
-                    <li class="flex items-center animate-fade-in-left delay-1">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Face-to-face instruction</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-2">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Networking opportunities</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-3">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Hands-on practice sessions</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="bg-gradient-to-br from-indigo-50 to-white hover:from-indigo-200 to-indigo-100 p-8 rounded-xl shadow-md text-center border-t-4 border-indigo-500 transform hover:scale-105 transition-all duration-300 training-format-card animate-fade-in-up delay-3">
-                <div class="text-indigo-600 text-4xl mb-4">
-                    <i class="fas fa-building animate-pulse"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4">On-Site Corporate</h3>
-                <p class="text-gray-600 mb-4">Customized training delivered at your organization's location.</p>
-                <ul class="text-left text-gray-600 space-y-2">
-                    <li class="flex items-center animate-fade-in-left delay-1">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Tailored to your company needs</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-2">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Minimize employee travel time</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-3">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Team building benefits</span>
-                    </li>
-                </ul>
+                <a href="/learn/pages/contact.php?service=corporate" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Learn About Corporate Programs</a>
             </div>
         </div>
     </div>
@@ -165,8 +154,8 @@ $services = loadData(__DIR__ . '/../data/services.json');
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Enhance Your Skills?</h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join our next batch or contact us to learn more about our training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="schedule.php" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">View Schedule</a>
-            <a href="contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact Us</a>
+            <a href="/learn/pages/schedule.php" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">View Schedule</a>
+            <a href="/learn/pages/contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact Us</a>
         </div>
     </div>
 </section>
@@ -381,11 +370,6 @@ $services = loadData(__DIR__ . '/../data/services.json');
     .services-container .service-card:nth-child(3n+1) { animation-delay: 0.1s; }
     .services-container .service-card:nth-child(3n+2) { animation-delay: 0.2s; }
     .services-container .service-card:nth-child(3n+3) { animation-delay: 0.3s; }
-    
-    /* Stagger animations for training formats */
-    .training-formats-container .training-format-card:nth-child(1) { animation-delay: 0.1s; }
-    .training-formats-container .training-format-card:nth-child(2) { animation-delay: 0.2s; }
-    .training-formats-container .training-format-card:nth-child(3) { animation-delay: 0.3s; }
     
     /* Stagger animations for corporate training benefits */
     .corporate-training-container .animate-fade-in-left:nth-child(1) { animation-delay: 0.1s; }

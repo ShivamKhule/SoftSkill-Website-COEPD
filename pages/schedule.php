@@ -3,6 +3,7 @@ $pageTitle = "Batches & Schedule - SoftSkills Academy";
 include __DIR__ . '/../includes/functions.php';
 $batches = loadData(__DIR__ . '/../data/batches.json');
 $courses = loadData(__DIR__ . '/../data/courses.json');
+$program = loadData(__DIR__ . '/../data/program.json');
 ?>
 
 <?php ob_start(); ?>
@@ -10,13 +11,178 @@ $courses = loadData(__DIR__ . '/../data/courses.json');
 <!-- Hero Section -->
 <section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20 animate-fade-in">
     <div class="container mx-auto px-4 text-center animate-slide-up">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">Batches & Schedule</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down"><?php echo $program['title']; ?></h1>
         <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">Find the perfect batch timing that fits your schedule.</p>
     </div>
 </section>
 
-<!-- Upcoming Batches -->
+<!-- Program Overview -->
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Program Overview</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto"><?php echo $program['duration']; ?> | <?php echo $program['dailyTime']; ?>/Day | <?php echo $program['practicalPercentage']; ?> Practical</p>
+            <p class="text-gray-600 mt-2">Audience: <?php echo $program['audience']; ?></p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 mb-12 animate-fade-in-up">
+            <h3 class="text-2xl font-bold mb-4 text-center">Daily Format</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                    <div class="text-blue-600 font-bold"><?php echo $program['dailyFormat']['warmup']; ?></div>
+                    <div>Warm-Up</div>
+                </div>
+                <div class="bg-teal-50 p-4 rounded-lg text-center">
+                    <div class="text-teal-600 font-bold"><?php echo $program['dailyFormat']['technique']; ?></div>
+                    <div>Technique of the Day</div>
+                </div>
+                <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                    <div class="text-indigo-600 font-bold"><?php echo $program['dailyFormat']['lab']; ?></div>
+                    <div>Lab & Simulation</div>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg text-center">
+                    <div class="text-purple-600 font-bold"><?php echo $program['dailyFormat']['coaching']; ?></div>
+                    <div>Coaching + Takeaway Tool</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in-up delay-1">
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center">Weekly Elements</h3>
+                <ul class="space-y-2">
+                    <?php foreach ($program['weeklyElements'] as $element): ?>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span><?php echo $element; ?></span>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center">Bi-Weekly Elements</h3>
+                <ul class="space-y-2">
+                    <?php foreach ($program['biweeklyElements'] as $element): ?>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                        <span><?php echo $element; ?></span>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center">Monthly Elements</h3>
+                <ul class="space-y-2">
+                    <?php foreach ($program['monthlyElements'] as $element): ?>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-teal-500 mr-2"></i>
+                        <span><?php echo $element; ?></span>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-6 animate-fade-in-up delay-2">
+            <h3 class="text-2xl font-bold mb-4 text-center">Program Deliverables</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <?php foreach ($program['programDeliverables'] as $deliverable): ?>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                    <i class="fas fa-gift text-blue-500 mr-3"></i>
+                    <span><?php echo $deliverable; ?></span>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Structure -->
 <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Program Structure</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">Detailed breakdown of our 3-month transformation journey</p>
+        </div>
+        
+        <?php foreach ($program['structure'] as $monthIndex => $month): ?>
+        <div class="mb-16 animate-fade-in-up delay-<?php echo $monthIndex; ?>">
+            <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Month <?php echo ($monthIndex + 1); ?> - <?php echo $month['title']; ?></h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <?php foreach ($month['weeks'] as $week): ?>
+                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="text-center mb-4">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Week <?php echo $week['week']; ?></span>
+                        <h4 class="text-lg font-bold mt-3"><?php echo $week['title']; ?></h4>
+                    </div>
+                    
+                    <?php if (!empty($week['techniques'])): ?>
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-700 mb-2">Techniques:</h5>
+                        <ul class="text-sm space-y-1">
+                            <?php foreach ($week['techniques'] as $technique): ?>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-blue-500 text-xs mt-1 mr-2"></i>
+                                <span><?php echo $technique; ?></span>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($week['addons'])): ?>
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-700 mb-2">Add-ons:</h5>
+                        <ul class="text-sm space-y-1">
+                            <?php foreach ($week['addons'] as $addon): ?>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle text-teal-500 text-xs mt-1 mr-2"></i>
+                                <span><?php echo $addon; ?></span>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($week['challenge'])): ?>
+                    <div class="mt-4 pt-3 border-t border-gray-200">
+                        <div class="flex items-center text-sm font-medium text-blue-600">
+                            <i class="fas fa-bullseye mr-2"></i>
+                            <span>Challenge: <?php echo $week['challenge']; ?></span>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($week['touchpoint'])): ?>
+                    <div class="mt-4 pt-3 border-t border-gray-200">
+                        <div class="flex items-center text-sm font-medium text-purple-600">
+                            <i class="fas fa-handshake mr-2"></i>
+                            <span>Touchpoint: <?php echo $week['touchpoint']; ?></span>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($week['deliverable'])): ?>
+                    <div class="mt-4 pt-3 border-t border-gray-200">
+                        <div class="flex items-center text-sm font-medium text-green-600">
+                            <i class="fas fa-trophy mr-2"></i>
+                            <span>Deliverable: <?php echo $week['deliverable']; ?></span>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<!-- Upcoming Batches -->
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">Upcoming Batches</h2>
@@ -64,93 +230,12 @@ $courses = loadData(__DIR__ . '/../data/courses.json');
                             </span>
                         </td>
                         <td class="py-4 px-4">
-                            <a href="contact.php?batch=<?php echo $batch['id']; ?>" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm transition duration-300 transform hover:scale-105 shadow-md">Enroll</a>
+                            <a href="contact.php?batch=<?php echo $batch['id']; ?>&course=complete-program" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm transition duration-300 transform hover:scale-105 shadow-md enroll-btn" data-course="<?php echo $batch['id']; ?>">Enroll</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-    </div>
-</section>
-
-<!-- Special Programs -->
-<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Special Programs</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">Additional training opportunities for specific needs and groups.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 program-container">
-            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 program-card animate-fade-in-up delay-1">
-                <div class="text-blue-600 text-3xl mb-4">
-                    <i class="fas fa-calendar-week"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Weekend Intensives</h3>
-                <p class="text-gray-600 mb-4">Accelerated weekend programs for busy professionals who want to complete courses quickly.</p>
-                <ul class="text-gray-600 space-y-2 mb-4">
-                    <li class="flex items-center animate-fade-in-left delay-1">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Condensed curriculum</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-2">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Extended session hours</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-3">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Same certification</span>
-                    </li>
-                </ul>
-                <a href="contact.php" class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">Learn More →</a>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 program-card animate-fade-in-up delay-2">
-                <div class="text-blue-600 text-3xl mb-4">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Corporate Batches</h3>
-                <p class="text-gray-600 mb-4">Customized training programs for organizations with specific team development needs.</p>
-                <ul class="text-gray-600 space-y-2 mb-4">
-                    <li class="flex items-center animate-fade-in-left delay-1">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Tailored curriculum</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-2">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>On-site or remote delivery</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-3">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Team pricing options</span>
-                    </li>
-                </ul>
-                <a href="corporate.php" class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">Learn More →</a>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 program-card animate-fade-in-up delay-3">
-                <div class="text-blue-600 text-3xl mb-4">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Executive Coaching</h3>
-                <p class="text-gray-600 mb-4">One-on-one coaching for senior professionals and executives focused on leadership development.</p>
-                <ul class="text-gray-600 space-y-2 mb-4">
-                    <li class="flex items-center animate-fade-in-left delay-1">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Personalized development plan</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-2">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>360-degree feedback</span>
-                    </li>
-                    <li class="flex items-center animate-fade-in-left delay-3">
-                        <i class="fas fa-check text-green-500 mr-2"></i>
-                        <span>Ongoing support</span>
-                    </li>
-                </ul>
-                <a href="contact.php" class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">Learn More →</a>
-            </div>
         </div>
     </div>
 </section>
@@ -202,10 +287,10 @@ $courses = loadData(__DIR__ . '/../data/courses.json');
 <!-- CTA Section -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Join a Batch?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Secure your spot in our upcoming training sessions.</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Transform Your Skills?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Secure your spot in our upcoming <?php echo $program['title']; ?>.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="contact.php" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Enroll Now</a>
+            <a href="contact.php?course=complete-program" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Enroll Now</a>
             <a href="contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact for Custom Scheduling</a>
         </div>
     </div>
@@ -393,6 +478,15 @@ $courses = loadData(__DIR__ . '/../data/courses.json');
         // Observe elements with slide animations
         document.querySelectorAll('.animate-slide-up').forEach(el => {
             observer.observe(el);
+        });
+        
+        // Handle enrollment buttons
+        document.querySelectorAll('.enroll-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const courseId = this.getAttribute('data-course');
+                window.location.href = 'contact.php?batch=' + courseId + '&course=complete-program';
+            });
         });
     });
 </script>

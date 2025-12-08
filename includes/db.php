@@ -115,7 +115,7 @@ class Database
     }
 
     // -------------------------------------------
-    // 4. CREATE FREE-E-BOOK USERS TABLE IF NOT EXISTS
+    // 5. CREATE FREE-E-BOOK USERS TABLE IF NOT EXISTS
     // -------------------------------------------
     public function createFreeEBookUsersTable()
     {
@@ -138,7 +138,61 @@ class Database
     }
 
     // -------------------------------------------
-    // 5. INSERT DATA INTO CONTACT US TABLE
+    // 6. CREATE ENROLLMENTS TABLE IF NOT EXISTS
+    // -------------------------------------------
+    public function createEnrollmentsTable()
+    {
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS enrollments (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(150) NOT NULL,
+                    email VARCHAR(150) NOT NULL,
+                    phone VARCHAR(20) NULL,
+                    batch_id VARCHAR(50) NOT NULL,
+                    course VARCHAR(100) NOT NULL,
+                    enrollment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    status ENUM('pending', 'confirmed', 'cancelled') DEFAULT 'pending'
+                )";
+
+            $this->conn->exec($sql);
+
+            // echo "✔ Table 'enrollments' created or already exists<br>";
+
+        } catch (PDOException $e) {
+            echo "❌ Error creating enrollments table: " . $e->getMessage() . "<br>";
+        }
+    }
+
+    // -------------------------------------------
+    // 7. CREATE BATCHES TABLE IF NOT EXISTS
+    // -------------------------------------------
+    public function createBatchesTable()
+    {
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS batches (
+                    id VARCHAR(50) PRIMARY KEY,
+                    course VARCHAR(150) NOT NULL,
+                    start_date DATE NOT NULL,
+                    end_date DATE NOT NULL,
+                    timings VARCHAR(100) NOT NULL,
+                    mode VARCHAR(20) NOT NULL,
+                    type VARCHAR(50) NOT NULL,
+                    seats_available INT NOT NULL,
+                    instructor VARCHAR(100) NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )";
+
+            $this->conn->exec($sql);
+
+            // echo "✔ Table 'batches' created or already exists<br>";
+
+        } catch (PDOException $e) {
+            echo "❌ Error creating batches table: " . $e->getMessage() . "<br>";
+        }
+    }
+
+    // -------------------------------------------
+    // 8. INSERT DATA INTO CONTACT US TABLE
     // -------------------------------------------
     public function insertContactMessage($name, $phone, $email, $course, $mode, $message)
     {
@@ -168,7 +222,7 @@ class Database
     }
 
     // -------------------------------------------
-    // 5. INSERT DATA INTO FREE-E-BOOK USERS TABLE
+    // 9. INSERT DATA INTO FREE-E-BOOK USERS TABLE
     // -------------------------------------------
     public function insertFreeEBookUsers($name, $email, $bookname)
     {
@@ -191,6 +245,52 @@ class Database
 
         } catch (PDOException $e) {
             return "❌ Error inserting contact form: " . $e->getMessage();
+        }
+    }
+
+    // -------------------------------------------
+    // 10. INSERT DATA INTO ENROLLMENTS TABLE
+    // -------------------------------------------
+    public function insertEnrollment($name, $email, $phone, $batch_id, $course)
+    {
+        try {
+            $sql = "INSERT INTO enrollments (name, email, phone, batch_id, course)
+                VALUES (:name, :email, :phone, :batch_id, :course)";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // Bind values (prepared statement)
+            $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+            $stmt->bindValue(':batch_id', $batch_id, PDO::PARAM_STR);
+            $stmt->bindValue(':course', $course, PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+                return $this->conn->lastInsertId();
+            } else {
+                return false;
+            }
+
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    // -------------------------------------------
+    // 11. GET BATCH DETAILS BY ID
+    // -------------------------------------------
+    public function getBatchById($batch_id)
+    {
+        try {
+            $sql = "SELECT * FROM batches WHERE id = :batch_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':batch_id', $batch_id, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
         }
     }
 }

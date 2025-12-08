@@ -32,32 +32,22 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul class="space-y-3">
-                    <!-- <li><a href="/softskill_website/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
-                    <li><a href="/softskill_website/pages/about.php" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
-                    <li><a href="/softskill_website/pages/services.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
-                    <li><a href="/softskill_website/pages/contact.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
-                    <li><a href="/softskill_website/pages/faq.php" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li> -->
-                    <li><a href="/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
+                    <li><a href="/learn/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
+                    <li><a href="/learn/pages/about.php" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
+                    <li><a href="/learn/pages/services.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
+                    <li><a href="/learn/pages/contact.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
+                    <li><a href="/learn/pages/faq.php" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
                 </ul>
             </div>
             
             <div>
                 <h4 class="text-lg font-semibold mb-4">Our Services</h4>
                 <ul class="space-y-3">
-                    <!-- <li><a href="/softskill_website/pages/courses/communication.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Communication Skills</a></li>
-                    <li><a href="/softskill_website/pages/courses/leadership.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Leadership Training</a></li>
-                    <li><a href="/softskill_website/pages/corporate.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Corporate Training</a></li>
-                    <li><a href="/softskill_website/pages/courses/public-speaking.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Public Speaking</a></li>
-                    <li><a href="/softskill_website/pages/courses/interview.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Interview Prep</a></li> -->
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Communication Skills</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Leadership Training</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Corporate Training</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Public Speaking</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">Interview Prep</a></li>
+                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">COMPLETE 3-MONTH PROGRAM</a></li>
+                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Communication & Confidence</a></li>
+                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Career Growth & Workplace Skills</a></li>
+                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Personality, EQ & Leadership</a></li>
+                    <li><a href="/learn/pages/contact.php?service=corporate" class="text-gray-400 hover:text-blue-400 transition duration-300">Corporate Training</a></li>
                 </ul>
             </div>
             

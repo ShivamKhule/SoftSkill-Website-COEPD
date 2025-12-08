@@ -1,169 +1,44 @@
 [
   {
-    "id": "communication",
-    "title": "Communication Skills Training",
-    "image": "https://images.unsplash.com/photo-1690264564811-961ab5a5efc9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fENvbW11bmljYXRpb24lMjBTa2lsbCUyMHRyYWluaW5nJTIwaW5kaXZpZHVhbHxlbnwwfHwwfHx8MA%3D%3D",
-    "description": "Master the art of effective communication in personal and professional settings.",
-    "overview": "This comprehensive course is designed to enhance your verbal, non-verbal, and written communication skills. You'll learn techniques to express ideas clearly, listen actively, and communicate confidently in various situations.",
+    "id": "complete-program",
+    "title": "COMPLETE 3-MONTH PROGRAM",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29tbXVuaWNhdGlvbiUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+    "description": "A comprehensive 12-week program covering Communication & Confidence, Career Growth & Workplace Intelligence, and Personality, EQ, Leadership & AI Mastery.",
+    "overview": "This intensive 3-month program is designed to transform your communication skills, career prospects, and personal development. With 95% practical content, daily 60-minute sessions, and personalized feedback, you'll master essential soft skills for personal and professional success.",
     "skills_learned": [
-      "Active listening techniques",
-      "Verbal and non-verbal communication",
-      "Presentation skills",
-      "Written communication",
-      "Conflict resolution",
-      "Cross-cultural communication"
+      "Fluency and everyday English",
+      "Business writing and email etiquette",
+      "Pronunciation and voice clarity",
+      "Presentation mastery",
+      "Interview domination techniques",
+      "Resume and LinkedIn branding",
+      "Workplace intelligence and leadership",
+      "Negotiation and career planning",
+      "Personality and confidence upgrade",
+      "Emotional intelligence and assertiveness",
+      "Critical thinking and creativity",
+      "AI for communication and career"
     ],
-    "who_attend": "Professionals, students, entrepreneurs, and anyone looking to improve their communication abilities.",
-    "formats": ["Online", "In-person", "Corporate"],
+    "who_attend": "Ages 22–50 (Students, Homemakers, Working Professionals, Mid-Career)",
+    "formats": ["Online", "In-person", "Hybrid"],
     "curriculum": [
-      "Fundamentals of Communication",
-      "Barriers to Effective Communication",
-      "Active Listening Skills",
-      "Non-Verbal Communication",
-      "Written Communication Excellence",
-      "Presentation Skills",
-      "Difficult Conversations",
-      "Cross-Cultural Communication"
+      "Month 1 - Communication & Confidence",
+      "Month 2 - Career Growth & Workplace Intelligence",
+      "Month 3 - Personality, EQ, Leadership & AI"
     ],
-    "duration": "4 weeks (2 sessions per week)",
-    "fees": "$299",
-    "certification": "Yes, upon successful completion",
+    "duration": "12 weeks (60 minutes/day, 95% practical)",
+    "fees": "₹4999",
+    "certification": "Yes, upon successful completion with Final Showcase",
     "testimonials": [
       {
         "name": "Sarah Johnson",
         "role": "Marketing Manager",
-        "comment": "This course transformed how I communicate with my team. My presentations are now more engaging and impactful."
+        "comment": "This program completely transformed my confidence and communication skills. I got promoted within 2 months of completion!"
       },
       {
         "name": "Michael Chen",
         "role": "Software Engineer",
-        "comment": "I used to struggle with expressing my ideas clearly. Now I'm confident in meetings and client interactions."
-      }
-    ]
-  },
-  {
-    "id": "leadership",
-    "title": "Leadership & Team Building",
-    "image": "https://plus.unsplash.com/premium_photo-1661277609598-e06c6d4b8efa?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8TGVhZGVyc2hpcCUyMGFuZCUyMHRlYW0lMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
-    "description": "Develop essential leadership skills to inspire and guide teams toward success.",
-    "overview": "Learn proven leadership strategies and team-building techniques that drive performance and foster a positive work culture. This course combines theory with practical exercises to develop authentic leadership qualities.",
-    "skills_learned": [
-      "Leadership styles and when to use them",
-      "Team motivation techniques",
-      "Delegation and empowerment",
-      "Conflict management",
-      "Decision-making skills",
-      "Emotional intelligence"
-    ],
-    "who_attend": "Managers, team leads, aspiring leaders, and entrepreneurs.",
-    "formats": ["Online", "In-person", "Corporate"],
-    "curriculum": [
-      "Foundations of Leadership",
-      "Leadership Styles and Situations",
-      "Building High-Performance Teams",
-      "Motivating and Engaging Teams",
-      "Effective Delegation",
-      "Leading Through Change",
-      "Emotional Intelligence in Leadership",
-      "Coaching and Mentoring"
-    ],
-    "duration": "6 weeks (1 session per week)",
-    "fees": "$399",
-    "certification": "Yes, upon successful completion",
-    "testimonials": [
-      {
-        "name": "David Rodriguez",
-        "role": "Project Manager",
-        "comment": "The leadership frameworks taught here helped me transform my team's performance. Engagement scores improved by 40%."
-      },
-      {
-        "name": "Priya Sharma",
-        "role": "Department Head",
-        "comment": "I gained confidence in my leadership abilities and learned practical tools to handle challenging team dynamics."
-      }
-    ]
-  },
-  {
-    "id": "public-speaking",
-    "title": "Public Speaking & Presentation Skills",
-    "image": "https://plus.unsplash.com/premium_photo-1705883063417-5ee5a23d16fd?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UHVibGljJTIwU3BlYWtpbmclMjAlMjYlMjBQcmVzZW50YXRpb24lMjBTa2lsbHN8ZW58MHx8MHx8fDA%3D",
-    "description": "Conquer stage fright and deliver compelling presentations with confidence.",
-    "overview": "Transform your public speaking abilities through practical exercises and personalized feedback. From boardroom presentations to conference talks, master the skills that captivate audiences.",
-    "skills_learned": [
-      "Overcoming presentation anxiety",
-      "Structuring compelling presentations",
-      "Voice modulation and body language",
-      "Audience engagement techniques",
-      "Visual aid design",
-      "Handling Q&A sessions"
-    ],
-    "who_attend": "Professionals who present regularly, students, entrepreneurs, and public speakers.",
-    "formats": ["Online", "In-person", "Workshop"],
-    "curriculum": [
-      "Overcoming Stage Fright",
-      "Audience Analysis and Content Planning",
-      "Structuring Your Presentation",
-      "Body Language and Voice Techniques",
-      "Creating Visual Aids",
-      "Engaging Your Audience",
-      "Handling Difficult Questions",
-      "Practice and Feedback Sessions"
-    ],
-    "duration": "3 weeks (3 sessions per week)",
-    "fees": "$249",
-    "certification": "Yes, upon successful completion",
-    "testimonials": [
-      {
-        "name": "Jennifer Kim",
-        "role": "Sales Director",
-        "comment": "I went from dreading presentations to actually enjoying them. My closing rate improved significantly after taking this course."
-      },
-      {
-        "name": "Robert Williams",
-        "role": "Academic Researcher",
-        "comment": "The techniques for structuring presentations helped me win funding for my research project."
-      }
-    ]
-  },
-  {
-    "id": "interview",
-    "title": "Interview & Job Readiness",
-    "image": "https://images.unsplash.com/photo-1758520144437-f068ecaf0d83?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8SW50ZXJ2aWV3JTIwJTI2JTIwSm9iJTIwUmVhZGluZXNzfGVufDB8fDB8fHww",
-    "description": "Ace your interviews and boost your career prospects with proven strategies.",
-    "overview": "Prepare for job interviews with confidence-building techniques, practice sessions, and insider tips. Learn how to showcase your strengths and align with employer expectations.",
-    "skills_learned": [
-      "Resume and LinkedIn optimization",
-      "Common interview question preparation",
-      "Behavioral interview techniques",
-      "Salary negotiation skills",
-      "Professional etiquette",
-      "Follow-up strategies"
-    ],
-    "who_attend": "Job seekers, recent graduates, and professionals changing careers.",
-    "formats": ["Online", "In-person", "One-on-one coaching"],
-    "curriculum": [
-      "Career Self-Assessment",
-      "Resume and Cover Letter Writing",
-      "LinkedIn Profile Optimization",
-      "Types of Interviews and Preparation",
-      "Common Interview Questions and Answers",
-      "Behavioral Interview Techniques",
-      "Salary Negotiation",
-      "Mock Interview Practice"
-    ],
-    "duration": "2 weeks (4 sessions)",
-    "fees": "$199",
-    "certification": "Yes, upon successful completion",
-    "testimonials": [
-      {
-        "name": "Thomas Anderson",
-        "role": "Recent Graduate",
-        "comment": "I landed my dream job after just two weeks of training. The mock interviews were invaluable preparation."
-      },
-      {
-        "name": "Lisa Thompson",
-        "role": "Marketing Professional",
-        "comment": "After 10 years in the same role, I was nervous about switching careers. This program gave me the confidence and tools I needed."
+        "comment": "The practical approach and daily exercises helped me master skills I'd been struggling with for years."
       }
     ]
   }

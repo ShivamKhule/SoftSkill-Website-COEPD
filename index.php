@@ -32,7 +32,7 @@ $db->createDatabase();
                 to accelerate your career and boost confidence.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
                 <!-- <a href="pages/courses/" -->
-                <a href="#"
+                <a href="/learn/pages/schedule.php"
                     class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105">Explore
                     Courses</a>
                 <!-- <a href="pages/downloads/" -->
@@ -98,7 +98,7 @@ $db->createDatabase();
                     <h3 class="text-xl font-bold mb-2"><?php echo $service['title']; ?></h3>
                     <p class="text-gray-600 mb-4"><?php echo $service['description']; ?></p>
                     <!-- <a href="pages/services.php" -->
-                    <a href="#"
+                    <a href="/learn/pages/services.php"
                         class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transform hover:translate-x-1 transition-transform">
                         Learn more
                         <i
@@ -109,7 +109,7 @@ $db->createDatabase();
         </div>
         <div class="text-center mt-10 animate-fade-in-delay-3">
             <!-- <a href="pages/services.php" -->
-            <a href="#"
+            <a href="/learn/pages/services.php"
                 class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">View
                 All Services</a>
         </div>
@@ -157,7 +157,7 @@ $db->createDatabase();
                     </li>
                 </ul>
                 <!-- <a href="pages/about.php" -->
-                <a href="pages/about.php"
+                <a href="/learn/pages/about.php"
                     class="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Learn
                     More About Us</a>
             </div>
@@ -182,7 +182,7 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Students & Graduates</h3>
                 <p class="text-gray-600 mb-4">Prepare for the professional world with essential workplace skills</p>
                 <!-- <a href="pages/courses/interview.php" class="text-blue-600 hover:text-blue-800 font-medium">Explore -->
-                <a href="#"
+                <a href="/learn/pages/schedule.php"
                     class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
                     Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
@@ -196,7 +196,7 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Working Professionals</h3>
                 <p class="text-gray-600 mb-4">Advance your career with improved communication and leadership</p>
                 <!-- <a href="pages/courses/leadership.php" class="text-teal-600 hover:text-teal-800 font-medium">Explore -->
-                <a href="#"
+                <a href="/learn/pages/schedule.php"
                     class="text-teal-600 hover:text-teal-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
                     Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
@@ -305,7 +305,7 @@ $db->createDatabase();
 
         <div class="text-center mt-10 animate-fade-in-delay-2">
             <!-- <a href="pages/stories.php" -->
-            <a href="#"
+            <a href="/learn/pages/stories.php"
                 class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
                 View All Success Stories
             </a>
@@ -322,11 +322,11 @@ $db->createDatabase();
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <!-- <a href="pages/courses/" -->
-            <a href="#"
+            <a href="/learn/pages/schedule.php"
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105">Enroll
                 Now</a>
             <!-- <a href="pages/contact.php" -->
-            <a href="#"
+            <a href="/learn/pages/contact.php"
                 class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Schedule
                 a Consultation</a>
         </div>

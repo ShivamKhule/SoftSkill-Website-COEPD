@@ -1,42 +1,52 @@
 [
   {
     "id": 1,
-    "question": "How long is the training?",
-    "answer": "Course durations vary depending on the program. Most individual courses range from 2-6 weeks with sessions typically lasting 2 hours. We also offer intensive weekend workshops and corporate programs that can be customized to your organization's needs."
+    "question": "How long is the COMPLETE 3-MONTH PROGRAM?",
+    "answer": "Our flagship program is exactly 12 weeks (3 months) long with 60 minutes of daily sessions. The program is divided into 3 months focusing on Communication & Confidence, Career Growth & Workplace Intelligence, and Personality, EQ, Leadership & AI Mastery."
   },
   {
     "id": 2,
-    "question": "Is there certification?",
-    "answer": "Yes, all our courses include a certificate of completion for participants who attend at least 80% of sessions and successfully complete the final assessment. Our certificates are recognized by industry partners and can be added to your professional credentials."
+    "question": "What is the daily schedule like?",
+    "answer": "Each day consists of 60 minutes: 5 minutes warm-up, 20 minutes technique of the day, 25 minutes lab & simulation, and 10 minutes coaching plus takeaway tool. This structure ensures 95% practical learning."
   },
   {
     "id": 3,
-    "question": "Are sessions recorded?",
-    "answer": "For online sessions, we provide recordings to enrolled students for review purposes. However, we encourage live participation for interactive activities and discussions. Recordings are typically available within 24 hours after each session."
+    "question": "Is there certification?",
+    "answer": "Yes, participants who complete the full 12-week program and the final showcase receive a certificate of completion. Additionally, you'll earn 3 personalized feedback videos and build a complete portfolio including resume, LinkedIn profile, intro video, and presentation."
   },
   {
     "id": 4,
-    "question": "Is the schedule flexible?",
-    "answer": "We offer multiple batch timings to accommodate different schedules. If you miss a session, we can arrange makeup sessions or provide materials to catch up. For corporate clients, we can customize schedules to minimize disruption to business operations."
+    "question": "Are sessions recorded?",
+    "answer": "For online sessions, we provide recordings to enrolled students for review purposes. However, we strongly encourage live participation for interactive activities, simulations, and peer learning experiences that are crucial for skill development."
   },
   {
     "id": 5,
-    "question": "What is the fee structure?",
-    "answer": "Fees vary by course and delivery format. Individual courses range from $199-$399. Early bird discounts and group enrollment rates are available. Corporate training packages are priced based on team size and customization requirements. Payment plans are offered for select programs."
+    "question": "Is the schedule flexible?",
+    "answer": "We offer multiple batch timings including weekday evenings and weekend options to accommodate different schedules. If you miss a session, we provide catch-up materials and can arrange makeup sessions when possible."
   },
   {
     "id": 6,
-    "question": "What learning formats are available?",
-    "answer": "We offer online live sessions, in-person classes at our training centers, and hybrid options. Corporate clients can opt for on-site training at their premises. All formats include the same high-quality curriculum and materials."
+    "question": "What is the fee for the COMPLETE 3-MONTH PROGRAM?",
+    "answer": "The investment for our comprehensive 12-week program is ₹4999. This includes all sessions, materials, personalized feedback, gamification system, and post-program follow-up for 30 days. Early bird discounts and group enrollment rates are available."
   },
   {
     "id": 7,
-    "question": "Do you offer job placement assistance?",
-    "answer": "While we don't guarantee job placement, our Interview & Job Readiness program includes resume review, mock interviews, and networking guidance. We also maintain relationships with hiring partners who regularly recruit from our programs."
+    "question": "What learning formats are available?",
+    "answer": "We offer online live sessions, in-person classes at our training centers, and hybrid options. All formats follow the same proven curriculum and provide identical learning outcomes. You can switch between formats if seats are available."
   },
   {
     "id": 8,
-    "question": "Can I switch between online and in-person formats?",
-    "answer": "Yes, you can transfer between formats if seats are available in your preferred option. A nominal transfer fee may apply. Please contact our support team at least 48 hours before the session to make arrangements."
+    "question": "What makes this program different from others?",
+    "answer": "Our program stands out because it's 95% practical with daily sessions, includes AI-powered tools, offers personalized feedback videos, and focuses on real-world application. You'll complete challenges like speaking to strangers, sending professional emails, and using AI for career advancement."
+  },
+  {
+    "id": 9,
+    "question": "Who is this program suitable for?",
+    "answer": "This program is designed for ages 22-50 including students, homemakers, working professionals, and mid-career individuals looking to enhance their communication, confidence, and career prospects. No prior experience is required."
+  },
+  {
+    "id": 10,
+    "question": "What kind of support is available post-program?",
+    "answer": "We provide 30-day post-program follow-up including WhatsApp micro-learning, continued access to our Success Vault (templates, prompts, scripts), and alumni network access for ongoing support and networking."
   }
 ]
