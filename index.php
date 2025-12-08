@@ -50,14 +50,14 @@ $db->createDatabase();
         <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div class="text-center animate-float">
                 <div class="flex flex-row items-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="10000">0</div>
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="1000">0</div>
                     <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
                 </div>
                 <div class="counter-label text-gray-600 mt-2">Students Trained</div>
             </div>
             <div class="text-center animate-float delay-1">
                 <div class="flex flex-row items-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="250">0</div>
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="25">0</div>
                     <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
                 </div>
                 <div class="counter-label text-gray-600 mt-2">Corporate Clients</div>
@@ -71,7 +71,7 @@ $db->createDatabase();
             </div>
             <div class="text-center animate-float delay-3">
                 <div class="flex flex-row items-center">
-                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="50">0</div>
+                    <div class="counter text-blue-600 text-4xl md:text-5xl font-bold" data-target="10">0</div>
                     <span class="text-blue-600 text-4xl md:text-5xl font-bold">+</span>
                 </div>
                 <div class="counter-label text-gray-600 mt-2">Expert Trainers</div>
