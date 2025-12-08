@@ -1,6 +1,11 @@
 <?php
 // Include configuration file
 require_once __DIR__ . '/../config.php';
+
+// Start session for flash messages
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <header class="bg-white shadow-md sticky top-0 z-[1001]">
@@ -62,14 +67,14 @@ require_once __DIR__ . '/../config.php';
                         group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
                         transition-all duration-300 ease-in-out z-50"> -->
 
-                            <!-- <a href="/learn/pages/corporate.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600  -->
-                            <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 
+                        <!-- <a href="/learn/pages/corporate.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600  -->
+                        <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 
                           transition duration-200 transform hover:translate-x-1">
                                 Corporate Training
                             </a> -->
 
-                            <!-- <a href="/learn/pages/courses/" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600  -->
-                            <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 
+                        <!-- <a href="/learn/pages/courses/" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600  -->
+                        <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 
                           transition duration-200 transform hover:translate-x-1">
                                 Individual Courses
                             </a> -->
@@ -77,8 +82,7 @@ require_once __DIR__ . '/../config.php';
                     </li>
 
                     <li>
-                        <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" id="desktop-schedule-link"
-                        class=" text-gray-700 font-medium relative px-3 py-1 rounded-md transition-all duration-300
+                        <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" id="desktop-schedule-link" class=" text-gray-700 font-medium relative px-3 py-1 rounded-md transition-all duration-300
                             hover:text-blue-600 hover:bg-blue-50 after:absolute after:left-0 after:bottom-0 after:h-0.5
                             after:w-0 after:bg-blue-600 after:rounded-full after:transition-all after:duration-300
                             hover:after:w-full">

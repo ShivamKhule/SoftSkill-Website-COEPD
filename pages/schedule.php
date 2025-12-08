@@ -1,6 +1,11 @@
 <?php
 $pageTitle = "Batches & Schedule - SoftSkills Academy";
 
+// Start session for flash messages
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Include configuration file
 require_once __DIR__ . '/../config.php';
 

@@ -46,4 +46,26 @@ function getServiceById($id) {
     }
     return null;
 }
-?>
+
+function getProgramById($id) {
+    // First try to load from programs.json (multiple programs)
+    $programs = loadData(__DIR__ . '/../data/programs.json');
+    
+    if (!empty($programs) && is_array($programs)) {
+        foreach ($programs as $program) {
+            if (isset($program['id']) && $program['id'] == $id) {
+                return $program;
+            }
+        }
+    }
+    
+    // Fallback to single program.json file for backward compatibility
+    $program = loadData(__DIR__ . '/../data/program.json');
+    if (!empty($program) && isset($program['title'])) {
+        // Add an ID for consistency
+        $program['id'] = 'complete-3-month';
+        return $program;
+    }
+    
+    return null;
+}

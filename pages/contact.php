@@ -1,8 +1,16 @@
 <?php
 $pageTitle = "Contact Us - SoftSkills Academy";
 
-// Include configuration file
+// Include configuration files
 require_once __DIR__ . '/../config.php';
+
+// Start session for flash messages
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Include email configuration
+require_once __DIR__ . '/../config_email.php';
 
 include __DIR__ . '/../includes/functions.php';
 $courses = loadData(__DIR__ . '/../data/courses.json');
@@ -25,7 +33,7 @@ if (isset($_GET['batch']) && isset($_GET['course'])) {
     $is_enrollment = true;
     $selected_batch_id = $_GET['batch'];
     $selected_course_id = $_GET['course'];
-    
+
     // Find the selected batch
     foreach ($batches as $batch) {
         if ($batch['id'] == $selected_batch_id) {
@@ -33,7 +41,7 @@ if (isset($_GET['batch']) && isset($_GET['course'])) {
             break;
         }
     }
-    
+
     // Find the selected course
     foreach ($courses as $course_item) {
         if ($course_item['id'] == $selected_course_id) {
@@ -43,6 +51,14 @@ if (isset($_GET['batch']) && isset($_GET['course'])) {
     }
 }
 
+// Check for success messages from session (flash messages)
+if (isset($_SESSION['success_message'])) {
+    $show_success_alert = true;
+    $success_message = $_SESSION['success_message'];
+    unset($_SESSION['success_message']); // Clear the message so it doesn't show again
+    error_log("Retrieved success message from session: " . $success_message);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = test_input($_POST["name"]);
     $phone = test_input($_POST["phone"]);
@@ -50,54 +66,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $course = test_input($_POST["course"]);
     $mode = test_input($_POST["mode"]);
     $message = test_input($_POST["message"]);
-    
+
     // Check if this is an enrollment
     if (isset($_POST["is_enrollment"]) && $_POST["is_enrollment"] == "1") {
         $batch_id = test_input($_POST["batch_id"]);
-        
+
         // Insert enrollment into database
         $enrollment_id = $db->insertEnrollment($name, $email, $phone, $batch_id, $course);
-        
+
         if ($enrollment_id) {
             // Send confirmation email
             sendEnrollmentEmail($name, $email, $batch_id, $course, $batches, $courses);
-            
-            $show_success_alert = true;
-            $success_message = 'Thank you for enrolling! A confirmation email has been sent to your email address.';
+
+            // Set success message in session for redirect
+            $_SESSION['success_message'] = 'Thank you for enrolling! A confirmation email has been sent to your email address.';
+
             // Clear form fields after successful submission
             $name = $phone = $email = $course = $mode = $message = '';
-            
-            // Use GET parameter to indicate success
-            header("Location: " . $_SERVER['PHP_SELF'] . "?success=enrollment");
+
+            // Redirect to prevent form resubmission
+            header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         } else {
             $error_message = 'There was an error processing your enrollment. Please try again.';
+            error_log("Enrollment failed for: " . $email);
         }
     } else {
         // Regular contact form submission
         $result = $db->insertContactMessage($name, $phone, $email, $course, $mode, $message);
-        
+
         if (strpos($result, '✔') !== false) {
-            $show_success_alert = true;
-            $success_message = 'Thank you! Your message has been sent successfully.';
+            // Set success message in session for redirect
+            $_SESSION['success_message'] = 'Thank you! Your message has been sent successfully.';
+
             // Clear form fields after successful submission
             $name = $phone = $email = $course = $mode = $message = '';
-            
-            // Use GET parameter to indicate success
-            header("Location: " . $_SERVER['PHP_SELF'] . "?success=contact");
+
+            // Redirect to prevent form resubmission
+            header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         }
-    }
-}
-
-// Check for success parameter
-if (isset($_GET['success'])) {
-    if ($_GET['success'] == 'enrollment') {
-        $show_success_alert = true;
-        $success_message = 'Thank you for enrolling! A confirmation email has been sent to your email address.';
-    } elseif ($_GET['success'] == 'contact') {
-        $show_success_alert = true;
-        $success_message = 'Thank you! Your message has been sent successfully.';
     }
 }
 
@@ -109,32 +117,45 @@ function test_input($data)
     return $data;
 }
 
-function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $courses) {
+function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $courses)
+{
     // Find batch and course details
     $batch_details = null;
     $course_details = null;
-    
+
     foreach ($batches as $batch) {
         if ($batch['id'] == $batch_id) {
             $batch_details = $batch;
             break;
         }
     }
-    
+
     foreach ($courses as $course) {
         if ($course['id'] == $course_id) {
             $course_details = $course;
             break;
         }
     }
-    
+
+    // Load program details - now supports multiple programs
+    $program = getProgramById($course_id);
+
     if (!$batch_details || !$course_details) {
+        error_log("Failed to find batch or course details");
         return false;
     }
-    
+
+    if (!$program) {
+        error_log("Failed to find program details for course ID: " . $course_id);
+        // Fallback to basic program info from course
+        $program_title = isset($course_details['title']) ? $course_details['title'] : 'Our Program';
+    } else {
+        $program_title = $program['title'];
+    }
+
     // Email content
-    $subject = "Enrollment Confirmation - " . $course_details['title'];
-    
+    $subject = "Enrollment Confirmation - " . $program_title;
+
     $message = "
     <html>
     <head>
@@ -147,15 +168,54 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
         
         <h3>Program Details</h3>
         <ul>
-            <li><strong>Program:</strong> " . $course_details['title'] . "</li>
+            <li><strong>Program:</strong> " . (isset($course_details['title']) ? $course_details['title'] : 'N/A') . "</li>
             <li><strong>Batch ID:</strong> " . $batch_details['id'] . "</li>
             <li><strong>Start Date:</strong> " . date('M j, Y', strtotime($batch_details['startDate'])) . "</li>
             <li><strong>End Date:</strong> " . date('M j, Y', strtotime($batch_details['endDate'])) . "</li>
             <li><strong>Timings:</strong> " . $batch_details['timings'] . "</li>
             <li><strong>Mode:</strong> " . $batch_details['mode'] . "</li>
             <li><strong>Instructor:</strong> " . $batch_details['instructor'] . "</li>
-        </ul>
-        
+        </ul>";
+
+    // Add program details if available
+    if ($program) {
+        $message .= "
+        <h3>Program Overview</h3>
+        <p><strong>Duration:</strong> " . (isset($program['duration']) ? $program['duration'] : 'N/A') . "</p>
+        <p><strong>Daily Time Commitment:</strong> " . (isset($program['dailyTime']) ? $program['dailyTime'] : 'N/A') . "</p>
+        <p><strong>Practical Content:</strong> " . (isset($program['practicalPercentage']) ? $program['practicalPercentage'] : 'N/A') . "</p>";
+
+        if (isset($program['structure']) && is_array($program['structure'])) {
+            $message .= "<h3>Program Structure</h3>";
+
+            // Add program structure details
+            foreach ($program['structure'] as $monthIndex => $month) {
+                $message .= "<h4>Month " . ($monthIndex + 1) . " - " . (isset($month['title']) ? $month['title'] : 'N/A') . "</h4>";
+                if (isset($month['weeks']) && is_array($month['weeks'])) {
+                    $message .= "<ul>";
+                    foreach ($month['weeks'] as $week) {
+                        $message .= "<li><strong>Week " . (isset($week['week']) ? $week['week'] : 'N/A') . ":</strong> " . (isset($week['title']) ? $week['title'] : 'N/A') . "</li>";
+                    }
+                    $message .= "</ul>";
+                }
+            }
+        }
+
+        if (isset($program['programDeliverables']) && is_array($program['programDeliverables'])) {
+            $message .= "
+                <h3>Program Deliverables</h3>
+                <ul>";
+
+            // Add program deliverables
+            foreach ($program['programDeliverables'] as $deliverable) {
+                $message .= "<li>" . $deliverable . "</li>";
+            }
+
+            $message .= "</ul>";
+        }
+    }
+
+    $message .= "
         <h3>Next Steps</h3>
         <ol>
             <li>Please check your email for payment instructions.</li>
@@ -163,24 +223,143 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
             <li>Download our mobile app for daily micro-learning sessions.</li>
         </ol>
         
-        <p>If you have any questions, please contact us at info@softskillmentor.com</p>
+        <p>If you have any questions, please contact us at shivam.coepd@gmail.com</p>
         
         <p>Best regards,<br/>
         The SoftSkills Academy Team</p>
     </body>
     </html>
     ";
-    
-    // Headers
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: SoftSkills Academy <info@softskillmentor.com>" . "\r\n";
-    
-    // Send email
-    mail($email, $subject, $message, $headers);
-    
-    return true;
+
+    // Try to send email using multiple methods
+    $email_sent = false;
+
+    // Method 1: Try PHPMailer
+    $email_sent = sendEmailWithPHPMailer($email, $name, $subject, $message);
+
+    // Method 2: Try basic mail function if PHPMailer not available or failed
+    if (!$email_sent) {
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: SoftSkills Academy <shivam.coepd@gmail.com>" . "\r\n";
+
+        // Log email details for debugging
+        error_log("Attempting to send email to: " . $email);
+        error_log("Subject: " . $subject);
+
+        $email_sent = mail($email, $subject, $message, $headers);
+
+        if ($email_sent) {
+            error_log("Email sent successfully using mail() function to: " . $email);
+        } else {
+            error_log("Failed to send email using mail() function to: " . $email);
+        }
+    }
+
+    // Method 3: Save to file as backup
+    if (!$email_sent) {
+        $email_sent = saveEmailToFile($email, $name, $subject, $message);
+    }
+
+    return $email_sent;
 }
+
+function sendEmailWithPHPMailer($to_email, $to_name, $subject, $message)
+{
+    // Check if email config is loaded
+    if (!defined('SMTP_HOST')) {
+        // Try to load config if not already loaded
+        if (file_exists(__DIR__ . '/../config_email.php')) {
+            require_once __DIR__ . '/../config_email.php';
+        } else {
+            error_log("Email config file not found");
+            return false;
+        }
+    }
+
+    // Verify all required constants are defined
+    $required_constants = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USERNAME', 'SMTP_PASSWORD', 'SENDER_EMAIL', 'SENDER_NAME'];
+    foreach ($required_constants as $constant) {
+        if (!defined($constant)) {
+            error_log("Required constant not defined: " . $constant);
+            return false;
+        }
+    }
+
+    // Include PHPMailer classes
+    $phpmailer_path = __DIR__ . '/../libs/PHPMailer.php';
+
+    if (!file_exists($phpmailer_path)) {
+        error_log("PHPMailer not found at: " . $phpmailer_path);
+        return false;
+    }
+
+    require_once __DIR__ . '/../libs/PHPMailer.php';
+    require_once __DIR__ . '/../libs/SMTP.php';
+    require_once __DIR__ . '/../libs/Exception.php';
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = SMTP_HOST;
+        $mail->SMTPAuth = true;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_ENCRYPTION === 'ssl' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS :
+            (SMTP_ENCRYPTION === 'tls' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS :
+                PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_NONE);
+        $mail->Port = SMTP_PORT;
+        $mail->SMTPDebug = 0; // Set to 2 for debugging
+
+        // Recipients
+        $mail->setFrom(SENDER_EMAIL, SENDER_NAME);
+        $mail->addAddress($to_email, $to_name);
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->AltBody = strip_tags($message); // Plain text version
+
+        $mail->send();
+        error_log("Email sent successfully using PHPMailer to: " . $to_email);
+        return true;
+    } catch (Exception $e) {
+        error_log("PHPMailer error: " . $mail->ErrorInfo);
+        return false;
+    }
+}
+
+function saveEmailToFile($to_email, $to_name, $subject, $message)
+{
+    // Save email to file as backup method
+    $email_data = [
+        'to' => $to_email,
+        'name' => $to_name,
+        'subject' => $subject,
+        'message' => $message,
+        'timestamp' => date('Y-m-d H:i:s')
+    ];
+
+    $emails_dir = __DIR__ . '/../emails';
+    if (!file_exists($emails_dir)) {
+        mkdir($emails_dir, 0777, true);
+    }
+
+    $filename = $emails_dir . '/email_' . time() . '_' . uniqid() . '.json';
+    $saved = file_put_contents($filename, json_encode($email_data, JSON_PRETTY_PRINT));
+
+    if ($saved) {
+        error_log("Email saved to file: " . $filename);
+        return true;
+    } else {
+        error_log("Failed to save email to file");
+        return false;
+    }
+}
+
 ?>
 
 <?php ob_start(); ?>
@@ -188,8 +367,11 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
 <!-- Hero Section -->
 <section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20 animate-fade-in">
     <div class="container mx-auto px-4 text-center animate-slide-up">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down"><?php echo $is_enrollment ? 'Enroll Now' : 'Contact Us'; ?></h1>
-        <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay"><?php echo $is_enrollment ? 'Complete your enrollment in our program' : 'Have questions about our training programs? Get in touch with our team.'; ?></p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">
+            <?php echo $is_enrollment ? 'Enroll Now' : 'Contact Us'; ?></h1>
+        <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">
+            <?php echo $is_enrollment ? 'Complete your enrollment in our program' : 'Have questions about our training programs? Get in touch with our team.'; ?>
+        </p>
     </div>
 </section>
 
@@ -199,27 +381,33 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 contact-container">
             <!-- Contact Form -->
             <div class="animate-fade-in-left">
-                <h2 class="text-3xl font-bold mb-6"><?php echo $is_enrollment ? 'Complete Your Enrollment' : 'Send Us a Message'; ?></h2>
-                
+                <h2 class="text-3xl font-bold mb-6">
+                    <?php echo $is_enrollment ? 'Complete Your Enrollment' : 'Send Us a Message'; ?></h2>
+
                 <?php if ($is_enrollment && isset($selected_batch) && isset($selected_course)): ?>
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                    <h3 class="font-bold text-lg mb-2">Program Enrollment Details</h3>
-                    <p><strong>Program:</strong> <?php echo $selected_course['title']; ?></p>
-                    <p><strong>Batch:</strong> <?php echo $selected_batch['id']; ?></p>
-                    <p><strong>Start Date:</strong> <?php echo date('M j, Y', strtotime($selected_batch['startDate'])); ?></p>
-                    <p><strong>Timings:</strong> <?php echo $selected_batch['timings']; ?></p>
-                    <p><strong>Mode:</strong> <?php echo $selected_batch['mode']; ?></p>
-                </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h3 class="font-bold text-lg mb-2">Program Enrollment Details</h3>
+                        <p><strong>Program:</strong> <?php echo $selected_course['title']; ?></p>
+                        <p><strong>Batch:</strong> <?php echo $selected_batch['id']; ?></p>
+                        <p><strong>Start Date:</strong>
+                            <?php echo date('M j, Y', strtotime($selected_batch['startDate'])); ?></p>
+                        <p><strong>Timings:</strong> <?php echo $selected_batch['timings']; ?></p>
+                        <p><strong>Mode:</strong> <?php echo $selected_batch['mode']; ?></p>
+                    </div>
                 <?php endif; ?>
-                
-                <form method="post" action="" class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md animate-fade-in-up" id="contactForm">
+
+                <form method="post" action=""
+                    class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md animate-fade-in-up"
+                    id="contactForm">
                     <?php if ($is_enrollment): ?>
-                    <input type="hidden" name="is_enrollment" value="1">
-                    <input type="hidden" name="batch_id" value="<?php echo $is_enrollment ? $selected_batch_id : ''; ?>">
-                    <input type="hidden" name="course" value="<?php echo $is_enrollment ? $selected_course_id : ''; ?>">
-                    <input type="hidden" name="mode" value="<?php echo $is_enrollment && isset($selected_batch) ? strtolower($selected_batch['mode']) : ''; ?>">
+                        <input type="hidden" name="is_enrollment" value="1">
+                        <input type="hidden" name="batch_id"
+                            value="<?php echo $is_enrollment ? $selected_batch_id : ''; ?>">
+                        <input type="hidden" name="course" value="<?php echo $is_enrollment ? $selected_course_id : ''; ?>">
+                        <input type="hidden" name="mode"
+                            value="<?php echo $is_enrollment && isset($selected_batch) ? strtolower($selected_batch['mode']) : ''; ?>">
                     <?php endif; ?>
-                    
+
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
                         <input type="text" id="name" name="name" value="<?php echo $name; ?>"
@@ -243,36 +431,41 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
                     </div>
 
                     <?php if (!$is_enrollment): ?>
-                    <div class="mb-6">
-                        <label for="course" class="block text-gray-700 font-medium mb-2">Course Interest</label>
-                        <select id="course" name="course"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
-                            <option value="">Select a course</option>
-                            <?php foreach ($courses as $course_item): ?>
-                                <option value="<?php echo $course_item['id']; ?>" <?php echo ($course == $course_item['id']) ? 'selected' : ''; ?>><?php echo $course_item['title']; ?></option>
-                            <?php endforeach; ?>
-                            <option value="corporate" <?php echo ($course == 'corporate') ? 'selected' : ''; ?>>Corporate Training</option>
-                            <option value="other" <?php echo ($course == 'other') ? 'selected' : ''; ?>>Other Inquiry</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-6">
-                        <label for="mode" class="block text-gray-700 font-medium mb-2">Preferred Mode</label>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50 transform hover:scale-105 transition duration-300">
-                                <input type="radio" name="mode" value="online" class="mr-2" <?php echo ($mode == 'online') ? 'checked' : ''; ?>>
-                                <span>Online</span>
-                            </label>
-                            <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50 transform hover:scale-105 transition duration-300">
-                                <input type="radio" name="mode" value="inperson" class="mr-2" <?php echo ($mode == 'inperson') ? 'checked' : ''; ?>>
-                                <span>In-person</span>
-                            </label>
-                            <label class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50 transform hover:scale-105 transition duration-300">
-                                <input type="radio" name="mode" value="hybrid" class="mr-2" <?php echo ($mode == 'hybrid') ? 'checked' : ''; ?>>
-                                <span>Hybrid</span>
-                            </label>
+                        <div class="mb-6">
+                            <label for="course" class="block text-gray-700 font-medium mb-2">Course Interest</label>
+                            <select id="course" name="course"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
+                                <option value="">Select a course</option>
+                                <?php foreach ($courses as $course_item): ?>
+                                    <option value="<?php echo $course_item['id']; ?>" <?php echo ($course == $course_item['id']) ? 'selected' : ''; ?>><?php echo $course_item['title']; ?></option>
+                                <?php endforeach; ?>
+                                <option value="corporate" <?php echo ($course == 'corporate') ? 'selected' : ''; ?>>Corporate
+                                    Training</option>
+                                <option value="other" <?php echo ($course == 'other') ? 'selected' : ''; ?>>Other Inquiry
+                                </option>
+                            </select>
                         </div>
-                    </div>
+
+                        <div class="mb-6">
+                            <label for="mode" class="block text-gray-700 font-medium mb-2">Preferred Mode</label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label
+                                    class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50 transform hover:scale-105 transition duration-300">
+                                    <input type="radio" name="mode" value="online" class="mr-2" <?php echo ($mode == 'online') ? 'checked' : ''; ?>>
+                                    <span>Online</span>
+                                </label>
+                                <label
+                                    class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50 transform hover:scale-105 transition duration-300">
+                                    <input type="radio" name="mode" value="inperson" class="mr-2" <?php echo ($mode == 'inperson') ? 'checked' : ''; ?>>
+                                    <span>In-person</span>
+                                </label>
+                                <label
+                                    class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-blue-50 transform hover:scale-105 transition duration-300">
+                                    <input type="radio" name="mode" value="hybrid" class="mr-2" <?php echo ($mode == 'hybrid') ? 'checked' : ''; ?>>
+                                    <span>Hybrid</span>
+                                </label>
+                            </div>
+                        </div>
                     <?php endif; ?>
 
                     <div class="mb-6">
@@ -282,8 +475,17 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
                             placeholder="<?php echo $is_enrollment ? 'Any special requirements or questions?' : 'Your message'; ?>"><?php echo $message; ?></textarea>
                     </div>
 
-                    <button type="submit"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md"><?php echo $is_enrollment ? 'Complete Enrollment' : 'Send Message'; ?></button>
+                    <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md flex items-center justify-center"
+                        id="submitBtn">
+                        <span id="btnText"><?php echo $is_enrollment ? 'Complete Enrollment' : 'Send Message'; ?></span>
+                        <span id="loadingSpinner" class="hidden ml-2">
+                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </span>
+                    </button>
                 </form>
             </div>
 
@@ -291,7 +493,8 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
             <div class="animate-fade-in-right">
                 <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
 
-                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md mb-8 contact-info-card animate-fade-in-up delay-1">
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md mb-8 contact-info-card animate-fade-in-up delay-1">
                     <div class="space-y-6">
                         <div class="flex items-start animate-fade-in-left delay-1">
                             <div class="text-blue-600 text-2xl mr-4 mt-1">
@@ -311,7 +514,8 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
                                 <p class="text-gray-600">+91 1234567890</p>
                                 <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/9876543210"
-                                        class="text-green-600 hover:text-green-800 transform hover:underline">Chat with us</a></p>
+                                        class="text-green-600 hover:text-green-800 transform hover:underline">Chat with
+                                        us</a></p>
                             </div>
                         </div>
 
@@ -321,7 +525,7 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Email Address</h3>
-                                <p class="text-gray-600">info@softskillmentor.com</p>
+                                <p class="text-gray-600">shivam.coepd@gmail.com</p>
                             </div>
                         </div>
 
@@ -338,7 +542,8 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md contact-emergency-card animate-fade-in-up delay-2">
+                <div
+                    class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md contact-emergency-card animate-fade-in-up delay-2">
                     <h3 class="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
                     <p class="mb-4">For urgent inquiries, call our support line:</p>
                     <p class="text-2xl font-bold">+91 9876543210</p>
@@ -374,7 +579,8 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Start Your Journey?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have advanced their careers with
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have
+            advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
@@ -390,148 +596,164 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
 <style>
     /* Animation classes */
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-    
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeInDown {
         from {
             opacity: 0;
             transform: translateY(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeInLeft {
         from {
             opacity: 0;
             transform: translateX(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateX(0);
         }
     }
-    
+
     @keyframes fadeInRight {
         from {
             opacity: 0;
             transform: translateX(20px);
         }
+
         to {
             opacity: 1;
             transform: translateX(0);
         }
     }
-    
+
     @keyframes slideUp {
         from {
             transform: translateY(50px);
             opacity: 0;
         }
+
         to {
             transform: translateY(0);
             opacity: 1;
         }
     }
-    
+
     @keyframes bounce {
-        0%, 100% {
+
+        0%,
+        100% {
             transform: translateY(0);
         }
+
         50% {
             transform: translateY(-5px);
         }
     }
-    
+
     @keyframes pulseSlow {
-        0%, 100% {
+
+        0%,
+        100% {
             opacity: 1;
         }
+
         50% {
             opacity: 0.8;
         }
     }
-    
+
     /* Base animation classes */
     .animate-fade-in {
         animation: fadeIn 0.8s ease-out forwards;
     }
-    
+
     .animate-fade-in-up {
         animation: fadeInUp 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-down {
         animation: fadeInDown 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-left {
         animation: fadeInLeft 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-right {
         animation: fadeInRight 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-slide-up {
         animation: slideUp 0.8s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-bounce {
         animation: bounce 2s ease-in-out infinite;
     }
-    
+
     .animate-pulse-slow {
         animation: pulseSlow 2s ease-in-out infinite;
     }
-    
+
     /* Delay classes */
     .delay-1 {
         animation-delay: 0.1s;
     }
-    
+
     .delay-2 {
         animation-delay: 0.2s;
     }
-    
+
     .delay-3 {
         animation-delay: 0.3s;
     }
-    
+
     .delay-4 {
         animation-delay: 0.4s;
     }
-    
+
     .animate-fade-in-delay {
         animation: fadeIn 0.8s ease-out 0.3s forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-delay-2 {
         animation: fadeIn 0.8s ease-out 0.6s forwards;
         opacity: 0;
     }
-    
+
     /* Ensure elements with delayed animations are initially hidden */
     .animate-fade-in-up,
     .animate-fade-in-down,
@@ -542,83 +764,192 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
     .animate-fade-in-delay-2 {
         opacity: 0;
     }
-    
+
     /* Stagger animations for contact info */
-    .contact-info-card > div:nth-child(1) { animation-delay: 0.1s; }
-    .contact-info-card > div:nth-child(2) { animation-delay: 0.2s; }
-    .contact-info-card > div:nth-child(3) { animation-delay: 0.3s; }
-    .contact-info-card > div:nth-child(4) { animation-delay: 0.4s; }
-    
+    .contact-info-card>div:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .contact-info-card>div:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .contact-info-card>div:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .contact-info-card>div:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
     /* Stagger animations for contact container */
-    .contact-container > div:nth-child(1) { animation-delay: 0.1s; }
-    .contact-container > div:nth-child(2) { animation-delay: 0.2s; }
+    .contact-container>div:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .contact-container>div:nth-child(2) {
+        animation-delay: 0.2s;
+    }
 </style>
 
 <script>
-// Show alert if form was successfully submitted
-<?php if ($show_success_alert): ?>
-    // Initialize Notyf
-    window.addEventListener('load', function() {
-        const notyf = new Notyf({
-            duration: 5000,
-            position: {
-                x: 'right',
-                y: 'top'
-            }
-        });
-
-        // Show success notification
-        notyf.success('<?php echo $success_message; ?>');
+    // Add loading indicator functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
         
-        // Remove success parameter from URL without refresh
-        if (window.history.replaceState) {
-            const url = new URL(window.location);
-            url.searchParams.delete('success');
-            window.history.replaceState({}, document.title, url.toString());
+        if (contactForm && submitBtn) {
+            contactForm.addEventListener('submit', function() {
+                // Disable the button and show loading spinner
+                submitBtn.disabled = true;
+                btnText.textContent = '<?php echo $is_enrollment ? 'Completing Enrollment...' : 'Sending Message...'; ?>';
+                loadingSpinner.classList.remove('hidden');
+                
+                // Re-enable button if form validation fails (for browsers that support this)
+                setTimeout(function() {
+                    submitBtn.disabled = false;
+                    btnText.textContent = '<?php echo $is_enrollment ? 'Complete Enrollment' : 'Send Message'; ?>';
+                    loadingSpinner.classList.add('hidden');
+                }, 10000); // Reset after 10 seconds as a fallback
+            });
         }
     });
-<?php endif; ?>
 
-// Include Notyf JS
-document.addEventListener('DOMContentLoaded', function() {
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js';
-    script.onload = function() {
-        console.log('Notyf library loaded');
-    };
-    document.head.appendChild(script);
-    
-    // Intersection Observer for animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                observer.unobserve(entry.target);
+    // Show alert if form was successfully submitted
+    <?php if ($show_success_alert): ?>
+        // Function to show notification
+        function showNotification() {
+            // Try to use Notyf if available
+            if (typeof Notyf !== 'undefined') {
+                try {
+                    // Initialize Notyf
+                    const notyf = new Notyf({
+                        duration: 5000,
+                        position: {
+                            x: 'right',
+                            y: 'top'
+                        }
+                    });
+
+                    // Show success notification
+                    notyf.success('<?php echo addslashes($success_message); ?>');
+                    console.log("Notyf notification shown: " + '<?php echo addslashes($success_message); ?>');
+                    //     } catch (e) {
+                    //         console.error("Error showing Notyf notification:", e);
+                    //         // Fallback to alert
+                    //         alert('<?php echo addslashes($success_message); ?>');
+                    //     }
+                    // } else {
+                    //     // Fallback to alert if Notyf is not available
+                    //     alert('<?php echo addslashes($success_message); ?>');
+                    //     console.log("Alert shown: " + '<?php echo addslashes($success_message); ?>');
+                    // }
+                } catch (e) {
+                    console.error("Error showing Notyf notification:", e);
+                    // Don't fallback to alert - just log the error
+                    console.log("Notification failed: " + '<?php echo addslashes($success_message); ?>');
+                }
+            } else {
+                // Don't fallback to alert - just log that Notyf is not available
+                console.log("Notyf not available. Notification: " + '<?php echo addslashes($success_message); ?>');
             }
+
+            // Remove success parameter from URL without refresh
+            try {
+                if (window.history.replaceState) {
+                    const url = new URL(window.location);
+                    url.searchParams.delete('success');
+                    window.history.replaceState({}, document.title, url.toString());
+                }
+            } catch (e) {
+                console.error("Error removing success parameter:", e);
+            }
+        }
+
+        // Execute immediately and also on DOMContentLoaded
+        showNotification();
+
+        // Also execute when DOM is ready
+        if (document.readyState !== 'loading') {
+            showNotification();
+        } else {
+            document.addEventListener('DOMContentLoaded', showNotification);
+        }
+
+        // Also execute on window load
+        window.addEventListener('load', showNotification);
+    <?php endif; ?>
+
+    // Load Notyf library
+    document.addEventListener('DOMContentLoaded', function () {
+        // Load Notyf CSS and JS if not already loaded
+        if (typeof Notyf === 'undefined') {
+            // Check if Notyf CSS is already loaded
+            var notyfCssLoaded = false;
+            for (var i = 0; i < document.styleSheets.length; i++) {
+                if (document.styleSheets[i].href && document.styleSheets[i].href.includes('notyf')) {
+                    notyfCssLoaded = true;
+                    break;
+                }
+            }
+
+            // Load Notyf CSS if not loaded
+            if (!notyfCssLoaded) {
+                var cssLink = document.createElement('link');
+                cssLink.rel = 'stylesheet';
+                cssLink.href = 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css';
+                document.head.appendChild(cssLink);
+            }
+
+            // Load Notyf JS
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js';
+            script.onload = function () {
+                console.log('Notyf library loaded');
+                // If we have a success message, show it now that Notyf is loaded
+                <?php if ($show_success_alert): ?>
+                    showNotification();
+                <?php endif; ?>
+            };
+            script.onerror = function () {
+                console.log('Failed to load Notyf library');
+            };
+            document.head.appendChild(script);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with fade-in-up animations
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+            observer.observe(el);
         });
-    }, observerOptions);
-    
-    // Observe elements with fade-in-up animations
-    document.querySelectorAll('.animate-fade-in-up').forEach(el => {
-        observer.observe(el);
+
+        // Observe elements with fade-in-left animations
+        document.querySelectorAll('.animate-fade-in-left').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe elements with fade-in-right animations
+        document.querySelectorAll('.animate-fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
     });
-    
-    // Observe elements with fade-in-left animations
-    document.querySelectorAll('.animate-fade-in-left').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Observe elements with fade-in-right animations
-    document.querySelectorAll('.animate-fade-in-right').forEach(el => {
-        observer.observe(el);
-    });
-});
 </script>
 
 <?php

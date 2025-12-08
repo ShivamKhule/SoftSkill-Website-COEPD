@@ -1,11 +1,18 @@
 <?php
 $pageTitle = "About Us - SoftSkills Academy";
 
+// Start session for flash messages
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Include configuration file
 require_once __DIR__ . '/../config.php';
 
 include __DIR__ . '/../includes/functions.php';
 $trainers = loadData(__DIR__ . '/../data/trainers.json');
+$testimonials = loadData(__DIR__ . '/../data/testimonials.json');
+$blog = loadData(__DIR__ . '/../data/blog.json');
 ?>
 
 <?php ob_start(); ?>
