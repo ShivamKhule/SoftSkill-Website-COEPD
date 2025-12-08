@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Our Services - SoftSkills Academy";
+require_once __DIR__ . '/../config.php';
 include __DIR__ . '/../includes/functions.php';
 // include __DIR__ . '/../pages/services.php';
 $services = loadData(__DIR__ . '/../data/services.json');
@@ -142,7 +143,7 @@ $program = loadData(__DIR__ . '/../data/program.json');
                     </div>
                 </div>
                 
-                <a href="/learn/pages/contact.php?service=corporate" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Learn About Corporate Programs</a>
+                <a href="<?php echo BASE_PATH; ?>/pages/contact.php?service=corporate" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">Learn About Corporate Programs</a>
             </div>
         </div>
     </div>
@@ -154,8 +155,8 @@ $program = loadData(__DIR__ . '/../data/program.json');
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Enhance Your Skills?</h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join our next batch or contact us to learn more about our training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="/learn/pages/schedule.php" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">View Schedule</a>
-            <a href="/learn/pages/contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact Us</a>
+            <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">View Schedule</a>
+            <a href="<?php echo BASE_PATH; ?>/pages/contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact Us</a>
         </div>
     </div>
 </section>

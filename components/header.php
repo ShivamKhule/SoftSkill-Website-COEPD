@@ -1,3 +1,8 @@
+<?php
+// Include configuration file
+require_once __DIR__ . '/config.php';
+?>
+
 <header class="bg-white shadow-md sticky top-0 z-[1001]">
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
@@ -140,7 +145,7 @@
                     Free Resources
                 </a> -->
 
-                <a href="/learn/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300 shadow-md hover:shadow-lg hidden lg:block">
                     Enroll Now
                 </a>
@@ -160,14 +165,14 @@
         <div id="mobile-menu"
             class="lg:hidden fixed top-16 left-0 right-0 bg-white shadow-lg z-50 opacity-0 invisible transition-all duration-300 ease-in-out transform translate-y-[-10px]">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mx-4 mt-2">
-                <a href="/" id="mobile-home-link"
+                <a href="<?php echo BASE_PATH; ?>/index.php" id="mobile-home-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Home</a>
-                <a href="/pages/about.php" id="mobile-about-link"
+                <a href="<?php echo BASE_PATH; ?>/pages/about.php" id="mobile-about-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">About
                     Us</a>
 
                 <div class="flex justify-between items-center">
-                    <a href="/pages/services.php" id="mobile-services-link"
+                    <a href="<?php echo BASE_PATH; ?>/pages/services.php" id="mobile-services-link"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow transition-all duration-200 transform hover:translate-x-1">Services</a>
                     <button id="services-toggle" class="text-gray-700 px-3 py-2 transition-transform duration-300">
                         <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i>
@@ -183,27 +188,27 @@
                         Courses</a>
                 </div> -->
 
-                <a href="/pages/schedule.php" id="mobile-schedule-link"
+                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" id="mobile-schedule-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Batches</a>
 
                 <div class="flex justify-between items-center">
-                    <a href="/pages/faq.php" id="mobile-faq-link"
+                    <a href="<?php echo BASE_PATH; ?>/pages/faq.php" id="mobile-faq-link"
                         class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium flex-grow transition-all duration-200 transform hover:translate-x-1">FAQ</a>
                     <button id="faq-toggle" class="text-gray-700 px-3 py-2 transition-transform duration-300">
                         <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i>
                     </button>
                 </div>
 
-                <!-- <a href="/pages/stories.php" id="mobile-stories-link"
+                <!-- <a href="<?php echo BASE_PATH; ?>/pages/stories.php" id="mobile-stories-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Success
                     Stories</a> -->
-                <a href="/pages/contact.php" id="mobile-contact-link"
+                <a href="<?php echo BASE_PATH; ?>/pages/contact.php" id="mobile-contact-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Contact</a>
                 <!-- <a href="/learn/pages/downloads/" -->
                 <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Free
                     Resources</a>
-                <a href="/learn/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-2 transition-all duration-300 transform hover:scale-[1.02]">Enroll
                     Now</a>
             </div>
@@ -226,51 +231,6 @@
             if (mobileMenuElement) {
                 mobileMenuElement.classList.add('hidden');
             }
-
-            // Adjust navigation links based on current location to prevent double navigation issues
-            const currentPage = window.location.pathname;
-
-            // Get all navigation links
-            const homeLinks = document.querySelectorAll('#home-link, #desktop-home-link, #mobile-home-link');
-            const contactLinks = document.querySelectorAll('#desktop-contact-link, #mobile-contact-link');
-            const aboutLinks = document.querySelectorAll('#desktop-about-link, #mobile-about-link');
-            const servicesLinks = document.querySelectorAll('#desktop-services-link, #mobile-services-link');
-            const scheduleLinks = document.querySelectorAll('#desktop-schedule-link, #mobile-schedule-link');
-            const faqLinks = document.querySelectorAll('#desktop-faq-link, #mobile-faq-link');
-            const storiesLinks = document.querySelectorAll('#desktop-stories-link, #mobile-stories-link');
-
-            // Detect if we're on localhost with /learn subdirectory or on production
-            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            const basePath = isLocalhost ? '/learn' : '';
-
-            // Set paths based on environment
-            homeLinks.forEach(link => {
-                link.href = basePath + '/index.php';
-            });
-
-            contactLinks.forEach(link => {
-                link.href = basePath + '/pages/contact.php';
-            });
-
-            aboutLinks.forEach(link => {
-                link.href = basePath + '/pages/about.php';
-            });
-
-            servicesLinks.forEach(link => {
-                link.href = basePath + '/pages/services.php';
-            });
-
-            scheduleLinks.forEach(link => {
-                link.href = basePath + '/pages/schedule.php';
-            });
-
-            faqLinks.forEach(link => {
-                link.href = basePath + '/pages/faq.php';
-            });
-
-            storiesLinks.forEach(link => {
-                link.href = basePath + '/pages/stories.php';
-            });
 
             // Handle navigation link clicks to close menu before navigating
             const navigationLinks = document.querySelectorAll('#mobile-menu a:not([href="#"])');

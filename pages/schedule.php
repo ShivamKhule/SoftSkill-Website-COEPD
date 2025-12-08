@@ -1,5 +1,9 @@
 <?php
 $pageTitle = "Batches & Schedule - SoftSkills Academy";
+
+// Include configuration file
+require_once __DIR__ . '/../config.php';
+
 include __DIR__ . '/../includes/functions.php';
 $batches = loadData(__DIR__ . '/../data/batches.json');
 $courses = loadData(__DIR__ . '/../data/courses.json');
@@ -485,7 +489,9 @@ $program = loadData(__DIR__ . '/../data/program.json');
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const courseId = this.getAttribute('data-course');
-                window.location.href = 'contact.php?batch=' + courseId + '&course=complete-program';
+                // Use PHP to generate the correct base path
+                const basePath = '<?php echo BASE_PATH; ?>';
+                window.location.href = basePath + '/pages/contact.php?batch=' + courseId + '&course=complete-program';
             });
         });
     });

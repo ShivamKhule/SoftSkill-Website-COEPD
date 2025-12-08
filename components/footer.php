@@ -1,3 +1,8 @@
+<?php
+// Include configuration file
+require_once __DIR__ . '/config.php';
+?>
+
 <footer class="bg-gray-900 text-white">
     <div class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -32,22 +37,22 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul class="space-y-3">
-                    <li><a href="/learn/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
-                    <li><a href="/learn/pages/about.php" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
-                    <li><a href="/learn/pages/services.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
-                    <li><a href="/learn/pages/contact.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
-                    <li><a href="/learn/pages/faq.php" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/index.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Home</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/about.php" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/services.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Services</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/contact.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/faq.php" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
                 </ul>
             </div>
             
             <div>
                 <h4 class="text-lg font-semibold mb-4">Our Services</h4>
                 <ul class="space-y-3">
-                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">COMPLETE 3-MONTH PROGRAM</a></li>
-                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Communication & Confidence</a></li>
-                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Career Growth & Workplace Skills</a></li>
-                    <li><a href="/learn/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Personality, EQ & Leadership</a></li>
-                    <li><a href="/learn/pages/contact.php?service=corporate" class="text-gray-400 hover:text-blue-400 transition duration-300">Corporate Training</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">COMPLETE 3-MONTH PROGRAM</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Communication & Confidence</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Career Growth & Workplace Skills</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php" class="text-gray-400 hover:text-blue-400 transition duration-300">Personality, EQ & Leadership</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/contact.php?service=corporate" class="text-gray-400 hover:text-blue-400 transition duration-300">Corporate Training</a></li>
                 </ul>
             </div>
             
