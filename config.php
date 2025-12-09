@@ -30,6 +30,6 @@ define('BASE_URL', ($environment === 'development') ? 'http://localhost/learn' :
 define('BASE_PATH', ($environment === 'development') ? '/learn' : '');
 
 // Site settings
-define('SITE_NAME', 'SoftSkills Academy');
-define('ADMIN_EMAIL', ($environment === 'development') ? 'admin@localhost.local' : 'admin@softskillsacademy.com');
+define('SITE_NAME', 'SoftSkill Mentor Academy');
+define('ADMIN_EMAIL', ($environment === 'development') ? 'admin@localhost.local' : 'admin@softskillmentor.com');
 ?>

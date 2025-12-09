@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Contact Us - SoftSkills Academy";
+$pageTitle = "Contact Us - SoftSkill Mentor Academy";
 
 // Include configuration files
 require_once __DIR__ . '/../config.php';
@@ -56,20 +56,22 @@ if (isset($_SESSION['success_message'])) {
     $show_success_alert = true;
     $success_message = $_SESSION['success_message'];
     unset($_SESSION['success_message']); // Clear the message so it doesn't show again
-    error_log("Retrieved success message from session: " . $success_message);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = test_input($_POST["name"]);
-    $phone = test_input($_POST["phone"]);
-    $email = test_input($_POST["email"]);
-    $course = test_input($_POST["course"]);
-    $mode = test_input($_POST["mode"]);
-    $message = test_input($_POST["message"]);
+    // Start output buffering to prevent any output before header redirects
+    if (ob_get_level() == 0) ob_start();
+    
+    $name = isset($_POST["name"]) ? test_input($_POST["name"]) : '';
+    $phone = isset($_POST["phone"]) ? test_input($_POST["phone"]) : '';
+    $email = isset($_POST["email"]) ? test_input($_POST["email"]) : '';
+    $course = isset($_POST["course"]) ? test_input($_POST["course"]) : '';
+    $mode = isset($_POST["mode"]) ? test_input($_POST["mode"]) : '';
+    $message = isset($_POST["message"]) ? test_input($_POST["message"]) : '';
 
     // Check if this is an enrollment
     if (isset($_POST["is_enrollment"]) && $_POST["is_enrollment"] == "1") {
-        $batch_id = test_input($_POST["batch_id"]);
+        $batch_id = isset($_POST["batch_id"]) ? test_input($_POST["batch_id"]) : '';
 
         // Insert enrollment into database
         $enrollment_id = $db->insertEnrollment($name, $email, $phone, $batch_id, $course);
@@ -84,29 +86,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Clear form fields after successful submission
             $name = $phone = $email = $course = $mode = $message = '';
 
-            // Redirect to prevent form resubmission
+            // Clean any output and redirect
+            ob_clean();
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         } else {
             $error_message = 'There was an error processing your enrollment. Please try again.';
-            error_log("Enrollment failed for: " . $email);
         }
     } else {
         // Regular contact form submission
         $result = $db->insertContactMessage($name, $phone, $email, $course, $mode, $message);
 
         if (strpos($result, '✔') !== false) {
+            // Send notification email to site owner
+            sendContactNotificationEmail($name, $phone, $email, $course, $mode, $message);
+            
             // Set success message in session for redirect
             $_SESSION['success_message'] = 'Thank you! Your message has been sent successfully.';
 
             // Clear form fields after successful submission
             $name = $phone = $email = $course = $mode = $message = '';
 
-            // Redirect to prevent form resubmission
+            // Clean any output and redirect
+            ob_clean();
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         }
     }
+    
+    // Flush output buffer
+    ob_end_flush();
 }
 
 function test_input($data)
@@ -141,12 +150,10 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
     $program = getProgramById($course_id);
 
     if (!$batch_details || !$course_details) {
-        error_log("Failed to find batch or course details");
         return false;
     }
 
     if (!$program) {
-        error_log("Failed to find program details for course ID: " . $course_id);
         // Fallback to basic program info from course
         $program_title = isset($course_details['title']) ? $course_details['title'] : 'Our Program';
     } else {
@@ -223,10 +230,10 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
             <li>Download our mobile app for daily micro-learning sessions.</li>
         </ol>
         
-        <p>If you have any questions, please contact us at shivam.coepd@gmail.com</p>
+        <p>If you have any questions, please contact us at info@softskillmentor.com</p>
         
         <p>Best regards,<br/>
-        The SoftSkills Academy Team</p>
+        The SoftSkill Mentor Academy Team</p>
     </body>
     </html>
     ";
@@ -241,19 +248,9 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
     if (!$email_sent) {
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: SoftSkills Academy <shivam.coepd@gmail.com>" . "\r\n";
-
-        // Log email details for debugging
-        error_log("Attempting to send email to: " . $email);
-        error_log("Subject: " . $subject);
+        $headers .= "From: SoftSkill Mentor Academy <info@softskillmentor.com>" . "\r\n";
 
         $email_sent = mail($email, $subject, $message, $headers);
-
-        if ($email_sent) {
-            error_log("Email sent successfully using mail() function to: " . $email);
-        } else {
-            error_log("Failed to send email using mail() function to: " . $email);
-        }
     }
 
     // Method 3: Save to file as backup
@@ -311,7 +308,8 @@ function sendEmailWithPHPMailer($to_email, $to_name, $subject, $message)
             (SMTP_ENCRYPTION === 'tls' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS :
                 PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_NONE);
         $mail->Port = SMTP_PORT;
-        $mail->SMTPDebug = 0; // Set to 2 for debugging
+        $mail->SMTPDebug = 0; // DISABLE debugging to prevent output to browser
+        $mail->Timeout = 30; // Set timeout to 30 seconds
 
         // Recipients
         $mail->setFrom(SENDER_EMAIL, SENDER_NAME);
@@ -323,11 +321,12 @@ function sendEmailWithPHPMailer($to_email, $to_name, $subject, $message)
         $mail->Body = $message;
         $mail->AltBody = strip_tags($message); // Plain text version
 
-        $mail->send();
+        $result = $mail->send();
         error_log("Email sent successfully using PHPMailer to: " . $to_email);
         return true;
     } catch (Exception $e) {
         error_log("PHPMailer error: " . $mail->ErrorInfo);
+        error_log("Exception message: " . $e->getMessage());
         return false;
     }
 }
@@ -351,15 +350,43 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
     $filename = $emails_dir . '/email_' . time() . '_' . uniqid() . '.json';
     $saved = file_put_contents($filename, json_encode($email_data, JSON_PRETTY_PRINT));
 
-    if ($saved) {
-        error_log("Email saved to file: " . $filename);
-        return true;
-    } else {
-        error_log("Failed to save email to file");
-        return false;
-    }
+    return $saved !== false;
 }
 
+function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $message)
+{
+    // Email content for site owner
+    $subject = "New Contact Form Submission - SoftSkill Mentor Academy";
+    
+    $email_message = "
+    <html>
+    <head>
+        <title>New Contact Form Submission</title>
+    </head>
+    <body>
+        <h2>New Contact Form Submission</h2>
+        <p>You have received a new message from your website contact form.</p>
+        
+        <h3>Contact Details:</h3>
+        <ul>
+            <li><strong>Name:</strong> " . $name . "</li>
+            <li><strong>Email:</strong> " . $email . "</li>
+            <li><strong>Phone:</strong> " . $phone . "</li>
+            <li><strong>Course Interest:</strong> " . $course . "</li>
+            <li><strong>Preferred Mode:</strong> " . $mode . "</li>
+        </ul>
+        
+        <h3>Message:</h3>
+        <p>" . nl2br($message) . "</p>
+        
+        <p>This message has been automatically generated from your website contact form.</p>
+    </body>
+    </html>
+    ";
+    
+    // Send email to site owner - ONLY using info@softskillmentor.com
+    sendEmailWithPHPMailer('info@softskillmentor.com', 'SoftSkill Mentor Academy', $subject, $email_message);
+}
 ?>
 
 <?php ob_start(); ?>
@@ -396,7 +423,7 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
                     </div>
                 <?php endif; ?>
 
-                <form method="post" action=""
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
                     class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md animate-fade-in-up"
                     id="contactForm">
                     <?php if ($is_enrollment): ?>
@@ -512,8 +539,8 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
-                                <p class="text-gray-600">+91 1234567890</p>
-                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/9876543210"
+                                <p class="text-gray-600">+91 9154829627</p>
+                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/9154829627"
                                         class="text-green-600 hover:text-green-800 transform hover:underline">Chat with
                                         us</a></p>
                             </div>
@@ -525,7 +552,7 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Email Address</h3>
-                                <p class="text-gray-600">shivam.coepd@gmail.com</p>
+                                <p class="text-gray-600">info@softskillmentor.com</p>
                             </div>
                         </div>
 
@@ -546,8 +573,8 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
                     class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md contact-emergency-card animate-fade-in-up delay-2">
                     <h3 class="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
                     <p class="mb-4">For urgent inquiries, call our support line:</p>
-                    <p class="text-2xl font-bold">+91 9876543210</p>
-                    <p class="mt-4 text-blue-100">Available Monday-Friday, 8:00 AM - 8:00 PM</p>
+                    <p class="text-2xl font-bold">+91 9154829627</p>
+                    <p class="mt-4 text-blue-100">Available Monday-Friday, 9:00 AM - 6:00 PM</p>
                 </div>
             </div>
         </div>
@@ -566,7 +593,7 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
 
         <div class="bg-white rounded-xl shadow-md overflow-hidden h-96 map-container animate-fade-in-up">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.05546980793!2d73.85674387496354!3d18.520430873856254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06d14a8e0ef%3A0xdea3b1a0b0481218!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7216923120554!2d73.81149677496235!3d18.496261382592554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb6b6abee15%3A0xf60f9720b95207c1!2sCOEPD!5e0!3m2!1sen!2sin!4v1765269128315!5m2!1sen!2sin"
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
@@ -800,19 +827,14 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
         const btnText = document.getElementById('btnText');
         const loadingSpinner = document.getElementById('loadingSpinner');
         
-        if (contactForm && submitBtn) {
-            contactForm.addEventListener('submit', function() {
-                // Disable the button and show loading spinner
+        if (contactForm && submitBtn && btnText && loadingSpinner) {
+            contactForm.addEventListener('submit', function(e) {
+                // Show loading spinner
                 submitBtn.disabled = true;
                 btnText.textContent = '<?php echo $is_enrollment ? 'Completing Enrollment...' : 'Sending Message...'; ?>';
                 loadingSpinner.classList.remove('hidden');
                 
-                // Re-enable button if form validation fails (for browsers that support this)
-                setTimeout(function() {
-                    submitBtn.disabled = false;
-                    btnText.textContent = '<?php echo $is_enrollment ? 'Complete Enrollment' : 'Send Message'; ?>';
-                    loadingSpinner.classList.add('hidden');
-                }, 10000); // Reset after 10 seconds as a fallback
+                // Allow form to submit normally
             });
         }
     });
@@ -835,43 +857,13 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
 
                     // Show success notification
                     notyf.success('<?php echo addslashes($success_message); ?>');
-                    console.log("Notyf notification shown: " + '<?php echo addslashes($success_message); ?>');
-                    //     } catch (e) {
-                    //         console.error("Error showing Notyf notification:", e);
-                    //         // Fallback to alert
-                    //         alert('<?php echo addslashes($success_message); ?>');
-                    //     }
-                    // } else {
-                    //     // Fallback to alert if Notyf is not available
-                    //     alert('<?php echo addslashes($success_message); ?>');
-                    //     console.log("Alert shown: " + '<?php echo addslashes($success_message); ?>');
-                    // }
                 } catch (e) {
                     console.error("Error showing Notyf notification:", e);
-                    // Don't fallback to alert - just log the error
-                    console.log("Notification failed: " + '<?php echo addslashes($success_message); ?>');
                 }
-            } else {
-                // Don't fallback to alert - just log that Notyf is not available
-                console.log("Notyf not available. Notification: " + '<?php echo addslashes($success_message); ?>');
-            }
-
-            // Remove success parameter from URL without refresh
-            try {
-                if (window.history.replaceState) {
-                    const url = new URL(window.location);
-                    url.searchParams.delete('success');
-                    window.history.replaceState({}, document.title, url.toString());
-                }
-            } catch (e) {
-                console.error("Error removing success parameter:", e);
             }
         }
 
-        // Execute immediately and also on DOMContentLoaded
-        showNotification();
-
-        // Also execute when DOM is ready
+        // Execute when DOM is ready
         if (document.readyState !== 'loading') {
             showNotification();
         } else {
@@ -907,14 +899,10 @@ function saveEmailToFile($to_email, $to_name, $subject, $message)
             var script = document.createElement('script');
             script.src = 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js';
             script.onload = function () {
-                console.log('Notyf library loaded');
                 // If we have a success message, show it now that Notyf is loaded
                 <?php if ($show_success_alert): ?>
                     showNotification();
                 <?php endif; ?>
-            };
-            script.onerror = function () {
-                console.log('Failed to load Notyf library');
             };
             document.head.appendChild(script);
         }

@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Frequently Asked Questions - SoftSkills Academy";
+$pageTitle = "Frequently Asked Questions - SoftSkill Mentor Academy";
 
 // Start session for flash messages
 if (session_status() == PHP_SESSION_NONE) {

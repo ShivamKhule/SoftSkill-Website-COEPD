@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Batches & Schedule - SoftSkills Academy";
+$pageTitle = "Batches & Schedule - SoftSkill Mentor Academy";
 
 // Start session for flash messages
 if (session_status() == PHP_SESSION_NONE) {

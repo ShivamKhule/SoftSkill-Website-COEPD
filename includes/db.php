@@ -197,6 +197,17 @@ class Database
     public function insertContactMessage($name, $phone, $email, $course, $mode, $message)
     {
         try {
+            // Handle empty mode values
+            if (empty($mode)) {
+                $mode = null;
+            } else {
+                // Validate mode against enum values
+                $valid_modes = ['online', 'inperson', 'hybrid'];
+                if (!in_array($mode, $valid_modes)) {
+                    $mode = null;
+                }
+            }
+            
             $sql = "INSERT INTO contact_us (name, phone, email, course, mode, message)
                 VALUES (:name, :phone, :email, :course, :mode, :message)";
 

@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "About Us - SoftSkills Academy";
+$pageTitle = "About Us - SoftSkill Mentor Academy";
 
 // Start session for flash messages
 if (session_status() == PHP_SESSION_NONE) {
@@ -25,7 +25,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
         <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 opacity-90"></div>
     </div>
     <div class="container mx-auto px-4 relative z-10 text-center animate-slide-up">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">About SoftSkills Academy</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">About SoftSkill Mentor Academy</h1>
         <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">We are dedicated to developing essential people skills through practical
             and industry-relevant training.</p>
     </div>
@@ -35,7 +35,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
 <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Our Mission & Vision</h2>
+            <h2 class="text-3xl font-bold mb-4">Our Mission & Vision - SoftSkill Mentor Academy</h2>
             <p class="text-gray-600 max-w-3xl mx-auto">We believe that soft skills are the foundation of personal and
                 professional success in the modern world.</p>
         </div>
@@ -70,7 +70,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
 <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Our Approach</h2>
+            <h2 class="text-3xl font-bold mb-4">Our Approach - SoftSkill Mentor Academy</h2>
             <p class="text-gray-600 max-w-3xl mx-auto">We combine proven methodologies with practical application to
                 ensure lasting skill development.</p>
         </div>
@@ -111,7 +111,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
     <div class="container mx-auto px-4">
 
         <div class="text-center mb-12 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Meet Our Expert Trainers</h2>
+            <h2 class="text-3xl font-bold mb-4">Meet Our Expert Trainers - SoftSkill Mentor Academy</h2>
             <p class="text-gray-600 max-w-3xl mx-auto">
                 Our trainers bring decades of real-world experience and proven teaching expertise.
             </p>
@@ -164,7 +164,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
 <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Why Choose SoftSkills Academy</h2>
+            <h2 class="text-3xl font-bold mb-4">Why Choose SoftSkill Mentor Academy</h2>
             <p class="text-gray-600 max-w-3xl mx-auto">We stand out through our commitment to quality, practical
                 application, and student success.</p>
         </div>

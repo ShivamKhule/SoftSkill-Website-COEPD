@@ -1,16 +1,16 @@
 <?php
 // Email configuration file
 
-// Gmail SMTP settings
-define('SMTP_HOST', 'smtp.gmail.com');
+// Hostinger SMTP settings
+define('SMTP_HOST', 'smtp.hostinger.com');
 define('SMTP_PORT', 587);
-define('SMTP_USERNAME', 'shivam.coepd@gmail.com');
-define('SMTP_PASSWORD', 'ukev gjsu ehjy upwd'); // Replace with your app password
-define('SMTP_ENCRYPTION', 'tls'); // Options: 'tls', 'ssl', or 'none'
+define('SMTP_USERNAME', 'info@softskillmentor.com');
+define('SMTP_PASSWORD', 'Coepd@#2026');
+define('SMTP_ENCRYPTION', 'tls');
 
 // Sender information
-define('SENDER_EMAIL', 'shivam.coepd@gmail.com');
-define('SENDER_NAME', 'SoftSkills Academy');
+define('SENDER_EMAIL', 'info@softskillmentor.com');
+define('SENDER_NAME', 'SoftSkill Mentor Academy');
 
 // Fallback settings
 define('USE_MAIL_FUNCTION_AS_FALLBACK', true);

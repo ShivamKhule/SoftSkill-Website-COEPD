@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Our Services - SoftSkills Academy";
+$pageTitle = "Our Services - SoftSkill Mentor Academy";
 require_once __DIR__ . '/../config.php';
 include __DIR__ . '/../includes/functions.php';
 // include __DIR__ . '/../pages/services.php';
