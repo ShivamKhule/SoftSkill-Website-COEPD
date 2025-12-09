@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <!-- <div class="flex items-center">
                     <h1 class="text-2xl font-bold text-blue-600">SoftSkills</h1>
                 </div> -->
-                <img src="<?php echo BASE_PATH; ?>/assets/SOFT SKILL MENTOR hz.png" alt="SoftSkill Mentor Logo" class="w-50 h-14 ml-2">
+                <img src="<?php echo BASE_PATH; ?>/assets/SOFT SKILL MENTOR hz.png" alt="SoftSkill Mentor Logo" class="w-50 h-12">
             </a>
 
             <nav class="hidden lg:block">

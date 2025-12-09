@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($pageTitle) ? $pageTitle : 'SoftSkills Academy'; ?></title>
+    <title><?php echo isset($pageTitle) ? $pageTitle : 'SoftSkill Mentor Academy'; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -12,9 +12,6 @@
 
     <!-- Notyf CSS for notifications -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <style>
         body {
@@ -173,7 +170,7 @@
         } else {
             ?>
             <div class="container mx-auto px-4 py-16">
-                <h1 class="text-3xl font-bold text-center mb-8">Welcome to SoftSkills Academy</h1>
+                <h1 class="text-3xl font-bold text-center mb-8">Welcome to SoftSkill Mentor Academy</h1>
                 <p class="text-center text-gray-600 max-w-2xl mx-auto">Please navigate to a specific page to view content.
                 </p>
             </div>
@@ -184,7 +181,7 @@
 
     <!-- WhatsApp Widget -->
     <div class="whatsapp-widget">
-        <a href="https://wa.me/9876543210" target="_blank" title="Chat with us on WhatsApp">
+        <a href="https://wa.me/9154829627" target="_blank" title="Chat with us on WhatsApp">
             <i class="fab fa-whatsapp text-3xl"></i>
         </a>
     </div>

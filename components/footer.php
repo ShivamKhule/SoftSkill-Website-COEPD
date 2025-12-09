@@ -10,11 +10,10 @@ require_once __DIR__ . '/../config.php';
                 <span class=""> <!-- Increased padding if you want -->
                     <a href="<?php echo BASE_PATH; ?>/index.php" id="home-link">
                         <img src="<?php echo BASE_PATH; ?>/assets/SOFT SKILL MENTOR vr.png" alt="SoftSkill Mentor Logo"
-                            class="w-50 h-24 bg-white p-2 rounded-lg"
-                        style="background-color: white !important;">    
+                            class="w-50 h-24 bg-white p-2 rounded-lg" style="background-color: white !important;">
                     </a>
                 </span>
-                <p class="text-gray-400 mb-6 leading-relaxed">
+                <p class="text-gray-400 mb-6 leading-relaxed mt-4">
                     Empowering individuals and organizations with essential soft skills for professional success.
                     Transform your career with our expert-led training programs.
                 </p>
@@ -31,14 +30,14 @@ require_once __DIR__ . '/../config.php';
                     <a href="#" class="text-gray-400 hover:text-red-400 transition duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="https://wa.me/9876543210"
+                    <a href="https://wa.me/9154829627"
                         class="text-gray-400 hover:text-green-500 transition duration-300">
                         <i class="fab fa-whatsapp text-xl"></i>
                     </a>
                 </div>
                 <div class="flex items-center text-gray-400">
                     <i class="fas fa-phone mr-2"></i>
-                    <span>+91 1234567890</span>
+                    <span>+91 9154829627</span>
                 </div>
             </div>
 
@@ -84,11 +83,12 @@ require_once __DIR__ . '/../config.php';
                 <ul class="space-y-3 text-gray-400">
                     <li class="flex items-start">
                         <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
-                        <span>123 Education Street, Learning City, LC 10001</span>
+                        <span>Office No: 301, 3rd Floor, Walchand House Happy Colony Lane, 1, Warje Malwadi Rd, Kothrud,
+                            Pune, Maharashtra 411052</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-phone mr-3"></i>
-                        <span>+91 9876543210</span>
+                        <span>+91 9154829627</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-envelope mr-3"></i>
@@ -96,14 +96,14 @@ require_once __DIR__ . '/../config.php';
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-clock mr-3"></i>
-                        <span>Mon-Fri: 9AM-6PM</span>
+                        <span>Mon-Fri: 9:00 AM-6:00 PM</span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
-            <p>&copy; 2025 SoftSkills Academy. All rights reserved.</p>
+            <p>&copy; 2025 SoftSkill Mentor Academy. All rights reserved.</p>
         </div>
     </div>
 </footer>
