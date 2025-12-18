@@ -536,8 +536,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Our Location</h3>
-                                <p class="text-gray-600">COEPD, 
-                                    Office No: 301, 3rd Floor, Walchand House Happy Colony Lane, 1, Warje Malwadi Rd,
+                                <p class="text-gray-600">Office No: 301, 3rd Floor, Walchand House Happy Colony Lane, 1, Warje Malwadi Rd,
                                     above PNG & sons Jwellery store, Kothrud, Pune, Maharashtra 411038</p>
                             </div>
                         </div>
