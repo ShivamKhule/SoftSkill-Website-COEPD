@@ -60,8 +60,9 @@ if (isset($_SESSION['success_message'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Start output buffering to prevent any output before header redirects
-    if (ob_get_level() == 0) ob_start();
-    
+    if (ob_get_level() == 0)
+        ob_start();
+
     $name = isset($_POST["name"]) ? test_input($_POST["name"]) : '';
     $phone = isset($_POST["phone"]) ? test_input($_POST["phone"]) : '';
     $email = isset($_POST["email"]) ? test_input($_POST["email"]) : '';
@@ -100,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (strpos($result, '✔') !== false) {
             // Send notification email to site owner
             sendContactNotificationEmail($name, $phone, $email, $course, $mode, $message);
-            
+
             // Set success message in session for redirect
             $_SESSION['success_message'] = 'Thank you! Your message has been sent successfully.';
 
@@ -113,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
     }
-    
+
     // Flush output buffer
     ob_end_flush();
 }
@@ -357,7 +358,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
 {
     // Email content for site owner
     $subject = "New Contact Form Submission - SoftSkill Mentor Academy";
-    
+
     $email_message = "
     <html>
     <head>
@@ -383,7 +384,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
     </body>
     </html>
     ";
-    
+
     // Send email to site owner - ONLY using info@softskillmentor.com
     sendEmailWithPHPMailer('info@softskillmentor.com', 'SoftSkill Mentor Academy', $subject, $email_message);
 }
@@ -395,7 +396,8 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
 <section class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-20 animate-fade-in">
     <div class="container mx-auto px-4 text-center animate-slide-up">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">
-            <?php echo $is_enrollment ? 'Enroll Now' : 'Contact Us'; ?></h1>
+            <?php echo $is_enrollment ? 'Enroll Now' : 'Contact Us'; ?>
+        </h1>
         <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">
             <?php echo $is_enrollment ? 'Complete your enrollment in our program' : 'Have questions about our training programs? Get in touch with our team.'; ?>
         </p>
@@ -409,7 +411,8 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
             <!-- Contact Form -->
             <div class="animate-fade-in-left">
                 <h2 class="text-3xl font-bold mb-6">
-                    <?php echo $is_enrollment ? 'Complete Your Enrollment' : 'Send Us a Message'; ?></h2>
+                    <?php echo $is_enrollment ? 'Complete Your Enrollment' : 'Send Us a Message'; ?>
+                </h2>
 
                 <?php if ($is_enrollment && isset($selected_batch) && isset($selected_course)): ?>
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
@@ -502,14 +505,18 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             placeholder="<?php echo $is_enrollment ? 'Any special requirements or questions?' : 'Your message'; ?>"><?php echo $message; ?></textarea>
                     </div>
 
-                    <button type="submit" 
+                    <button type="submit"
                         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md flex items-center justify-center"
                         id="submitBtn">
                         <span id="btnText"><?php echo $is_enrollment ? 'Complete Enrollment' : 'Send Message'; ?></span>
                         <span id="loadingSpinner" class="hidden ml-2">
-                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
                             </svg>
                         </span>
                     </button>
@@ -529,7 +536,9 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Our Location</h3>
-                                <p class="text-gray-600">123 Education Street, Learning City, LC 10001</p>
+                                <p class="text-gray-600">COEPD, 
+                                    Office No: 301, 3rd Floor, Walchand House Happy Colony Lane, 1, Warje Malwadi Rd,
+                                    above PNG & sons Jwellery store, Kothrud, Pune, Maharashtra 411038</p>
                             </div>
                         </div>
 
@@ -821,19 +830,19 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
 
 <script>
     // Add loading indicator functionality
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const loadingSpinner = document.getElementById('loadingSpinner');
-        
+
         if (contactForm && submitBtn && btnText && loadingSpinner) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', function (e) {
                 // Show loading spinner
                 submitBtn.disabled = true;
                 btnText.textContent = '<?php echo $is_enrollment ? 'Completing Enrollment...' : 'Sending Message...'; ?>';
                 loadingSpinner.classList.remove('hidden');
-                
+
                 // Allow form to submit normally
             });
         }
