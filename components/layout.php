@@ -16,6 +16,16 @@
     <!-- Notyf CSS for notifications -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6ZLFWVPRH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F6ZLFWVPRH');
+    </script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -119,7 +129,7 @@
                 font-size: 2.5rem;
             }
         }
-        
+
         @media (max-width: 768px) {
             .counter {
                 font-size: 2rem;

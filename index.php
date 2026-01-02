@@ -13,6 +13,8 @@ include __DIR__ . '/includes/functions.php';
 $testimonials = loadData(__DIR__ . '/data/testimonials.json');
 $courses = loadData(__DIR__ . '/data/courses.json');
 $services = loadData(__DIR__ . '/data/services.json');
+$blogPosts = loadData(__DIR__ . '/data/blog.json');
+$latestBlogs = array_slice($blogPosts, 0, 3);
 require_once __DIR__ . '/includes/db.php';
 $db = new Database();
 
@@ -317,6 +319,61 @@ $db->createDatabase();
         </div>
     </div>
 </section>
+
+<!-- Blog Preview Section -->
+<section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50 animate-fade-in">
+    <div class="container mx-auto px-4">
+
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">From Our Blog</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Practical insights, career tips, and soft-skill strategies from our experts.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <?php foreach ($latestBlogs as $index => $post): ?>
+                <div
+                    class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 animate-fade-in-up delay-<?php echo $index + 1; ?>">
+
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>"
+                            class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">
+                            <?php echo date('F j, Y', strtotime($post['date'])); ?> •
+                            <?php echo $post['category']; ?>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-3">
+                            <?php echo $post['title']; ?>
+                        </h3>
+
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            <?php echo $post['excerpt']; ?>
+                        </p>
+
+                        <a href="<?php echo BASE_PATH; ?>/pages/blog/post.php?id=<?php echo $post['id']; ?>"
+                            class="text-blue-600 font-bold inline-flex items-center hover:text-blue-800 transition">
+                            Read Article
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="<?php echo BASE_PATH; ?>/pages/blog/index.php"
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg transform hover:scale-105">
+                View All Articles
+            </a>
+        </div>
+    </div>
+</section>
+
 
 <!-- CTA Section -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
