@@ -60,16 +60,16 @@ require_once __DIR__ . '/../config.php';
             <div>
                 <h4 class="text-lg font-semibold mb-4">Our Services</h4>
                 <ul class="space-y-3">
-                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/services.php"
                             class="text-gray-400 hover:text-blue-400 transition duration-300">COMPLETE 3-MONTH
                             PROGRAM</a></li>
-                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/services.php"
                             class="text-gray-400 hover:text-blue-400 transition duration-300">Communication &
                             Confidence</a></li>
-                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/services.php"
                             class="text-gray-400 hover:text-blue-400 transition duration-300">Career Growth & Workplace
                             Skills</a></li>
-                    <li><a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/services.php"
                             class="text-gray-400 hover:text-blue-400 transition duration-300">Personality, EQ &
                             Leadership</a></li>
                     <li><a href="<?php echo BASE_PATH; ?>/pages/contact.php?service=corporate"

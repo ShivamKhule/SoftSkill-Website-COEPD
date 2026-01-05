@@ -82,11 +82,11 @@ if (session_status() == PHP_SESSION_NONE) {
                     </li>
 
                     <li>
-                        <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" id="desktop-schedule-link" class=" text-gray-700 font-medium relative px-3 py-1 rounded-md transition-all duration-300
+                        <a href="<?php echo BASE_PATH; ?>/pages/programs.php" id="desktop-schedule-link" class=" text-gray-700 font-medium relative px-3 py-1 rounded-md transition-all duration-300
                             hover:text-blue-600 hover:bg-blue-50 after:absolute after:left-0 after:bottom-0 after:h-0.5
                             after:w-0 after:bg-blue-600 after:rounded-full after:transition-all after:duration-300
                             hover:after:w-full">
-                            Batches
+                            Programs
                         </a>
                     </li>
 
@@ -149,7 +149,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     Free Resources
                 </a> -->
 
-                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300 shadow-md hover:shadow-lg hidden lg:block">
                     Enroll Now
                 </a>
@@ -192,8 +192,8 @@ if (session_status() == PHP_SESSION_NONE) {
                         Courses</a>
                 </div> -->
 
-                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php" id="mobile-schedule-link"
-                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Batches</a>
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php" id="mobile-schedule-link"
+                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Programs</a>
 
                 <div class="flex justify-between items-center">
                     <a href="<?php echo BASE_PATH; ?>/pages/faq.php" id="mobile-faq-link"
@@ -212,7 +212,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <!-- <a href="#"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Free
                     Resources</a> -->
-                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-2 transition-all duration-300 transform hover:scale-[1.02]">Enroll
                     Now</a>
             </div>

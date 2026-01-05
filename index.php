@@ -39,7 +39,7 @@ $db->createDatabase();
                 to accelerate your career and boost confidence.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
                 <!-- <a href="pages/courses/" -->
-                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105">Explore
                     Courses</a>
                 <!-- <a href="pages/downloads/" -->
@@ -189,7 +189,7 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Students & Graduates</h3>
                 <p class="text-gray-600 mb-4">Prepare for the professional world with essential workplace skills</p>
                 <!-- <a href="pages/courses/interview.php" class="text-blue-600 hover:text-blue-800 font-medium">Explore -->
-                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="text-blue-600 hover:text-blue-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
                     Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
@@ -203,7 +203,7 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Working Professionals</h3>
                 <p class="text-gray-600 mb-4">Advance your career with improved communication and leadership</p>
                 <!-- <a href="pages/courses/leadership.php" class="text-teal-600 hover:text-teal-800 font-medium">Explore -->
-                <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="text-teal-600 hover:text-teal-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
                     Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
@@ -217,7 +217,7 @@ $db->createDatabase();
                 <h3 class="text-xl font-bold mb-4">Organizations</h3>
                 <p class="text-gray-600 mb-4">Enhance team performance with customized corporate training</p>
                 <!-- <a href="pages/corporate.php" class="text-indigo-600 hover:text-indigo-800 font-medium">Explore Programs -->
-                <a href="#"
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="text-indigo-600 hover:text-indigo-800 font-medium transform hover:translate-x-1 inline-flex items-center transition-transform">
                     Explore Programs
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
@@ -253,7 +253,7 @@ $db->createDatabase();
                         <div class="flex flex-wrap justify-between items-center">
                             <span class="text-blue-600 font-bold text-lg"><?php echo $course['fees']; ?></span>
                             <!-- <a href="pages/courses/<?php echo $course['id']; ?>.php" -->
-                            <a href="#"
+                            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                                 class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105">Learn
                                 More</a>
                         </div>
@@ -384,7 +384,7 @@ $db->createDatabase();
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <!-- <a href="pages/courses/" -->
-            <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105">Enroll
                 Now</a>
             <!-- <a href="pages/contact.php" -->

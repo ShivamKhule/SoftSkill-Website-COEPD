@@ -1,32 +1,80 @@
 [
   {
-    "id": "complete-program",
-    "title": "COMPLETE 3-MONTH PROGRAM",
-    "description": "A comprehensive 12-week program covering Communication & Confidence, Career Growth & Workplace Intelligence, and Personality, EQ, Leadership & AI Mastery.",
-    "icon": "fa-graduation-cap"
+    "id": "communication-skills",
+    "title": "Communication Skills",
+    "icon": "fas fa-comments",
+    "description": "Master the art of effective communication in personal and professional settings",
+    "skills": [
+      "Verbal Communication",
+      "Non-verbal Communication", 
+      "Active Listening",
+      "Presentation Skills",
+      "Public Speaking"
+    ]
   },
   {
-    "id": "communication-confidence",
-    "title": "Month 1 - Communication & Confidence",
-    "description": "Master fluency, business English, pronunciation, and presentation skills with daily practice and personalized feedback.",
-    "icon": "fa-comments"
+    "id": "leadership-skills",
+    "title": "Leadership Skills",
+    "icon": "fas fa-bullhorn",
+    "description": "Develop leadership qualities to inspire and guide teams effectively",
+    "skills": [
+      "Team Management",
+      "Decision Making",
+      "Delegation",
+      "Motivation",
+      "Change Management"
+    ]
   },
   {
-    "id": "career-growth",
-    "title": "Month 2 - Career Growth & Workplace Skills",
-    "description": "Dominate interviews, build your professional brand, and develop workplace intelligence and leadership basics.",
-    "icon": "fa-briefcase"
+    "id": "interpersonal-skills",
+    "title": "Interpersonal Skills",
+    "icon": "fas fa-handshake",
+    "description": "Build strong relationships and connect with others effectively",
+    "skills": [
+      "Emotional Intelligence",
+      "Empathy",
+      "Conflict Resolution",
+      "Negotiation",
+      "Networking"
+    ]
   },
   {
-    "id": "personality-eq",
-    "title": "Month 3 - Personality, EQ, Leadership & AI",
-    "description": "Upgrade your personality, develop emotional intelligence, critical thinking, and master AI for communication and career.",
-    "icon": "fa-user-circle"
+    "id": "problem-solving",
+    "title": "Problem Solving",
+    "icon": "fas fa-lightbulb",
+    "description": "Enhance your ability to analyze situations and find effective solutions",
+    "skills": [
+      "Critical Thinking",
+      "Analytical Skills",
+      "Creative Problem Solving",
+      "Decision Making",
+      "Root Cause Analysis"
+    ]
   },
   {
-    "id": "corporate",
-    "title": "Corporate Soft Skills Training",
-    "description": "Customized programs for teams to enhance workplace communication and collaboration.",
-    "icon": "fa-building"
+    "id": "time-management",
+    "title": "Time Management",
+    "icon": "fas fa-clock",
+    "description": "Optimize your productivity and efficiency with effective time management",
+    "skills": [
+      "Prioritization",
+      "Goal Setting",
+      "Planning",
+      "Scheduling",
+      "Focus Enhancement"
+    ]
+  },
+  {
+    "id": "emotional-intelligence",
+    "title": "Emotional Intelligence",
+    "icon": "fas fa-heart",
+    "description": "Understand and manage emotions for better relationships and performance",
+    "skills": [
+      "Self-Awareness",
+      "Self-Regulation",
+      "Motivation",
+      "Empathy",
+      "Social Skills"
+    ]
   }
 ]

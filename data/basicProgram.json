@@ -1,0 +1,109 @@
+{
+  "id": "basic-program",
+  "title": "45-Day Soft Skills Transformation Program",
+  "category": "Basic",
+  "duration": "45 Days",
+  "dailyTime": "60 Minutes/Day",
+  "practicalPercentage": "90%",
+  "audience": [
+    "Students",
+    "Job Seekers",
+    "Working Professionals",
+    "Career Switchers"
+  ],
+  "overview": [
+    "This intensive 45-day program is a fast-track version of a comprehensive soft skills framework. It focuses on confidence, fluency, structured thinking, emotional expression, and real-life communication mastery."
+  ],
+  "daily_session_format": [
+    {
+      "activity": "Warm-up & Confidence Activation",
+      "duration_minutes": 5
+    },
+    {
+      "activity": "Core Technique / Concept",
+      "duration_minutes": 20
+    },
+    {
+      "activity": "Guided Speaking Lab / Simulation",
+      "duration_minutes": 25
+    },
+    {
+      "activity": "Feedback & Micro-Assignment",
+      "duration_minutes": 10
+    }
+  ],
+  "structure": [
+    {
+      "phase": 1,
+      "title": "Comfort, Fluency & Foundations",
+      "days": "Days 1–10",
+      "topics": [
+        "Ice Breaking & Psychological Safety",
+        "Daily Life Talk & Routine Usage",
+        "Current Life & Present Thinking",
+        "Past Experience Narration",
+        "Plans, Advice & Intentions",
+        "Life Experiences & Responsibility Talk",
+        "Emotional Expression & Descriptions",
+        "Introduction to Logic & Structure"
+      ]
+    },
+    {
+      "phase": 2,
+      "title": "Logic, Structure & Opinion Building",
+      "days": "Days 11–20",
+      "topics": [
+        "Logic Reinforcement & Sequencing",
+        "Buying Time & Fluency Control",
+        "Hypothetical Situations",
+        "Hidden Logic Conversations",
+        "Fluency & Confidence Check",
+        "Opinion Awareness & Expansion"
+      ]
+    },
+    {
+      "phase": 3,
+      "title": "Depth, Time Flow & Real-Life Mastery",
+      "days": "Days 21–30",
+      "topics": [
+        "Real-Life Opinions & Examples",
+        "Peer Interaction Confidence",
+        "Observation & Description Upgrade",
+        "Time Awareness Across Past–Present–Future",
+        "Real-Life Planning Conversations"
+      ]
+    },
+    {
+      "phase": 4,
+      "title": "Storytelling, Polish & Transformation",
+      "days": "Days 31–45",
+      "topics": [
+        "Conversation Continuity & Emotional Time",
+        "Speed, Pause & Voice Control",
+        "Storytelling Basics & Expansion",
+        "Emotional Storytelling",
+        "Revision, Mixed Situations & Long Conversations",
+        "Final Transformation Showcase"
+      ]
+    }
+  ],
+  "dailyFormat": {
+    "warmup": "5 minutes",
+    "technique": "20 minutes",
+    "lab": "25 minutes",
+    "coaching": "10 minutes"
+  },
+  "weeklyElements": [
+    "Daily Speaking Practice",
+    "Real-Life Simulations",
+    "Confidence Tracking"
+  ],
+  "programDeliverables": [
+    "Confident daily and professional communication",
+    "Structured thinking and clear opinions",
+    "Strong storytelling and emotional expression",
+    "Fear-free real-life conversations",
+    "Personal fluency and confidence assessment report"
+  ],
+  "certification": "Completion Certificate with Personalized Feedback"
+}

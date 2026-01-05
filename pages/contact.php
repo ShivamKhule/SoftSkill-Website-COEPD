@@ -157,8 +157,10 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
     if (!$program) {
         // Fallback to basic program info from course
         $program_title = isset($course_details['title']) ? $course_details['title'] : 'Our Program';
+        $is_coming_soon = false;
     } else {
         $program_title = $program['title'];
+        $is_coming_soon = isset($program['status']) && $program['status'] === 'coming_soon';
     }
 
     // Email content
@@ -187,18 +189,25 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
 
     // Add program details if available
     if ($program) {
-        $message .= "
+        if ($is_coming_soon) {
+            $message .= "
+        <h3>Program Overview</h3>
+        <p><strong>Status:</strong> Coming Soon</p>
+        <p><strong>Audience:</strong> " . (isset($program['audience']) ? (is_array($program['audience']) ? implode(', ', $program['audience']) : $program['audience']) : 'N/A') . "</p>";
+        } else {
+            $message .= "
         <h3>Program Overview</h3>
         <p><strong>Duration:</strong> " . (isset($program['duration']) ? $program['duration'] : 'N/A') . "</p>
         <p><strong>Daily Time Commitment:</strong> " . (isset($program['dailyTime']) ? $program['dailyTime'] : 'N/A') . "</p>
         <p><strong>Practical Content:</strong> " . (isset($program['practicalPercentage']) ? $program['practicalPercentage'] : 'N/A') . "</p>";
+        }
 
-        if (isset($program['structure']) && is_array($program['structure'])) {
+        if (!$is_coming_soon && isset($program['structure']) && is_array($program['structure'])) {
             $message .= "<h3>Program Structure</h3>";
 
             // Add program structure details
             foreach ($program['structure'] as $monthIndex => $month) {
-                $message .= "<h4>Month " . ($monthIndex + 1) . " - " . (isset($month['title']) ? $month['title'] : 'N/A') . "</h4>";
+                $message .= "<h4>Module " . ($monthIndex + 1) . " - " . (isset($month['title']) ? $month['title'] : 'N/A') . "</h4>";
                 if (isset($month['weeks']) && is_array($month['weeks'])) {
                     $message .= "<ul>";
                     foreach ($month['weeks'] as $week) {
@@ -207,9 +216,12 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
                     $message .= "</ul>";
                 }
             }
+        } elseif ($is_coming_soon) {
+            $message .= "<h3>Program Information</h3>";
+            $message .= "<p>This program is coming soon. Please check back later for detailed structure and content.</p>";
         }
 
-        if (isset($program['programDeliverables']) && is_array($program['programDeliverables'])) {
+        if (!$is_coming_soon && isset($program['programDeliverables']) && is_array($program['programDeliverables'])) {
             $message .= "
                 <h3>Program Deliverables</h3>
                 <ul>";
@@ -220,6 +232,10 @@ function sendEnrollmentEmail($name, $email, $batch_id, $course_id, $batches, $co
             }
 
             $message .= "</ul>";
+        } elseif ($is_coming_soon) {
+            $message .= "
+                <h3>Coming Soon</h3>
+                <p>More information about program deliverables will be available when the program launches.</p>";
         }
     }
 
@@ -466,7 +482,17 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             <select id="course" name="course"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
                                 <option value="">Select a course</option>
-                                <?php foreach ($courses as $course_item): ?>
+                                <?php 
+                                // Load all programs and filter out 'coming soon' ones
+                                $all_programs = loadData(__DIR__ . '/../data/programs.json');
+                                foreach ($all_programs as $program_item):
+                                    if (!isset($program_item['status']) || $program_item['status'] !== 'coming_soon'):
+                                ?>
+                                    <option value="<?php echo $program_item['id']; ?>" <?php echo ($course == $program_item['id']) ? 'selected' : ''; ?>><?php echo $program_item['title']; ?></option>
+                                <?php 
+                                    endif;
+                                endforeach;
+                                foreach ($courses as $course_item): ?>
                                     <option value="<?php echo $course_item['id']; ?>" <?php echo ($course == $course_item['id']) ? 'selected' : ''; ?>><?php echo $course_item['title']; ?></option>
                                 <?php endforeach; ?>
                                 <option value="corporate" <?php echo ($course == 'corporate') ? 'selected' : ''; ?>>Corporate
@@ -618,7 +644,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
             advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="<?php echo BASE_PATH; ?>/pages/schedule.php"
+            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore
                 Courses</a>
             <a href="#"

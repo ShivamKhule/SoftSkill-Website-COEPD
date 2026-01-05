@@ -59,11 +59,19 @@ function getProgramById($id) {
         }
     }
     
+    // Also try loading from basicProgram.json
+    $basicProgram = loadData(__DIR__ . '/../data/basicProgram.json');
+    if (!empty($basicProgram) && isset($basicProgram['id']) && $basicProgram['id'] == $id) {
+        return $basicProgram;
+    }
+    
     // Fallback to single program.json file for backward compatibility
     $program = loadData(__DIR__ . '/../data/program.json');
     if (!empty($program) && isset($program['title'])) {
         // Add an ID for consistency
-        $program['id'] = 'complete-3-month';
+        if (!isset($program['id'])) {
+            $program['id'] = 'complete-3-month';
+        }
         return $program;
     }
     

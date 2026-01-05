@@ -41,5 +41,62 @@
         "comment": "The practical approach and daily exercises helped me master skills I'd been struggling with for years."
       }
     ]
+  },
+  {
+    "id": "basic-program",
+    "title": "45-Day Soft Skills Transformation Program",
+    "image": "https://images.unsplash.com/photo-1516321454525-7c3e70b9a728?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29mdCUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+    "description": "A foundational 45-day program focusing on communication, confidence, and personal development skills with day-by-day progression.",
+    "overview": "This intensive 45-day program is a fast-track version of a comprehensive soft skills framework. It focuses on confidence, fluency, structured thinking, emotional expression, and real-life communication mastery.",
+    "skills_learned": [
+      "Ice Breaking & Psychological Safety",
+      "Daily Life Talk & Routine Usage",
+      "Current Life & Present Thinking",
+      "Past Experience Narration",
+      "Plans, Advice & Intentions",
+      "Life Experiences & Responsibility Talk",
+      "Emotional Expression & Descriptions",
+      "Introduction to Logic & Structure",
+      "Logic Reinforcement & Sequencing",
+      "Buying Time & Fluency Control",
+      "Hypothetical Situations",
+      "Hidden Logic Conversations",
+      "Fluency & Confidence Check",
+      "Opinion Awareness & Expansion",
+      "Real-Life Opinions & Examples",
+      "Peer Interaction Confidence",
+      "Observation & Description Upgrade",
+      "Time Awareness Across Past–Present–Future",
+      "Real-Life Planning Conversations",
+      "Conversation Continuity & Emotional Time",
+      "Speed, Pause & Voice Control",
+      "Storytelling Basics & Expansion",
+      "Emotional Storytelling",
+      "Revision, Mixed Situations & Long Conversations",
+      "Final Transformation Showcase"
+    ],
+    "who_attend": "Students, Job Seekers, Working Professionals, Career Switchers",
+    "formats": ["Online", "In-person", "Hybrid"],
+    "curriculum": [
+      "Phase 1 - Comfort, Fluency & Foundations",
+      "Phase 2 - Logic, Structure & Opinion Building",
+      "Phase 3 - Depth, Time Flow & Real-Life Mastery",
+      "Phase 4 - Storytelling, Polish & Transformation"
+    ],
+    "duration": "45 days (60 minutes/day, 90% practical)",
+    "fees": "₹3999",
+    "certification": "Completion Certificate with Personalized Feedback",
+    "testimonials": [
+      {
+        "name": "Emma Rodriguez",
+        "role": "Recent Graduate",
+        "comment": "This program gave me the confidence I needed for job interviews. I landed my first job within a month!"
+      },
+      {
+        "name": "David Kim",
+        "role": "Sales Executive",
+        "comment": "Improved my communication skills dramatically. My sales numbers increased by 40% after completing this program."
+      }
+    ]
   }
 ]

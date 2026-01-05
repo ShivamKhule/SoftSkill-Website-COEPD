@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Batches & Schedule - SoftSkill Mentor Academy";
+$pageTitle = "Program Schedule - SoftSkill Mentor Academy";
 
 // Start session for flash messages
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,9 +10,38 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../config.php';
 
 include __DIR__ . '/../includes/functions.php';
+
+// Get program ID from query parameter, default to first program if not specified
+$program_id = isset($_GET['program']) ? $_GET['program'] : null;
 $batches = loadData(__DIR__ . '/../data/batches.json');
 $courses = loadData(__DIR__ . '/../data/courses.json');
-$program = loadData(__DIR__ . '/../data/program.json');
+
+// Load all programs from programs.json
+$all_programs = loadData(__DIR__ . '/../data/programs.json');
+
+if ($program_id) {
+    // Find the specific program by ID
+    $program = getProgramById($program_id);
+    if (!$program) {
+        // If program not found, redirect to programs page or show error
+        header("Location: " . BASE_PATH . "/pages/programs.php");
+        exit();
+    }
+} else {
+    // If no program ID specified, default to first program (for backward compatibility)
+    if (!empty($all_programs)) {
+        $program = $all_programs[0];
+    } else {
+        // If no programs exist, load from old program.json for backward compatibility
+        $program = loadData(__DIR__ . '/../data/program.json');
+    }
+}
+
+// If still no program found, redirect to programs page
+if (empty($program)) {
+    header("Location: " . BASE_PATH . "/pages/programs.php");
+    exit();
+}
 ?>
 
 <?php ob_start(); ?>
@@ -31,26 +60,33 @@ $program = loadData(__DIR__ . '/../data/program.json');
         <div class="text-center mb-12 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">Program Overview</h2>
             <p class="text-gray-600 max-w-3xl mx-auto"><?php echo $program['duration']; ?> | <?php echo $program['dailyTime']; ?>/Day | <?php echo $program['practicalPercentage']; ?> Practical</p>
-            <p class="text-gray-600 mt-2">Audience: <?php echo $program['audience']; ?></p>
+            <p class="text-gray-600 mt-2">Audience: 
+            <?php 
+                if (is_array($program['audience'])) {
+                    echo implode(', ', $program['audience']);
+                } else {
+                    echo $program['audience'];
+                }
+            ?></p>
         </div>
         
         <div class="bg-white rounded-xl shadow-md p-6 mb-12 animate-fade-in-up">
             <h3 class="text-2xl font-bold mb-4 text-center">Daily Format</h3>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="bg-blue-50 p-4 rounded-lg text-center">
-                    <div class="text-blue-600 font-bold"><?php echo $program['dailyFormat']['warmup']; ?></div>
+                    <div class="text-blue-600 font-bold"><?php echo isset($program['dailyFormat']['warmup']) ? $program['dailyFormat']['warmup'] : 'N/A'; ?></div>
                     <div>Warm-Up</div>
                 </div>
                 <div class="bg-teal-50 p-4 rounded-lg text-center">
-                    <div class="text-teal-600 font-bold"><?php echo $program['dailyFormat']['technique']; ?></div>
+                    <div class="text-teal-600 font-bold"><?php echo isset($program['dailyFormat']['technique']) ? $program['dailyFormat']['technique'] : 'N/A'; ?></div>
                     <div>Technique of the Day</div>
                 </div>
                 <div class="bg-indigo-50 p-4 rounded-lg text-center">
-                    <div class="text-indigo-600 font-bold"><?php echo $program['dailyFormat']['lab']; ?></div>
+                    <div class="text-indigo-600 font-bold"><?php echo isset($program['dailyFormat']['lab']) ? $program['dailyFormat']['lab'] : 'N/A'; ?></div>
                     <div>Lab & Simulation</div>
                 </div>
                 <div class="bg-purple-50 p-4 rounded-lg text-center">
-                    <div class="text-purple-600 font-bold"><?php echo $program['dailyFormat']['coaching']; ?></div>
+                    <div class="text-purple-600 font-bold"><?php echo isset($program['dailyFormat']['coaching']) ? $program['dailyFormat']['coaching'] : 'N/A'; ?></div>
                     <div>Coaching + Takeaway Tool</div>
                 </div>
             </div>
@@ -58,51 +94,60 @@ $program = loadData(__DIR__ . '/../data/program.json');
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in-up delay-1">
             <div class="bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-bold mb-4 text-center">Weekly Elements</h3>
+                <h3 class="text-xl font-bold mb-4 text-center">Daily Practice Elements</h3>
                 <ul class="space-y-2">
-                    <?php foreach ($program['weeklyElements'] as $element): ?>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span><?php echo $element; ?></span>
-                    </li>
-                    <?php endforeach; ?>
+                    <?php if (!empty($program['weeklyElements'])): ?>
+                        <?php foreach ($program['weeklyElements'] as $element): ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span><?php echo $element; ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-gray-400 mr-2"></i>
+                            <span class="text-gray-500">No daily elements defined</span>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             
             <div class="bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-bold mb-4 text-center">Bi-Weekly Elements</h3>
+                <h3 class="text-xl font-bold mb-4 text-center">Program Overview</h3>
                 <ul class="space-y-2">
-                    <?php foreach ($program['biweeklyElements'] as $element): ?>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                        <span><?php echo $element; ?></span>
-                    </li>
-                    <?php endforeach; ?>
+                    <?php if (!empty($program['overview'])): ?>
+                        <?php foreach ($program['overview'] as $overview): ?>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-blue-500 mr-2"></i>
+                            <span><?php echo $overview; ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-star text-gray-400 mr-2"></i>
+                            <span class="text-gray-500">No overview available</span>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             
             <div class="bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-bold mb-4 text-center">Monthly Elements</h3>
+                <h3 class="text-xl font-bold mb-4 text-center">Program Deliverables</h3>
                 <ul class="space-y-2">
-                    <?php foreach ($program['monthlyElements'] as $element): ?>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-teal-500 mr-2"></i>
-                        <span><?php echo $element; ?></span>
-                    </li>
-                    <?php endforeach; ?>
+                    <?php if (!empty($program['programDeliverables'])): ?>
+                        <?php foreach ($program['programDeliverables'] as $deliverable): ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-gift text-teal-500 mr-2"></i>
+                            <span><?php echo $deliverable; ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-gift text-gray-400 mr-2"></i>
+                            <span class="text-gray-500">No deliverables defined</span>
+                        </li>
+                    <?php endif; ?>
                 </ul>
-            </div>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-md p-6 animate-fade-in-up delay-2">
-            <h3 class="text-2xl font-bold mb-4 text-center">Program Deliverables</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <?php foreach ($program['programDeliverables'] as $deliverable): ?>
-                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                    <i class="fas fa-gift text-blue-500 mr-3"></i>
-                    <span><?php echo $deliverable; ?></span>
-                </div>
-                <?php endforeach; ?>
             </div>
         </div>
     </div>
@@ -113,80 +158,39 @@ $program = loadData(__DIR__ . '/../data/program.json');
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">Program Structure</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto">Detailed breakdown of our 3-month transformation journey</p>
+            <p class="text-gray-600 max-w-3xl mx-auto">Detailed breakdown of our <?php echo $program['category']; ?> level program</p>
         </div>
         
-        <?php foreach ($program['structure'] as $monthIndex => $month): ?>
-        <div class="mb-16 animate-fade-in-up delay-<?php echo $monthIndex; ?>">
-            <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Month <?php echo ($monthIndex + 1); ?> - <?php echo $month['title']; ?></h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <?php foreach ($month['weeks'] as $week): ?>
-                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                    <div class="text-center mb-4">
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Week <?php echo $week['week']; ?></span>
-                        <h4 class="text-lg font-bold mt-3"><?php echo $week['title']; ?></h4>
-                    </div>
-                    
-                    <?php if (!empty($week['techniques'])): ?>
-                    <div class="mb-4">
-                        <h5 class="font-semibold text-gray-700 mb-2">Techniques:</h5>
-                        <ul class="text-sm space-y-1">
-                            <?php foreach ($week['techniques'] as $technique): ?>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-blue-500 text-xs mt-1 mr-2"></i>
-                                <span><?php echo $technique; ?></span>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($week['addons'])): ?>
-                    <div class="mb-4">
-                        <h5 class="font-semibold text-gray-700 mb-2">Add-ons:</h5>
-                        <ul class="text-sm space-y-1">
-                            <?php foreach ($week['addons'] as $addon): ?>
-                            <li class="flex items-start">
-                                <i class="fas fa-plus-circle text-teal-500 text-xs mt-1 mr-2"></i>
-                                <span><?php echo $addon; ?></span>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($week['challenge'])): ?>
-                    <div class="mt-4 pt-3 border-t border-gray-200">
-                        <div class="flex items-center text-sm font-medium text-blue-600">
-                            <i class="fas fa-bullseye mr-2"></i>
-                            <span>Challenge: <?php echo $week['challenge']; ?></span>
+        <?php if (!empty($program['structure'])): ?>
+            <?php foreach ($program['structure'] as $phaseIndex => $phase): ?>
+            <div class="mb-16 animate-fade-in-up delay-<?php echo $phaseIndex; ?>">
+                <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Phase <?php echo $phase['phase']; ?> - <?php echo $phase['title']; ?> (<?php echo $phase['days']; ?>)</h3>
+                
+                <?php if (!empty($phase['topics'])): ?>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <?php foreach ($phase['topics'] as $index => $topic): ?>
+                    <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Topic <?php echo ($index + 1); ?></span>
+                            <h4 class="text-lg font-bold mt-3"><?php echo $topic; ?></h4>
                         </div>
                     </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($week['touchpoint'])): ?>
-                    <div class="mt-4 pt-3 border-t border-gray-200">
-                        <div class="flex items-center text-sm font-medium text-purple-600">
-                            <i class="fas fa-handshake mr-2"></i>
-                            <span>Touchpoint: <?php echo $week['touchpoint']; ?></span>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($week['deliverable'])): ?>
-                    <div class="mt-4 pt-3 border-t border-gray-200">
-                        <div class="flex items-center text-sm font-medium text-green-600">
-                            <i class="fas fa-trophy mr-2"></i>
-                            <span>Deliverable: <?php echo $week['deliverable']; ?></span>
-                        </div>
-                    </div>
-                    <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
+                <?php else: ?>
+                <div class="text-center py-6 bg-gray-50 rounded-lg">
+                    <p class="text-gray-600">Detailed topics for this phase will be available soon.</p>
+                </div>
+                <?php endif; ?>
             </div>
-        </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="text-center py-12">
+                <i class="fas fa-info-circle text-5xl text-gray-400 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Program Structure Coming Soon</h3>
+                <p class="text-gray-600">Detailed structure for this program will be available soon.</p>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -239,7 +243,7 @@ $program = loadData(__DIR__ . '/../data/program.json');
                             </span>
                         </td>
                         <td class="py-4 px-4">
-                            <a href="contact.php?batch=<?php echo $batch['id']; ?>&course=complete-program" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm transition duration-300 transform hover:scale-105 shadow-md enroll-btn" data-course="<?php echo $batch['id']; ?>">Enroll</a>
+                            <a href="contact.php?batch=<?php echo $batch['id']; ?>&course=<?php echo $program['id']; ?>" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm transition duration-300 transform hover:scale-105 shadow-md enroll-btn" data-course="<?php echo $batch['id']; ?>">Enroll</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -299,7 +303,7 @@ $program = loadData(__DIR__ . '/../data/program.json');
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Transform Your Skills?</h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Secure your spot in our upcoming <?php echo $program['title']; ?>.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="contact.php?course=complete-program" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Enroll Now</a>
+            <a href="contact.php?course=<?php echo $program['id']; ?>" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Enroll Now</a>
             <a href="contact.php" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Contact for Custom Scheduling</a>
         </div>
     </div>
@@ -496,7 +500,7 @@ $program = loadData(__DIR__ . '/../data/program.json');
                 const courseId = this.getAttribute('data-course');
                 // Use PHP to generate the correct base path
                 const basePath = '<?php echo BASE_PATH; ?>';
-                window.location.href = basePath + '/pages/contact.php?batch=' + courseId + '&course=complete-program';
+                window.location.href = basePath + '/pages/contact.php?batch=' + courseId + '&course=<?php echo $program['id']; ?>';
             });
         });
     });
@@ -505,4 +509,3 @@ $program = loadData(__DIR__ . '/../data/program.json');
 <?php
 $content = ob_get_clean();
 include __DIR__ . '/../components/layout.php';
-?>
