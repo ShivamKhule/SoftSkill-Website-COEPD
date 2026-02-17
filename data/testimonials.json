@@ -1,62 +1,42 @@
 [
   {
     "id": 1,
-    "name": "Sarah Johnson",
+    "name": "Rahul Sharma",
     "role": "Marketing Manager",
-    "company": "TechGlobal Inc.",
-    "image": "https://media.istockphoto.com/id/1277971635/photo/portrait-of-a-smiling-man-of-indian-ethnicity.jpg?s=2048x2048&w=is&k=20&c=CaYXzvIwCETYjay_jU5IWjiR6eNLw4urUfcq4y5vEqA=",
+    "company": "Tech Mahindra",
+    "image": "assets/testimonials/Rahul Sharma.jpg",
     "comment": "The communication skills training completely transformed how I interact with my team and clients. My presentations are now more engaging and impactful.",
     "rating": 5,
     "course": "Communication Skills"
   },
   {
     "id": 2,
-    "name": "Michael Chen",
-    "role": "Software Engineer",
-    "company": "Innovate Solutions",
-    "image": "https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=f4jSwZ_zYOQopFOIcL8Xhz2aaqnUAdzs1-yU-s9t8eU= ",
-    "comment": "I used to struggle with expressing my ideas clearly in meetings. Now I'm confident presenting to executives and clients.",
-    "rating": 5,
-    "course": "Public Speaking"
+    "name": "Priya Bhosale",
+    "role": "Department Head",
+    "company": "Persistent Systems",
+    "image": "assets/testimonials/Priya Sharma.jpg",
+    "comment": "I gained confidence in my leadership abilities and learned practical tools to handle challenging team dynamics.",
+    "rating": 4,
+    "course": "Leadership & Team Building"
   },
   {
     "id": 3,
-    "name": "David Rodriguez",
+    "name": "Vikram Singh",
     "role": "Project Manager",
-    "company": "BuildCorp",
-    "image": "https://images.unsplash.com/photo-1695927621677-ec96e048dce2?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww",
+    "company": "TCS",
+    "image": "assets/testimonials/Vikram Singh.jpg",
     "comment": "The leadership frameworks taught here helped me transform my team's performance. Engagement scores improved by 40%.",
     "rating": 5,
     "course": "Leadership & Team Building"
   },
   {
     "id": 4,
-    "name": "Priya Sharma",
+    "name": "Rohit Taneja",
     "role": "Department Head",
-    "company": "HealthFirst",
-    "image": "https://images.unsplash.com/photo-1661928438616-bda8b4931762?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fFN0YW5kYXJkJTIwcHJvZmlsZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
+    "company": "Persistent Systems",
+    "image": "assets/testimonials/Vikram Singh.jpg",
     "comment": "I gained confidence in my leadership abilities and learned practical tools to handle challenging team dynamics.",
     "rating": 4,
     "course": "Leadership & Team Building"
-  },
-  {
-    "id": 5,
-    "name": "Jennifer Kim",
-    "role": "Sales Director",
-    "company": "Growth Partners",
-    "image": "https://images.unsplash.com/photo-1732550216149-41c470c95e53?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFN0YW5kYXJkJTIwcHJvZmlsZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
-    "comment": "I went from dreading presentations to actually enjoying them. My closing rate improved significantly after taking this course.",
-    "rating": 5,
-    "course": "Public Speaking"
-  },
-  {
-    "id": 6,
-    "name": "Thomas Anderson",
-    "role": "Recent Graduate",
-    "company": "ABC Corp",
-    "image": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww",
-    "comment": "I landed my dream job after just two weeks of training. The mock interviews were invaluable preparation.",
-    "rating": 5,
-    "course": "Interview & Job Readiness"
   }
 ]

@@ -59,7 +59,7 @@ if (empty($program)) {
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">Program Overview</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto"><?php echo $program['duration']; ?> | <?php echo $program['dailyTime']; ?>/Day | <?php echo $program['practicalPercentage']; ?> Practical</p>
+            <!-- <p class="text-gray-600 max-w-3xl mx-auto"><?php echo $program['duration']; ?> | <?php echo $program['dailyTime']; ?>/Day | <?php echo $program['practicalPercentage']; ?> Practical</p> -->
             <p class="text-gray-600 mt-2">Audience: 
             <?php 
                 if (is_array($program['audience'])) {
@@ -68,27 +68,55 @@ if (empty($program)) {
                     echo $program['audience'];
                 }
             ?></p>
+            
+            <?php if (isset($program['price'])): ?>
+            <div class="mt-4">
+                <span class="inline-block bg-gradient-to-r from-green-500 to-teal-500 text-white text-xl font-bold px-6 py-3 rounded-full shadow-lg">
+                    <?php echo htmlspecialchars($program['price']); ?>
+                </span>
+                <p class="text-gray-600 mt-2">One-time Investment</p>
+            </div>
+            <?php endif; ?>
         </div>
         
         <div class="bg-white rounded-xl shadow-md p-6 mb-12 animate-fade-in-up">
             <h3 class="text-2xl font-bold mb-4 text-center">Daily Format</h3>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <?php 
+                $dailyFormat = $program['dailyFormat'] ?? [];
+                $dailySessionFormat = $program['daily_session_format'] ?? [];
+                
+                // If dailyFormat is not available but daily_session_format exists, convert it
+                if (empty($dailyFormat) && !empty($dailySessionFormat)) {
+                    foreach ($dailySessionFormat as $item) {
+                        $activity = $item['activity'];
+                        $duration = $item['duration_minutes'] . ' minutes';
+                        
+                        if (strpos(strtolower($activity), 'warm') !== false) {
+                            $dailyFormat['warmup'] = $duration;
+                        } elseif (strpos(strtolower($activity), 'technique') !== false || strpos(strtolower($activity), 'core') !== false) {
+                            $dailyFormat['technique'] = $duration;
+                        } elseif (strpos(strtolower($activity), 'lab') !== false || strpos(strtolower($activity), 'simulation') !== false) {
+                            $dailyFormat['lab'] = $duration;
+                        } elseif (strpos(strtolower($activity), 'coach') !== false || strpos(strtolower($activity), 'feedback') !== false) {
+                            $dailyFormat['coaching'] = $duration;
+                        }
+                    }
+                }
+                
+                $activities = [
+                    ['label' => 'Warm-Up', 'key' => 'warmup'],
+                    ['label' => 'Technique of the Day', 'key' => 'technique'],
+                    ['label' => 'Lab & Simulation', 'key' => 'lab'],
+                    ['label' => 'Coaching + Takeaway Tool', 'key' => 'coaching']
+                ];
+                ?>
+                <?php foreach ($activities as $activity): ?>
                 <div class="bg-blue-50 p-4 rounded-lg text-center">
-                    <div class="text-blue-600 font-bold"><?php echo isset($program['dailyFormat']['warmup']) ? $program['dailyFormat']['warmup'] : 'N/A'; ?></div>
-                    <div>Warm-Up</div>
+                    <div class="text-blue-600 font-bold"><?php echo isset($dailyFormat[$activity['key']]) ? $dailyFormat[$activity['key']] : 'N/A'; ?></div>
+                    <div><?php echo $activity['label']; ?></div>
                 </div>
-                <div class="bg-teal-50 p-4 rounded-lg text-center">
-                    <div class="text-teal-600 font-bold"><?php echo isset($program['dailyFormat']['technique']) ? $program['dailyFormat']['technique'] : 'N/A'; ?></div>
-                    <div>Technique of the Day</div>
-                </div>
-                <div class="bg-indigo-50 p-4 rounded-lg text-center">
-                    <div class="text-indigo-600 font-bold"><?php echo isset($program['dailyFormat']['lab']) ? $program['dailyFormat']['lab'] : 'N/A'; ?></div>
-                    <div>Lab & Simulation</div>
-                </div>
-                <div class="bg-purple-50 p-4 rounded-lg text-center">
-                    <div class="text-purple-600 font-bold"><?php echo isset($program['dailyFormat']['coaching']) ? $program['dailyFormat']['coaching'] : 'N/A'; ?></div>
-                    <div>Coaching + Takeaway Tool</div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
         
@@ -98,6 +126,13 @@ if (empty($program)) {
                 <ul class="space-y-2">
                     <?php if (!empty($program['weeklyElements'])): ?>
                         <?php foreach ($program['weeklyElements'] as $element): ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span><?php echo $element; ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php elseif (!empty($program['weekly_elements'])): ?>
+                        <?php foreach ($program['weekly_elements'] as $element): ?>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
                             <span><?php echo $element; ?></span>
@@ -141,6 +176,20 @@ if (empty($program)) {
                             <span><?php echo $deliverable; ?></span>
                         </li>
                         <?php endforeach; ?>
+                    <?php elseif (!empty($program['program_wide_deliverables'])): ?>
+                        <?php foreach ($program['program_wide_deliverables'] as $deliverable): ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-gift text-teal-500 mr-2"></i>
+                            <span><?php echo $deliverable; ?></span>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php elseif (!empty($program['deliverables'])): ?>
+                        <?php foreach ($program['deliverables'] as $deliverable): ?>
+                        <li class="flex items-center">
+                            <i class="fas fa-gift text-teal-500 mr-2"></i>
+                            <span><?php echo $deliverable; ?></span>
+                        </li>
+                        <?php endforeach; ?>
                     <?php else: ?>
                         <li class="flex items-center">
                             <i class="fas fa-gift text-gray-400 mr-2"></i>
@@ -162,28 +211,98 @@ if (empty($program)) {
         </div>
         
         <?php if (!empty($program['structure'])): ?>
-            <?php foreach ($program['structure'] as $phaseIndex => $phase): ?>
-            <div class="mb-16 animate-fade-in-up delay-<?php echo $phaseIndex; ?>">
-                <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Phase <?php echo $phase['phase']; ?> - <?php echo $phase['title']; ?> (<?php echo $phase['days']; ?>)</h3>
-                
-                <?php if (!empty($phase['topics'])): ?>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <?php foreach ($phase['topics'] as $index => $topic): ?>
-                    <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                        <div class="text-center mb-4">
-                            <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Topic <?php echo ($index + 1); ?></span>
-                            <h4 class="text-lg font-bold mt-3"><?php echo $topic; ?></h4>
+            <?php if (isset($program['structure'][0]['phase']) || isset($program['structure'][0]['month'])): ?>
+                <!-- Basic program with phases or Advanced program with months -->
+                <?php foreach ($program['structure'] as $phaseIndex => $phase): ?>
+                <div class="mb-16 animate-fade-in-up delay-<?php echo $phaseIndex; ?>">
+                    <?php if (isset($phase['phase'])): ?>
+                        <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Phase <?php echo $phase['phase']; ?> - <?php echo $phase['title']; ?> (<?php echo $phase['days']; ?>)</h3>
+                    <?php elseif (isset($phase['month'])): ?>
+                        <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Month <?php echo $phase['month']; ?> - <?php echo $phase['title']; ?></h3>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($phase['topics'])): ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <?php foreach ($phase['topics'] as $index => $topic): ?>
+                        <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                            <div class="text-center mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Topic <?php echo ($index + 1); ?></span>
+                                <h4 class="text-lg font-bold mt-3"><?php echo $topic; ?></h4>
+                            </div>
                         </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <?php elseif (!empty($phase['weeks'])): ?>
+                    <!-- Monthly structure with weeks, but keeping same UI as other programs -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <?php foreach ($phase['weeks'] as $weekIndex => $week): ?>
+                        <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                            <div class="text-center mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Week <?php echo $week['week']; ?></span>
+                                <h4 class="text-lg font-bold mt-3"><?php echo $week['title']; ?></h4>
+                                
+                                <?php if (!empty($week['techniques'])): ?>
+                                <div class="mt-3 text-left">
+                                    <p class="font-semibold text-sm text-gray-700 mb-1">Techniques:</p>
+                                    <div class="flex flex-wrap gap-1">
+                                        <?php foreach ($week['techniques'] as $technique): ?>
+                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"><?php echo $technique; ?></span>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($week['add_ons'])): ?>
+                                <div class="mt-2 text-left">
+                                    <p class="font-semibold text-sm text-gray-700 mb-1">Add-ons:</p>
+                                    <div class="flex flex-wrap gap-1">
+                                        <?php foreach ($week['add_ons'] as $addon): ?>
+                                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"><?php echo $addon; ?></span>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($week['challenge'])): ?>
+                                <div class="mt-2 text-left">
+                                    <p class="font-semibold text-sm text-gray-700 mb-1">Challenge:</p>
+                                    <p class="bg-yellow-50 text-yellow-800 text-sm p-1 rounded"><?php echo $week['challenge']; ?></p>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php else: ?>
+                    <div class="text-center py-6 bg-gray-50 rounded-lg">
+                        <p class="text-gray-600">Detailed topics for this phase will be available soon.</p>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php else: ?>
-                <div class="text-center py-6 bg-gray-50 rounded-lg">
-                    <p class="text-gray-600">Detailed topics for this phase will be available soon.</p>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <!-- One-on-one training or other program structures that don't have phases/months -->
+                <div class="mb-16 animate-fade-in-up delay-0">
+                    <h3 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 to-teal-400 text-white py-3 rounded-lg">Program Components</h3>
+                    
+                    <?php if (is_array($program['structure']) && !empty($program['structure'])): ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <?php foreach ($program['structure'] as $index => $component): ?>
+                        <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                            <div class="text-center mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Component <?php echo ($index + 1); ?></span>
+                                <h4 class="text-lg font-bold mt-3"><?php echo $component; ?></h4>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php else: ?>
+                    <div class="text-center py-6 bg-gray-50 rounded-lg">
+                        <p class="text-gray-600">Detailed structure for this program will be available soon.</p>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-            </div>
-            <?php endforeach; ?>
+            <?php endif; ?>
         <?php else: ?>
             <div class="text-center py-12">
                 <i class="fas fa-info-circle text-5xl text-gray-400 mb-4"></i>
@@ -195,7 +314,7 @@ if (empty($program)) {
 </section>
 
 <!-- Upcoming Batches -->
-<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
+<!-- <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">Upcoming Batches</h2>
@@ -251,10 +370,10 @@ if (empty($program)) {
             </table>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- How to Enroll -->
-<section class="py-16 bg-white">
+<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">How to Enroll</h2>

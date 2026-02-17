@@ -281,7 +281,7 @@ $popularPosts = array_slice($posts, 0, 3);
 
 <!-- Newsletter Signup -->
 <section class="bg-gradient-to-br from-blue-50 to-teal-50">
-    <div class="container mx-auto max-w-screen">
+    <div class="max-w-screen">
         <div class="bg-gradient-to-br from-blue-500 to-teal-500 shadow-lg p-16 text-white text-center">
             <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
             <p class="text-xl mb-6 max-w-2xl mx-auto">Subscribe to our newsletter for the latest

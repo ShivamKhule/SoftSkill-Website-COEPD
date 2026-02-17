@@ -125,6 +125,13 @@ $programs = loadData(__DIR__ . '/../data/programs.json');
                         <?php endif; ?>
                     </div>
                     
+                    <?php if (isset($program['price'])): ?>
+                    <div class="mb-4 text-center">
+                        <div class="text-2xl font-bold text-blue-600"><?php echo htmlspecialchars($program['price']); ?></div>
+                        <div class="text-sm text-gray-500">One-time Investment</div>
+                    </div>
+                    <?php endif; ?>
+                    
                     <div class="mt-6">
                         <a href="<?php echo BASE_PATH; ?>/pages/schedule.php?program=<?php echo urlencode($program['id']); ?>" 
                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 transform hover:scale-105 shadow-md text-center inline-block">

@@ -22,15 +22,12 @@ require_once __DIR__ . '/../config.php';
                         <i class="fab fa-facebook-f text-xl"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
                         <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-red-400 transition duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="https://wa.me/9154829627"
+                    <a href="https://wa.me/9154829627" target="_blank"
                         class="text-gray-400 hover:text-green-500 transition duration-300">
                         <i class="fab fa-whatsapp text-xl"></i>
                     </a>
@@ -96,14 +93,14 @@ require_once __DIR__ . '/../config.php';
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-clock mr-3"></i>
-                        <span>Mon-Fri: 9:00 AM-6:00 PM</span>
+                        <span>Mon-Fri: 9:00 AM-6:00 PM<br>Sat-Sun: Off</span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
-            <p>&copy; 2025 SoftSkill Mentor Academy. All rights reserved.</p>
+            <p>&copy; 2026 SoftSkill Mentor Academy. All rights reserved.</p>
         </div>
     </div>
 </footer>

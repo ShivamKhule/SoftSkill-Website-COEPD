@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../config.php';
 
 include __DIR__ . '/../includes/functions.php';
-$trainers = loadData(__DIR__ . '/../data/trainers.json');
+$learningMethods = loadData(__DIR__ . '/../data/learning-methods.json');
 $testimonials = loadData(__DIR__ . '/../data/testimonials.json');
 $blog = loadData(__DIR__ . '/../data/blog.json');
 ?>
@@ -26,7 +26,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
     </div>
     <div class="container mx-auto px-4 relative z-10 text-center animate-slide-up">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-down">About SoftSkill Mentor Academy</h1>
-        <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">We are dedicated to developing essential people skills through practical
+        <p class="text-xl max-w-3xl mx-auto animate-fade-in-delay">We are dedicated to developing essential people
+            skills through practical
             and industry-relevant training.</p>
     </div>
 </section>
@@ -41,7 +42,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mission-vision-container">
-            <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-1">
+            <div
+                class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-1">
                 <div class="text-blue-600 text-4xl mb-4">
                     <i class="fas fa-bullseye animate-bounce"></i>
                 </div>
@@ -52,7 +54,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
                     experience level.</p>
             </div>
 
-            <div class="bg-gradient-to-br from-teal-50 to-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-2">
+            <div
+                class="bg-gradient-to-br from-teal-50 to-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-2">
                 <div class="text-teal-600 text-4xl mb-4">
                     <i class="fas fa-eye animate-bounce"></i>
                 </div>
@@ -76,7 +79,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 approach-container">
-            <div class="bg-blue-50 hover:bg-blue-200 p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-all duration-300 approach-card animate-fade-in-up delay-1">
+            <div
+                class="bg-blue-50 hover:bg-blue-200 p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-all duration-300 approach-card animate-fade-in-up delay-1">
                 <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-users text-blue-600 text-3xl animate-pulse"></i>
                 </div>
@@ -85,7 +89,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
                     in a supportive environment.</p>
             </div>
 
-            <div class="bg-teal-50 hover:bg-teal-200 p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-all duration-300 approach-card animate-fade-in-up delay-2">
+            <div
+                class="bg-teal-50 hover:bg-teal-200 p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-all duration-300 approach-card animate-fade-in-up delay-2">
                 <div class="bg-teal-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-chart-line text-teal-600 text-3xl animate-pulse"></i>
                 </div>
@@ -94,7 +99,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
                     translates to real-world improvement.</p>
             </div>
 
-            <div class="bg-indigo-50 hover:bg-indigo-200 p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-all duration-300 approach-card animate-fade-in-up delay-3">
+            <div
+                class="bg-indigo-50 hover:bg-indigo-200 p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-all duration-300 approach-card animate-fade-in-up delay-3">
                 <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <i class="fas fa-sync-alt text-indigo-600 text-3xl animate-pulse"></i>
                 </div>
@@ -106,59 +112,77 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
     </div>
 </section>
 
-<!-- Meet Our Trainers -->
+<!-- Learning Methods section -->
 <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
 
         <div class="text-center mb-12 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Meet Our Expert Trainers - SoftSkill Mentor Academy</h2>
+            <h2 class="text-3xl font-bold mb-4">Learning Methods - SoftSkill Mentor Academy</h2>
             <p class="text-gray-600 max-w-3xl mx-auto">
-                Our trainers bring decades of real-world experience and proven teaching expertise.
+                Explore our diverse range of learning methodologies designed to enhance your soft skills.
             </p>
         </div>
 
-        <!-- Fixed Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 trainer-container">
-            <?php foreach ($trainers as $index => $trainer): ?>
+        <!-- Learning Methods Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 learning-methods-container">
+            <?php foreach ($learningMethods as $index => $method): ?>
                 <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 trainer-card animate-fade-in-up delay-<?php echo (($index % 3) + 1); ?>">
+                    class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 learning-method-card animate-fade-in-up delay-<?php echo (($index % 3) + 1); ?>">
 
-                    <!-- Fixed (changed self-closing div to proper div) -->
-                    <div class="w-full h-48 bg-gray-200 border-2 border-dashed overflow-hidden rounded-xl">
-                        <img src="<?php echo $trainer['image']; ?>" alt="<?php echo $trainer['name']; ?>"
-                            class="w-full h-full object-cover transform hover:scale-110 transition duration-500" />
+                    <!-- Icon container with gradient background -->
+                    <!-- <div
+                        class="w-full h-48 bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center rounded-t-xl">
+                        <div class="text-center">
+                            <i class="fas fa-<?php echo $method['icon']; ?> text-white text-5xl mb-3"></i>
+                            <h4 class="text-white text-xl font-bold"><?php echo $method['title']; ?></h4>
+                        </div>
+                    </div> -->
+
+                    <div class="relative w-full h-80 overflow-hidden rounded-t-xl">
+                        <img src="<?php echo BASE_PATH . $method['image']; ?>" alt="<?php echo $method['title']; ?>"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/30 flex items-end">
+                            <h4 class="text-white text-xl font-bold p-4">
+                                <?php echo $method['title']; ?>
+                            </h4>
+                        </div>
                     </div>
 
 
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900">
-                            <?php echo $trainer['name']; ?>
-                        </h3>
-
                         <p class="text-blue-600 mb-3 font-medium">
-                            <?php echo $trainer['title']; ?>
+                            <i class="fas fa-tag mr-2"></i><?php echo $method['learning_type']; ?>
                         </p>
 
                         <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                            <?php echo substr($trainer['bio'], 0, 120); ?>...
+                            <?php echo $method['description']; ?>
                         </p>
 
-                        <!-- <a href="trainers/<?php echo $trainer['id']; ?>.php" -->
-                        <a href="#"
-                            class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center transform hover:translate-x-1 transition-transform">
-                            View Profile
-                            <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+                        <div class="mt-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full mb-2">
+                                Duration: <?php echo $method['duration']; ?>
+                            </span>
+
+                            <?php if (!empty($method['benefits'])): ?>
+                                <div class="mt-3">
+                                    <p class="text-sm font-semibold text-gray-700 mb-2">Key Benefits:</p>
+                                    <div class="flex flex-wrap gap-1">
+                                        <?php foreach (array_slice($method['benefits'], 0, 4) as $benefit): ?>
+                                            <span
+                                                class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"><?php echo $benefit; ?></span>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
 
                 </div>
             <?php endforeach; ?>
-
         </div>
 
     </div>
 </section>
-
 
 <!-- Why Choose Us -->
 <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
@@ -221,7 +245,8 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Transform Your Skills?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join our community of professionals advancing their careers with our
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join our community of professionals advancing
+            their careers with our
             proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <!-- <a href="../pages/courses/" -->
@@ -238,174 +263,194 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
 <style>
     /* Animation classes */
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-    
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeInDown {
         from {
             opacity: 0;
             transform: translateY(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeInLeft {
         from {
             opacity: 0;
             transform: translateX(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateX(0);
         }
     }
-    
+
     @keyframes slideUp {
         from {
             transform: translateY(50px);
             opacity: 0;
         }
+
         to {
             transform: translateY(0);
             opacity: 1;
         }
     }
-    
+
     @keyframes zoomIn {
         from {
             transform: scale(1.1);
         }
+
         to {
             transform: scale(1);
         }
     }
-    
+
     @keyframes bounce {
-        0%, 100% {
+
+        0%,
+        100% {
             transform: translateY(0);
         }
+
         50% {
             transform: translateY(-10px);
         }
     }
-    
+
     @keyframes pulse {
-        0%, 100% {
+
+        0%,
+        100% {
             transform: scale(1);
         }
+
         50% {
             transform: scale(1.1);
         }
     }
-    
+
     @keyframes pulseSlow {
-        0%, 100% {
+
+        0%,
+        100% {
             opacity: 1;
         }
+
         50% {
             opacity: 0.8;
         }
     }
-    
+
     @keyframes rotateIn {
         from {
             transform: rotate(-45deg);
             opacity: 0;
         }
+
         to {
             transform: rotate(0);
             opacity: 1;
         }
     }
-    
+
     /* Base animation classes */
     .animate-fade-in {
         animation: fadeIn 0.8s ease-out forwards;
     }
-    
+
     .animate-fade-in-up {
         animation: fadeInUp 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-down {
         animation: fadeInDown 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-left {
         animation: fadeInLeft 0.6s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-slide-up {
         animation: slideUp 0.8s ease-out forwards;
         opacity: 0;
     }
-    
+
     .animate-zoom-in {
         animation: zoomIn 1.2s ease-out forwards;
     }
-    
+
     .animate-bounce {
         animation: bounce 3s ease-in-out infinite;
     }
-    
+
     .animate-pulse {
         animation: pulse 1s ease-in-out infinite;
     }
-    
+
     .animate-pulse-slow {
         animation: pulseSlow 2s ease-in-out infinite;
     }
-    
+
     .animate-rotate-in {
         animation: rotateIn 0.5s ease-out forwards;
         opacity: 0;
     }
-    
+
     /* Delay classes */
     .delay-1 {
         animation-delay: 0.1s;
     }
-    
+
     .delay-2 {
         animation-delay: 0.2s;
     }
-    
+
     .delay-3 {
         animation-delay: 0.3s;
     }
-    
+
     .delay-4 {
         animation-delay: 0.4s;
     }
-    
+
     .animate-fade-in-delay {
         animation: fadeIn 0.8s ease-out 0.3s forwards;
         opacity: 0;
     }
-    
+
     .animate-fade-in-delay-2 {
         animation: fadeIn 0.8s ease-out 0.6s forwards;
         opacity: 0;
     }
-    
+
     /* Ensure elements with delayed animations are initially hidden */
     .animate-fade-in-up,
     .animate-fade-in-down,
@@ -415,23 +460,55 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
     .animate-fade-in-delay-2 {
         opacity: 0;
     }
-    
+
     /* Stagger animations for cards */
-    .mission-vision-container > div:nth-child(1) { animation-delay: 0.1s; }
-    .mission-vision-container > div:nth-child(2) { animation-delay: 0.2s; }
-    
-    .approach-container .approach-card:nth-child(1) { animation-delay: 0.1s; }
-    .approach-container .approach-card:nth-child(2) { animation-delay: 0.2s; }
-    .approach-container .approach-card:nth-child(3) { animation-delay: 0.3s; }
-    
-    .trainer-container .trainer-card:nth-child(3n+1) { animation-delay: 0.1s; }
-    .trainer-container .trainer-card:nth-child(3n+2) { animation-delay: 0.2s; }
-    .trainer-container .trainer-card:nth-child(3n+3) { animation-delay: 0.3s; }
-    
-    .choose-us-container > div:nth-child(1) { animation-delay: 0.1s; }
-    .choose-us-container > div:nth-child(2) { animation-delay: 0.2s; }
-    .choose-us-container > div:nth-child(3) { animation-delay: 0.3s; }
-    .choose-us-container > div:nth-child(4) { animation-delay: 0.4s; }
+    .mission-vision-container>div:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .mission-vision-container>div:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .approach-container .approach-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .approach-container .approach-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .approach-container .approach-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .trainer-container .trainer-card:nth-child(3n+1) {
+        animation-delay: 0.1s;
+    }
+
+    .trainer-container .trainer-card:nth-child(3n+2) {
+        animation-delay: 0.2s;
+    }
+
+    .trainer-container .trainer-card:nth-child(3n+3) {
+        animation-delay: 0.3s;
+    }
+
+    .choose-us-container>div:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .choose-us-container>div:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .choose-us-container>div:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .choose-us-container>div:nth-child(4) {
+        animation-delay: 0.4s;
+    }
 </style>
 
 <script>
@@ -442,7 +519,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
             rootMargin: '0px',
             threshold: 0.1
         };
-        
+
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -451,17 +528,17 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
                 }
             });
         }, observerOptions);
-        
+
         // Observe elements with fade-in-up animations
         document.querySelectorAll('.animate-fade-in-up').forEach(el => {
             observer.observe(el);
         });
-        
+
         // Observe elements with fade-in-left animations
         document.querySelectorAll('.animate-fade-in-left').forEach(el => {
             observer.observe(el);
         });
-        
+
         // Observe elements with slide animations
         document.querySelectorAll('.animate-slide-up').forEach(el => {
             observer.observe(el);

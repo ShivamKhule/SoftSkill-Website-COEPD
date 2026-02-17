@@ -43,7 +43,7 @@ $db->createDatabase();
                     class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105">Explore
                     Courses</a>
                 <!-- <a href="pages/downloads/" -->
-                <a href="#"
+                <a href="#free-e-book"
                     class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Free
                     E-book</a>
             </div>
@@ -310,13 +310,13 @@ $db->createDatabase();
             <?php endforeach; ?>
         </div>
 
-        <div class="text-center mt-10 animate-fade-in-delay-2">
+        <!-- <div class="text-center mt-10 animate-fade-in-delay-2"> -->
             <!-- <a href="pages/stories.php" -->
-            <a href="<?php echo BASE_PATH; ?>/pages/stories.php"
+            <!-- <a href="<?php echo BASE_PATH; ?>/pages/stories.php"
                 class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
                 View All Success Stories
-            </a>
-        </div>
+            </a> -->
+        <!-- </div> -->
     </div>
 </section>
 
@@ -396,7 +396,7 @@ $db->createDatabase();
 </section>
 
 <!-- Lead Capture Form -->
-<section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50 shadow-lg animate-fade-in">
+<section id="free-e-book" class="py-16 bg-gradient-to-br from-blue-50 to-teal-50 shadow-lg animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <div class="text-center mb-8 animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">Get Our Free E-book</h2>

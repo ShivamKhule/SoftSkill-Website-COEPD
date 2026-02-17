@@ -6,6 +6,7 @@
     "duration": "45 Days",
     "dailyTime": "60 Minutes/Day",
     "practicalPercentage": "90%",
+    "price":"₹12,999",
     "audience": [
       "Students",
       "Job Seekers",
@@ -109,73 +110,243 @@
     "certification": "Completion Certificate with Personalized Feedback"
   },
   {
-    "id": "advanced-program",
-    "title": "Advanced Program: Advanced Soft Skills Training",
+    "id": "three-month-program",
+    "title": "Complete 3-Month Soft Skills Mastery Program",
     "category": "Advanced",
-    "duration": "Coming Soon",
-    "dailyTime": "Coming Soon",
-    "practicalPercentage": "Coming Soon",
-    "audience": "Experienced professionals seeking advanced skills",
+    "duration": "12 Weeks",
+    "dailyTime": "60 Minutes/Day",
+    "price":"₹19,999",
+    "practicalPercentage": "95%",
+    "audience": [
+      "Students",
+      "Homemakers",
+      "Working Professionals",
+      "Mid-Career Professionals"
+    ],
     "overview": [
-      "Advanced Leadership Skills",
-      "Executive Communication",
-      "Strategic Thinking",
-      "Advanced Emotional Intelligence"
+      "This comprehensive 3-month transformation program is designed to build communication excellence, career intelligence, leadership personality, emotional intelligence, and AI-powered professional skills through highly practical daily training."
+    ],
+    "daily_session_format": [
+      {
+        "activity": "Warm-Up",
+        "duration_minutes": 5
+      },
+      {
+        "activity": "Technique of the Day",
+        "duration_minutes": 20
+      },
+      {
+        "activity": "Lab & Simulation",
+        "duration_minutes": 25
+      },
+      {
+        "activity": "Coaching + Takeaway Tool",
+        "duration_minutes": 10
+      }
+    ],
+    "weekly_elements": [
+      "Weekly Review",
+      "Real Life Challenge",
+      "Habit Tracking",
+      "Reflection Sheets",
+      "Gamification Points"
+    ],
+    "bi_weekly_elements": [
+      "Skill Assessments",
+      "Fluency Scores",
+      "Writing Scores",
+      "Confidence Scores"
+    ],
+    "monthly_elements": [
+      "Personalized Feedback Video",
+      "Portfolio Progress Check"
     ],
     "structure": [
       {
-        "phase": 1,
-        "title": "Advanced Leadership Communication",
-        "days": "Coming Soon",
-        "description": "Advanced-level leadership communication skills"
+        "month": 1,
+        "title": "Communication & Confidence",
+        "weeks": [
+          {
+            "week": 1,
+            "title": "Fluency, Expression & Everyday English",
+            "techniques": [
+              "Chunking",
+              "Shadowing",
+              "Think–Speak",
+              "Rhythm Control"
+            ],
+            "add_ons": ["Voice Feedback", "Conversation Templates"],
+            "challenge": "Speak to a stranger (30 sec)"
+          },
+          {
+            "week": 2,
+            "title": "Business English & Writing Power",
+            "techniques": ["BLUF", "CLEAR", "Tone Ladder"],
+            "add_ons": ["25 Email Templates", "Chat-to-Email Conversions"],
+            "challenge": "Send one professional email"
+          },
+          {
+            "week": 3,
+            "title": "Pronunciation, Accent, Voice & Clarity",
+            "techniques": [
+              "Stress-Rhythm-Intonation",
+              "Pausing",
+              "Pace Control"
+            ],
+            "add_ons": ["Personalized Pronunciation Correction"],
+            "challenge": "2-minute English recording"
+          },
+          {
+            "week": 4,
+            "title": "Presentation Mastery",
+            "techniques": ["PSI", "TED Hooks", "Storytelling"],
+            "add_ons": ["1-slide pitch", "Body language guide"],
+            "challenge": "1-minute talk"
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "title": "Career Growth & Workplace Skills",
+        "weeks": [
+          {
+            "week": 5,
+            "title": "Interview Domination (Master Week 1)",
+            "techniques": ["STAR", "PPF", "CAR", "Answer Engineering"],
+            "add_ons": ["100-answer bank", "Gap scripts"],
+            "challenge": "AI Interview Simulator"
+          },
+          {
+            "week": 6,
+            "title": "Resume, LinkedIn & Branding",
+            "techniques": ["Impact Bullets", "Brand Story"],
+            "add_ons": ["Resume rewrite", "LinkedIn headline formulas"],
+            "challenge": "Update profile"
+          },
+          {
+            "week": 7,
+            "title": "Workplace Intelligence & Leadership Basics",
+            "techniques": ["SBI", "Radical Candor", "Stakeholder Mapping"],
+            "add_ons": ["Conflict scripts", "Leadership playbook"]
+          },
+          {
+            "week": 8,
+            "title": "Negotiation, Productivity & Career Planning",
+            "techniques": ["BATNA", "Anchoring", "Time Boxing"],
+            "add_ons": ["Negotiation scripts", "2-year career plan"],
+            "one_on_one_touchpoint": "Career Clarity Sprint"
+          }
+        ]
+      },
+      {
+        "month": 3,
+        "title": "Personality, EQ, Leadership & AI",
+        "weeks": [
+          {
+            "week": 9,
+            "title": "Personality & Confidence Upgrade",
+            "techniques": ["Confidence Ladder", "Charisma Triad"],
+            "add_ons": ["Presence Audit", "Grooming Guide"]
+          },
+          {
+            "week": 10,
+            "title": "Emotional Intelligence & Assertiveness",
+            "techniques": ["Emotional Labeling", "Boundary Sandwich"],
+            "add_ons": ["30 assertiveness scripts"]
+          },
+          {
+            "week": 11,
+            "title": "Critical Thinking & Creativity",
+            "techniques": ["5 Whys", "MECE", "SCAMPER"],
+            "add_ons": ["25 case studies"]
+          },
+          {
+            "week": 12,
+            "title": "AI for Communication & Career (Master Week 2)",
+            "techniques": [
+              "AI Resume Builder",
+              "AI Email Polisher",
+              "AI Interview Coach"
+            ],
+            "add_ons": ["100 AI prompts", "Personal AI system"],
+            "deliverable": "Final Showcase + Certification"
+          }
+        ]
       }
     ],
-    "dailyFormat": {
-      "warmup": "Coming Soon",
-      "technique": "Coming Soon",
-      "lab": "Coming Soon",
-      "coaching": "Coming Soon"
-    },
-    "weeklyElements": [
-      "Coming Soon"
-    ],
-    "programDeliverables": [
-      "Coming Soon"
+    "program_wide_deliverables": [
+      "Daily WhatsApp Micro-Learning",
+      "Gamification System",
+      "Success Vault (templates, prompts, scripts)",
+      "3 Personalized Feedback Videos",
+      "30-Day Post-Program Follow-Up",
+      "Full Portfolio (Resume, LinkedIn, Intro Video, Presentation)"
     ]
   },
   {
-    "id": "master-program",
-    "title": "Master Program: Expert Soft Skills Training",
-    "category": "Master",
-    "duration": "Coming Soon",
-    "dailyTime": "Coming Soon",
-    "practicalPercentage": "Coming Soon",
-    "audience": "Senior executives and industry leaders",
-    "overview": [
-      "Executive Presence",
-      "Boardroom Communication",
-      "Global Leadership",
-      "Crisis Communication"
+    "id": "one-on-one-training",
+    "title": "One-on-One Personalized Soft Skills Training",
+    "category": "Premium",
+    "duration": "Customized (1–3 Months)",
+    "dailyTime": "60 Minutes/Session",
+    "practicalPercentage": "100%",
+    "price": "₹15,999",
+    "audience": [
+      "Professionals",
+      "Founders",
+      "Job Seekers",
+      "Executives",
+      "Career Switchers"
     ],
-    "structure": [
+    "overview": [
+      "This premium one-on-one training program offers fully personalized coaching focusing on communication mastery, career clarity, leadership presence, confidence building, emotional intelligence, and AI-powered professional growth."
+    ],
+    "daily_session_format": [
       {
-        "phase": 1,
-        "title": "Executive Presence & Influence",
-        "days": "Coming Soon",
-        "description": "Expert-level executive presence and influence techniques"
+        "activity": "Warm-up & Mindset Activation",
+        "duration_minutes": 5
+      },
+      {
+        "activity": "Core Technique / Concept",
+        "duration_minutes": 20
+      },
+      {
+        "activity": "Guided Speaking Lab / Simulation ",
+        "duration_minutes": 25
+      },
+      {
+        "activity": "Feedback, Coaching & Action Plan",
+        "duration_minutes": 10
       }
     ],
-    "dailyFormat": {
-      "warmup": "Coming Soon",
-      "technique": "Coming Soon",
-      "lab": "Coming Soon",
-      "coaching": "Coming Soon"
-    },
-    "weeklyElements": [
-      "Coming Soon"
+    "weekly_elements": [
+      "Daily speaking challenge",
+      "Voice or video recording submission",
+      "Real-life conversation task",
+      "Micro confidence drill",
+      "Reflection journal",
+      "AI-assisted practice prompts"
     ],
-    "programDeliverables": [
-      "Coming Soon"
+    "structure": [
+      "Personal Skill Assessment",
+      "Customized Learning Roadmap",
+      "Live Speaking & Interview Simulations",
+      "Resume & LinkedIn Personal Review",
+      "Personal Branding Strategy",
+      "Emotional Intelligence Coaching",
+      "Leadership & Executive Presence Training",
+      "AI Tools for Career & Communication",
+      "Weekly Progress Reports",
+      "Final Performance Evaluation"
+    ],
+    "deliverables": [
+      "Personalized Growth Plan",
+      "Recorded Feedback Sessions",
+      "Professional Resume & LinkedIn",
+      "Mock Interview Reports",
+      "Communication Scorecard",
+      "Confidence Transformation Report",
+      "Certification"
     ]
   }
 ]

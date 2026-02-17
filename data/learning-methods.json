@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "key": "industrial_experience",
+    "title": "Industrial Experience",
+    "description": "Learning through direct involvement in real industrial environments, gaining practical exposure to tools, processes, and professional workflows.",
+    "icon": "factory",
+    "image": "/assets/learningMethods/industrial_experience.png",
+    "benefits": [
+      "Hands-on practical knowledge",
+      "Understanding workplace culture",
+      "Improved technical skills",
+      "Better career readiness"
+    ],
+    "duration": "3-6 months",
+    "learning_type": "Experiential"
+  },
+  {
+    "id": 2,
+    "key": "group_discussion",
+    "title": "Group Discussion (GD)",
+    "description": "A collaborative learning method where participants discuss a topic to improve communication, critical thinking, and teamwork skills.",
+    "icon": "chat",
+    "image": "/assets/learningMethods/group_discussion.png",
+    "benefits": [
+      "Improves communication skills",
+      "Enhances critical thinking",
+      "Builds confidence",
+      "Encourages diverse perspectives"
+    ],
+    "duration": "30-60 minutes",
+    "learning_type": "Collaborative"
+  },
+  {
+    "id": 3,
+    "key": "group_study",
+    "title": "Group Study",
+    "description": "Learning in small groups where students help each other understand concepts, share knowledge, and solve problems together.",
+    "icon": "users",
+    "image": "/assets/learningMethods/group_study.png",
+    "benefits": [
+      "Peer learning",
+      "Doubt clarification",
+      "Better retention",
+      "Motivation and support"
+    ],
+    "duration": "1-2 hours",
+    "learning_type": "Collaborative"
+  },
+  {
+    "id": 4,
+    "key": "industrial_visit",
+    "title": "Industrial Visit",
+    "description": "Educational visits to industries to observe real-world applications of theoretical concepts and understand industrial operations.",
+    "icon": "bus",
+    "image": "/assets/learningMethods/industrial_visit.png",
+    "benefits": [
+      "Real-world exposure",
+      "Industry awareness",
+      "Bridges theory and practice",
+      "Career insights"
+    ],
+    "duration": "1 day",
+    "learning_type": "Observational"
+  },
+  {
+    "id": 5,
+    "key": "real_life_experience",
+    "title": "Real-Life Experience",
+    "description": "Learning gained from everyday life situations, personal challenges, and practical problem-solving outside formal education.",
+    "icon": "life-buoy",
+    "image": "/assets/learningMethods/real_life_experience.png",
+    "benefits": [
+      "Practical problem solving",
+      "Emotional intelligence",
+      "Decision making skills",
+      "Adaptability"
+    ],
+    "duration": "Ongoing",
+    "learning_type": "Experiential"
+  }
+]
