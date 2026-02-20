@@ -295,7 +295,7 @@ $db->createDatabase();
                     <!-- Profile -->
                     <div class="flex items-center">
                         <div class="w-16 h-16 flex-shrink-0">
-                            <img src="<?php echo $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>"
+                            <img src="<?php echo BASE_PATH . $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>"
                                 class="w-16 h-16 rounded-xl object-cover border-2 border-dashed bg-gray-200 transform hover:scale-110 transition duration-300" />
                         </div>
                         <div class="ml-4">
@@ -337,7 +337,7 @@ $db->createDatabase();
                     class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 animate-fade-in-up delay-<?php echo $index + 1; ?>">
 
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>"
+                        <img src="<?php echo BASE_PATH . $post['image']; ?>" alt="<?php echo $post['title']; ?>"
                             class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
                     </div>
 

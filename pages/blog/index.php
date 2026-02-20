@@ -84,7 +84,7 @@ $popularPosts = array_slice($posts, 0, 3);
                             <article
                                 class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full">
                                 <div class="h-48 overflow-hidden">
-                                    <img src="<?php echo htmlspecialchars($post['image'] ?? ''); ?>"
+                                    <img src="<?php echo BASE_URL . htmlspecialchars($post['image'] ?? ''); ?>"
                                         alt="<?php echo htmlspecialchars($post['title'] ?? ''); ?>"
                                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 </div>
@@ -258,7 +258,7 @@ $popularPosts = array_slice($posts, 0, 3);
                         <?php foreach ($popularPosts as $p): ?>
                             <a href="post.php?id=<?php echo urlencode($p['id']); ?>" class="flex gap-4 group">
                                 <div class="flex-shrink-0">
-                                    <img src="<?php echo htmlspecialchars($p['image']); ?>"
+                                    <img src="<?php echo BASE_URL . htmlspecialchars($p['image']); ?>"
                                         alt="<?php echo htmlspecialchars($p['title']); ?>"
                                         class="w-20 h-20 rounded-lg object-cover">
                                 </div>

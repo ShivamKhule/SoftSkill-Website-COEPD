@@ -46,7 +46,7 @@ $testimonials = loadData(__DIR__ . '/../data/testimonials.json');
                         <div class="flex items-center mb-6">
                             <div
                                 class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl bg-gray-200 border-2 border-dashed">
-                                <img src="<?php echo $story['image']; ?>" alt="<?php echo $story['name']; ?>"
+                                <img src="<?php echo BASE_PATH . $story['image']; ?>" alt="<?php echo $story['name']; ?>"
                                     class="w-full h-full object-cover transform hover:scale-110 transition duration-500" />
                             </div>
                             <div class="ml-4">

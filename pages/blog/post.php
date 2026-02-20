@@ -63,7 +63,7 @@ $relatedPosts = array_slice($relatedPosts, 0, 3);
         <div class="max-w-4xl mx-auto">
             <!-- Featured Image -->
             <div class="mb-12">
-                <img src="<?php echo htmlspecialchars($currentPost['image']); ?>"
+                <img src="<?php echo BASE_PATH . htmlspecialchars($currentPost['image']); ?>"
                     alt="<?php echo htmlspecialchars($currentPost['title']); ?>"
                     class="w-full h-96 object-cover rounded-xl shadow-lg">
             </div>
@@ -134,7 +134,7 @@ $relatedPosts = array_slice($relatedPosts, 0, 3);
                 <?php foreach ($relatedPosts as $relPost): ?>
                     <article class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow">
                         <div class="h-48 overflow-hidden">
-                            <img src="<?php echo htmlspecialchars($relPost['image']); ?>"
+                            <img src="<?php echo BASE_PATH . htmlspecialchars($relPost['image']); ?>"
                                 alt="<?php echo htmlspecialchars($relPost['title']); ?>"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
