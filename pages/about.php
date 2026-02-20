@@ -20,7 +20,7 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
 <!-- Hero Section -->
 <section class="relative text-white py-20 animate-fade-in">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+        <img src="<?php echo BASE_PATH . '/assets/headerImages/main-page.jpg' ?>"
             alt="About Us" class="w-full h-full object-cover animate-zoom-in">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 opacity-90"></div>
     </div>

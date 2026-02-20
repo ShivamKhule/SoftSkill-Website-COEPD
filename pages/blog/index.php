@@ -50,7 +50,7 @@ $offset = ($currentPage - 1) * $postsPerPage;
 $paginatedPosts = array_slice($filteredPosts, $offset, $postsPerPage);
 
 // Popular posts (latest 3)
-usort($posts, fn($a, $b) => strtotime($b['date'] ?? '1970-01-01') - strtotime($a['date'] ?? '1970-01-01'));
+usort($posts, fn($a, $b) => strtotime($b['date'] ?? '2025-09-27') - strtotime($a['date'] ?? '2025-09-27'));
 $popularPosts = array_slice($posts, 0, 3);
 ?>
 
@@ -59,7 +59,7 @@ $popularPosts = array_slice($posts, 0, 3);
 <!-- Hero Section -->
 <section class="relative text-white py-20 animate-fade-in">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+        <img src="<?php echo BASE_PATH . '/assets/blogs/blogs-header.jpg' ?>"
             alt="Blogs" class="w-full h-full object-cover animate-zoom-in">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 opacity-90"></div>
     </div>
@@ -84,7 +84,7 @@ $popularPosts = array_slice($posts, 0, 3);
                             <article
                                 class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full">
                                 <div class="h-48 overflow-hidden">
-                                    <img src="<?php echo BASE_URL . htmlspecialchars($post['image'] ?? ''); ?>"
+                                    <img src="<?php echo BASE_PATH . htmlspecialchars($post['image'] ?? ''); ?>"
                                         alt="<?php echo htmlspecialchars($post['title'] ?? ''); ?>"
                                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 </div>
@@ -258,7 +258,7 @@ $popularPosts = array_slice($posts, 0, 3);
                         <?php foreach ($popularPosts as $p): ?>
                             <a href="post.php?id=<?php echo urlencode($p['id']); ?>" class="flex gap-4 group">
                                 <div class="flex-shrink-0">
-                                    <img src="<?php echo BASE_URL . htmlspecialchars($p['image']); ?>"
+                                    <img src="<?php echo BASE_PATH . htmlspecialchars($p['image']); ?>"
                                         alt="<?php echo htmlspecialchars($p['title']); ?>"
                                         class="w-20 h-20 rounded-lg object-cover">
                                 </div>

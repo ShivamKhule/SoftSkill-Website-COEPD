@@ -27,7 +27,7 @@ $db->createDatabase();
 <!-- Hero Section -->
 <section class="relative text-white py-20 md:py-28 animate-fade-in">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+        <img src="<?php echo BASE_PATH . '/assets/headerImages/main-page.jpg' ?>"
             alt="Soft Skills Training" class="w-full h-full object-cover animate-zoom-in">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-500 opacity-75"></div>
     </div>
@@ -128,7 +128,7 @@ $db->createDatabase();
     <div class="container mx-auto px-4">
         <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="lg:w-1/2 animate-slide-in-left">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                <img src="<?php echo BASE_PATH . '/assets/headerImages/main-page.jpg' ?>"
                     alt="Team Collaboration"
                     class="rounded-xl shadow-lg w-full transform hover:scale-105 transition duration-500">
             </div>
@@ -309,14 +309,6 @@ $db->createDatabase();
                 </div>
             <?php endforeach; ?>
         </div>
-
-        <!-- <div class="text-center mt-10 animate-fade-in-delay-2"> -->
-            <!-- <a href="pages/stories.php" -->
-            <!-- <a href="<?php echo BASE_PATH; ?>/pages/stories.php"
-                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
-                View All Success Stories
-            </a> -->
-        <!-- </div> -->
     </div>
 </section>
 

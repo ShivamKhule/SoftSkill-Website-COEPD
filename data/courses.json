@@ -2,7 +2,7 @@
   {
     "id": "complete-program",
     "title": "COMPLETE 3-MONTH PROGRAM",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29tbXVuaWNhdGlvbiUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+    "image": "/assets/jsonData/3-month-program.jpg",
     "description": "A comprehensive 12-week program covering Communication & Confidence, Career Growth & Workplace Intelligence, and Personality.",
     "overview": "This intensive 3-month program is designed to transform your communication skills, career prospects, and personal development. With 95% practical content, daily 60-minute sessions, and personalized feedback, you'll master essential soft skills for personal and professional success.",
     "skills_learned": [
@@ -45,7 +45,7 @@
   {
     "id": "basic-program",
     "title": "45-Day Soft Skills Transformation Program",
-    "image": "https://images.unsplash.com/photo-1516321454525-7c3e70b9a728?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29mdCUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+    "image": "/assets/jsonData/45-days-program.jpg",
     "description": "A foundational 45-day program focusing on communication, confidence, and personal development skills with day-by-day progression.",
     "overview": "This intensive 45-day program is a fast-track version of a comprehensive soft skills framework. It focuses on confidence, fluency, structured thinking, emotional expression, and real-life communication mastery.",
     "skills_learned": [

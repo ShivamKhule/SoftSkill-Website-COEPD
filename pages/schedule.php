@@ -14,7 +14,6 @@ include __DIR__ . '/../includes/functions.php';
 // Get program ID from query parameter, default to first program if not specified
 $program_id = isset($_GET['program']) ? $_GET['program'] : null;
 $batches = loadData(__DIR__ . '/../data/batches.json');
-$courses = loadData(__DIR__ . '/../data/courses.json');
 
 // Load all programs from programs.json
 $all_programs = loadData(__DIR__ . '/../data/programs.json');

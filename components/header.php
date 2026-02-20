@@ -15,7 +15,8 @@ if (session_status() == PHP_SESSION_NONE) {
                 <!-- <div class="flex items-center">
                     <h1 class="text-2xl font-bold text-blue-600">SoftSkills</h1>
                 </div> -->
-                <img src="<?php echo BASE_PATH; ?>/assets/SOFT SKILL MENTOR hz.png" alt="SoftSkill Mentor Logo" class="w-50 h-12">
+                <img src="<?php echo BASE_PATH; ?>/assets/SOFT SKILL MENTOR hz.png" alt="SoftSkill Mentor Logo"
+                    class="w-50 h-12">
             </a>
 
             <nav class="hidden lg:block">
@@ -103,20 +104,6 @@ if (session_status() == PHP_SESSION_NONE) {
                         </a>
                     </li>
 
-                    <!-- <li>
-                        <a href="./pages/stories.php" id="desktop-stories-link"
-                        class="text-gray-700 font-medium relative px-3 py-1 rounded-md
-          transition-all duration-300
-          hover:text-blue-600 hover:bg-blue-50
-          
-          after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0
-          after:bg-blue-600 after:rounded-full
-          after:transition-all after:duration-300
-          hover:after:w-full">
-                            Success Stories
-                        </a>
-                    </li> -->
-
                     <li>
                         <a href="<?php echo BASE_PATH; ?>/pages/contact.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
           transition-all duration-300
@@ -202,16 +189,8 @@ if (session_status() == PHP_SESSION_NONE) {
                         <!-- <i class="fas fa-chevron-down text-sm transform transition-transform duration-300"></i> -->
                     </button>
                 </div>
-
-                <!-- <a href="<?php echo BASE_PATH; ?>/pages/stories.php" id="mobile-stories-link"
-                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Success
-                    Stories</a> -->
                 <a href="<?php echo BASE_PATH; ?>/pages/contact.php" id="mobile-contact-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Contact</a>
-                <!-- <a href="/learn/pages/downloads/" -->
-                <!-- <a href="#"
-                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Free
-                    Resources</a> -->
                 <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-2 transition-all duration-300 transform hover:scale-[1.02]">Enroll
                     Now</a>
