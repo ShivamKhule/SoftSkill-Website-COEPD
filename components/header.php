@@ -61,25 +61,6 @@ if (session_status() == PHP_SESSION_NONE) {
                             <!-- <i
                                 class="fas fa-chevron-down ml-1 text-xs transform transition-transform duration-300 group-hover:rotate-180"></i> -->
                         </a>
-
-                        <!-- Dropdown menu -->
-                        <!-- <div class="absolute left-0 mt-3 w-48 bg-white shadow-xl rounded-lg 
-                        opacity-0 invisible translate-y-2 
-                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
-                        transition-all duration-300 ease-in-out z-50"> -->
-
-                        <!-- <a href="/learn/pages/corporate.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600  -->
-                        <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 
-                          transition duration-200 transform hover:translate-x-1">
-                                Corporate Training
-                            </a> -->
-
-                        <!-- <a href="/learn/pages/courses/" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600  -->
-                        <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 
-                          transition duration-200 transform hover:translate-x-1">
-                                Individual Courses
-                            </a> -->
-                        <!-- </div> -->
                     </li>
 
                     <li>

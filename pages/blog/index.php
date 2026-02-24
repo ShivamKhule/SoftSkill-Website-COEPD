@@ -586,5 +586,5 @@ $popularPosts = array_slice($posts, 0, 3);
 
 <?php
 $content = ob_get_clean();
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/components/layout.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/components/layout.php';
 ?>
