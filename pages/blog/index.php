@@ -4,8 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $pageTitle = "Blog & Resources - SoftSkills Academy";
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/includes/functions.php';
-$posts = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/blog.json');
+include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
+$posts = loadData($_SERVER['DOCUMENT_ROOT'] . '/data/blog.json');
 
 // Debugging - ensure posts is always an array
 if (!is_array($posts)) {
