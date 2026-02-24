@@ -5,9 +5,9 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $pageTitle = "Blog Post - SoftSkills Academy";
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/includes/functions.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$posts = loadData($_SERVER['DOCUMENT_ROOT'] . '/learn/data/blog.json');
+$posts = loadData($_SERVER['DOCUMENT_ROOT'] . '/data/blog.json');
 if (!is_array($posts)) {
     $posts = [];
 }
@@ -164,5 +164,5 @@ $relatedPosts = array_slice($relatedPosts, 0, 3);
 
 <?php
 $content = ob_get_clean();
-include $_SERVER['DOCUMENT_ROOT'] . '/learn/components/layout.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/components/layout.php';
 ?>
