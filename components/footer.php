@@ -18,13 +18,13 @@ require_once __DIR__ . '/../config.php';
                     Transform your career with our expert-led training programs.
                 </p>
                 <div class="flex space-x-4 mb-6">
-                    <a href="#" class="text-gray-400 hover:text-blue-800 transition duration-300">
+                    <a href="https://www.facebook.com/profile.php?id=61586495445718" class="text-gray-400 hover:text-blue-800 transition duration-300">
                         <i class="fab fa-facebook-f text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                    <a href="https://www.linkedin.com/company/soft-skill-mentor/?viewAsMember=true" class="text-gray-400 hover:text-blue-400 transition duration-300">
                         <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-red-400 transition duration-300">
+                    <a href="https://www.instagram.com/soft_skill_mentor?igsh=MWowdTB4NGk5anl3bA==" class="text-gray-400 hover:text-red-400 transition duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
                     <a href="https://wa.me/9154829627" target="_blank"
@@ -81,7 +81,7 @@ require_once __DIR__ . '/../config.php';
                     <li class="flex items-start">
                         <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
                         <span>Office No: 301, 3rd Floor, Walchand House Happy Colony Lane, 1, Warje Malwadi Rd, Kothrud,
-                            Pune, Maharashtra 411052</span>
+                            Pune, Maharashtra 411038</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-phone mr-3"></i>

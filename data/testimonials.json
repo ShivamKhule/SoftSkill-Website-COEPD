@@ -1,42 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Rahul Sharma",
-    "role": "Marketing Manager",
-    "company": "Tech Mahindra",
-    "image": "assets/testimonials/Rahul Sharma.jpg",
-    "comment": "The communication skills training completely transformed how I interact with my team and clients. My presentations are now more engaging and impactful.",
+    "name": "Samarth Gupta",
+    "role": "MBA Student",
+    "company": "Kanpur, Uttar Pradesh",
+    "image": "/assets/testimonials/Samarth Gupta.jpeg",
+    "comment": "I attended soft skills and communication training with Swati ma’am, and it was a very helpful experience. She explains things in a simple and easy way, which makes learning comfortable. Her sessions were interactive and she encouraged everyone to speak and participate. I learned how to communicate more confidently because of her guidance.",
     "rating": 5,
     "course": "Communication Skills"
   },
   {
     "id": 2,
-    "name": "Priya Bhosale",
-    "role": "Department Head",
-    "company": "Persistent Systems",
-    "image": "assets/testimonials/Priya Sharma.jpg",
-    "comment": "I gained confidence in my leadership abilities and learned practical tools to handle challenging team dynamics.",
+    "name": "Apoorvi Shrivastava",
+    "role": "HR Trainee",
+    "company": "KPMG, Noida",
+    "image": "/assets/testimonials/Apoorvi Shrivastava.jpeg",
+    "comment": "What made this training different for me was the focus on overall personality development, not just communication. I learned how to structure my thoughts before speaking, handle professional situations calmly, and improve my confidence step by step. Swati Ma'am's sessions felt very interactive and practical, which made learning easy to remember and apply. I have seen a clear improvement in the way I speak, present myself, and interact with others cofidently.",
     "rating": 4,
     "course": "Leadership & Team Building"
   },
   {
     "id": 3,
-    "name": "Vikram Singh",
-    "role": "Project Manager",
-    "company": "TCS",
-    "image": "assets/testimonials/Vikram Singh.jpg",
-    "comment": "The leadership frameworks taught here helped me transform my team's performance. Engagement scores improved by 40%.",
+    "name": "Abhishek Pandey",
+    "role": "Sales Associate",
+    "company": "Noida",
+    "image": "/assets/testimonials/Abhishek Pandey.jpeg",
+    "comment": "Swati Ma’am’s training sessions were very engaging and practical. She created a friendly environment where everyone felt comfortable sharing their thoughts. The activities she conducted helped me improve my confidence and speaking skills. Overall, it was a great learning experience and very useful for personal and professional growth.",
     "rating": 5,
-    "course": "Leadership & Team Building"
-  },
-  {
-    "id": 4,
-    "name": "Rohit Taneja",
-    "role": "Department Head",
-    "company": "Persistent Systems",
-    "image": "assets/testimonials/Vikram Singh.jpg",
-    "comment": "I gained confidence in my leadership abilities and learned practical tools to handle challenging team dynamics.",
-    "rating": 4,
     "course": "Leadership & Team Building"
   }
 ]
