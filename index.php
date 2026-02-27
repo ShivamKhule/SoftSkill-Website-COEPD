@@ -275,39 +275,47 @@ $db->createDatabase();
             </p>
         </div>
 
-        <!-- Proper Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 testimonial-container">
-            <?php foreach (array_slice($testimonials, 0, 3) as $index => $testimonial): ?>
-                <div
-                    class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 testimonial-card animate-fade-in-up delay-<?php echo ($index + 1); ?>">
-                    <!-- Rating Stars -->
-                    <div class="flex items-center mb-4">
-                        <?php for ($i = 1; $i <= 5; $i++): ?>
-                            <i
-                                class="fas fa-star <?php echo $i <= $testimonial['rating'] ? 'text-yellow-400' : 'text-gray-300'; ?> animate-pulse-slow"></i>
-                        <?php endfor; ?>
-                    </div>
+        <!-- Proper Scrolling Layout -->
+        <div class="testimonial-marquee overflow-hidden relative">
+            <div class="testimonial-track flex">
 
-                    <p class="text-gray-700 italic mb-6 leading-relaxed">
-                        "<?php echo $testimonial['comment']; ?>"
-                    </p>
+                <?php
+                $loopTestimonials = array_merge(
+                    array_slice($testimonials, 0, 10),
+                    array_slice($testimonials, 0, 10) // duplicate for smooth infinite scroll
+                );
+                ?>
 
-                    <!-- Profile -->
-                    <div class="flex items-center">
-                        <div class="w-16 h-16 flex-shrink-0">
-                            <img src="<?php echo BASE_PATH . $testimonial['image']; ?>" alt="<?php echo $testimonial['name']; ?>"
-                                class="w-16 h-16 rounded-xl object-cover border-2 border-dashed bg-gray-200 transform hover:scale-110 transition duration-300" />
+                <?php foreach ($loopTestimonials as $testimonial): ?>
+                    <div class="testimonial-card bg-white p-6 rounded-xl shadow-md mx-4 min-w-[430px] max-w-[450px]">
+
+                        <!-- Rating -->
+                        <div class="flex items-center mb-4">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <i class="fas fa-star <?php echo $i <= $testimonial['rating'] ? 'text-yellow-400' : 'text-gray-300'; ?>"></i>
+                            <?php endfor; ?>
                         </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold text-gray-900"><?php echo $testimonial['name']; ?></h4>
-                            <p class="text-gray-600 text-sm">
-                                <?php echo $testimonial['role']; ?>
-                                <?php echo !empty($testimonial['company']) ? ', ' . $testimonial['company'] : ''; ?>
-                            </p>
+
+                        <p class="text-gray-700 italic mb-6 leading-relaxed">
+                            "<?php echo $testimonial['comment']; ?>"
+                        </p>
+
+                        <div class="flex items-center">
+                            <img src="<?php echo BASE_PATH . $testimonial['image']; ?>"
+                                class="w-14 h-14 rounded-xl object-cover border bg-gray-200" />
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900"><?php echo $testimonial['name']; ?></h4>
+                                <p class="text-gray-600 text-sm">
+                                    <?php echo $testimonial['role']; ?>
+                                    <?php echo !empty($testimonial['company']) ? ', ' . $testimonial['company'] : ''; ?>
+                                </p>
+                            </div>
                         </div>
+
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+
+            </div>
         </div>
     </div>
 </section>
@@ -739,11 +747,36 @@ $db->createDatabase();
     .animate-float:nth-child(4) {
         animation-delay: 0.3s;
     }
+
+    /* Testimonials Marquee */
+    .testimonial-marquee {
+        width: 100%;
+    }
+
+    .testimonial-track {
+        display: flex;
+        width: max-content;
+        animation: scrollTestimonials 40s linear infinite;
+    }
+
+    .testimonial-marquee:hover .testimonial-track {
+        animation-play-state: paused;
+    }
+
+    @keyframes scrollTestimonials {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
 </style>
 
 <script>
     // Counter animation
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const counters = document.querySelectorAll('.counter');
 
         // Intersection Observer for animations
@@ -809,7 +842,7 @@ $db->createDatabase();
         // Form validation
         const downloadForm = document.getElementById('downloadForm');
         if (downloadForm) {
-            downloadForm.addEventListener('submit', function (e) {
+            downloadForm.addEventListener('submit', function(e) {
                 const name = document.getElementById('userName').value.trim();
                 const email = document.getElementById('userEmail').value.trim();
 

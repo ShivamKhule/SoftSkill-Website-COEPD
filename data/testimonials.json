@@ -28,5 +28,15 @@
     "comment": "Swati Ma’am’s training sessions were very engaging and practical. She created a friendly environment where everyone felt comfortable sharing their thoughts. The activities she conducted helped me improve my confidence and speaking skills. Overall, it was a great learning experience and very useful for personal and professional growth.",
     "rating": 5,
     "course": "Leadership & Team Building"
+  },
+  {
+    "id": 4,
+    "name": "Nidhi Thakur",
+    "role": "",
+    "company": "Silchar, Assam",
+    "image": "/assets/testimonials/Nidhi Thakur.jpeg",
+    "comment": "I want to tell about the Swati ma'am. Swati ma'am is a good tutor. She is a very good communicator and her interaction is very well. When you talk to her, you feel a friendly environment because she always comes with and with the same energy and a smile and calmness on her face, which makes a friendly environment as well as when you talk to her, she gives you a right direction while speaking and as well as while speaking she supports you. She gives you all the aspects of the topic. It will help you in interview as well. So, I feel she is a wonderful teacher and a wonderful guide. Thank you so much.",
+    "rating": 5,
+    "course": "Communication Skills"
   }
 ]
