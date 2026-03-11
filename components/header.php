@@ -98,6 +98,19 @@ if (session_status() == PHP_SESSION_NONE) {
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<?php echo BASE_PATH; ?>/pages/privacy-policy.php" class="text-gray-700 font-medium relative px-3 py-1 rounded-md
+          transition-all duration-300
+          hover:text-blue-600 hover:bg-blue-50
+          
+          after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0
+          after:bg-blue-600 after:rounded-full
+          after:transition-all after:duration-300
+          hover:after:w-full" id="desktop-privacy-link">
+                            Privacy Policy
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
 
@@ -172,6 +185,8 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <a href="<?php echo BASE_PATH; ?>/pages/contact.php" id="mobile-contact-link"
                     class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Contact</a>
+                <a href="<?php echo BASE_PATH; ?>/pages/privacy-policy.php" id="mobile-privacy-link"
+                    class="text-gray-700 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 transform hover:translate-x-1">Privacy Policy</a>
                 <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-2 transition-all duration-300 transform hover:scale-[1.02]">Enroll
                     Now</a>

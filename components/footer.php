@@ -51,6 +51,8 @@ require_once __DIR__ . '/../config.php';
                             class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
                     <li><a href="<?php echo BASE_PATH; ?>/pages/faq.php"
                             class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
+                    <li><a href="<?php echo BASE_PATH; ?>/pages/privacy-policy.php" id="footer-privacy-link"
+                            class="text-gray-400 hover:text-blue-400 transition duration-300">Privacy Policy</a></li>
                 </ul>
             </div>
 
