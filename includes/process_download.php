@@ -28,10 +28,10 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
     // In a real application, you would save this data to a database here
     // For now, we'll just redirect to the download
 
-    $db->insertFreeEBookUsers($name, $email, 'pdf-sample_0');
+    $db->insertFreeEBookUsers($name, $email, 'Softskill_mentor');
     
     // Redirect to download the PDF
-    header('Location: downloadPDF.php?file=pdf-sample_0');
+    header('Location: downloadPDF.php?file=Softskill_mentor');
     exit;
 } else {
     // If form wasn't submitted properly, redirect back to home
