@@ -22,7 +22,6 @@ $db->connectServerWithDB();
 $db->createContactUsTable();
 $db->createEnrollmentsTable();
 $db->createBatchesTable();
-
 $name = $phone = $email = $course = $mode = $message = '';
 $show_success_alert = false;
 $success_message = '';
@@ -64,7 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ob_start();
 
     $name = isset($_POST["name"]) ? test_input($_POST["name"]) : '';
+    $countryCode = isset($_POST["countryCode"]) ? test_input($_POST["countryCode"]) : '+91'; // Default to India
     $phone = isset($_POST["phone"]) ? test_input($_POST["phone"]) : '';
+    $full_phone = $countryCode . ' ' . $phone; // Combine country code with phone number
     $email = isset($_POST["email"]) ? test_input($_POST["email"]) : '';
     $course = isset($_POST["course"]) ? test_input($_POST["course"]) : '';
     $mode = isset($_POST["mode"]) ? test_input($_POST["mode"]) : '';
@@ -75,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $batch_id = isset($_POST["batch_id"]) ? test_input($_POST["batch_id"]) : '';
 
         // Insert enrollment into database
-        $enrollment_id = $db->insertEnrollment($name, $email, $phone, $batch_id, $course);
+        $enrollment_id = $db->insertEnrollment($name, $email, $full_phone, $batch_id, $course);
 
         if ($enrollment_id) {
             // Send confirmation email
@@ -96,11 +97,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         // Regular contact form submission
-        $result = $db->insertContactMessage($name, $phone, $email, $course, $mode, $message);
+        $result = $db->insertContactMessage($name, $full_phone, $email, $course, $mode, $message);
 
         if (strpos($result, '✔') !== false) {
             // Send notification email to site owner
-            sendContactNotificationEmail($name, $phone, $email, $course, $mode, $message);
+            sendContactNotificationEmail($name, $full_phone, $email, $course, $mode, $message);
 
             // Set success message in session for redirect
             $_SESSION['success_message'] = 'Thank you! Your message has been sent successfully.';
@@ -322,7 +323,7 @@ function sendEmailWithPHPMailer($to_email, $to_name, $subject, $message)
         $mail->Username = SMTP_USERNAME;
         $mail->Password = SMTP_PASSWORD;
         $mail->SMTPSecure = SMTP_ENCRYPTION === 'ssl' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS : (SMTP_ENCRYPTION === 'tls' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS :
-            PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_NONE);
+            '');
         $mail->Port = SMTP_PORT;
         $mail->SMTPDebug = 0; // DISABLE debugging to prevent output to browser
         $mail->Timeout = 30; // Set timeout to 30 seconds
@@ -463,9 +464,41 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300"
-                                placeholder="Your phone number">
+                            <div class="flex space-x-2">
+                                <select id="countryCode" name="countryCode"
+                                    class="w-1/4 px-1 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="+91" selected>India (+91)</option>
+                                    <option value="+1">USA (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+61">Australia (+61)</option>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+86">China (+86)</option>
+                                    <option value="+7">Russia (+7)</option>
+                                    <option value="+55">Brazil (+55)</option>
+                                    <option value="+234">Nigeria (+234)</option>
+                                    <option value="+27">South Africa (+27)</option>
+                                    <option value="+966">Saudi Arabia (+966)</option>
+                                    <option value="+971">UAE (+971)</option>
+                                    <option value="+92">Pakistan (+92)</option>
+                                    <option value="+880">Bangladesh (+880)</option>
+                                    <option value="+62">Indonesia (+62)</option>
+                                    <option value="+60">Malaysia (+60)</option>
+                                    <option value="+65">Singapore (+65)</option>
+                                    <option value="+63">Philippines (+63)</option>
+                                    <option value="+66">Thailand (+66)</option>
+                                    <option value="+84">Vietnam (+84)</option>
+                                    <option value="+90">Turkey (+90)</option>
+                                    <option value="+20">Egypt (+20)</option>
+                                    <option value="+212">Morocco (+212)</option>
+                                    <option value="+254">Kenya (+254)</option>
+                                    <option value="+91">Other (+91)</option>
+                                </select>
+                                <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>"
+                                    class="w-3/4 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300"
+                                    placeholder="Your phone number">
+                            </div>
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
@@ -870,6 +903,22 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                 loadingSpinner.classList.remove('hidden');
 
                 // Allow form to submit normally
+            });
+        }
+        
+        // Format phone number input to remove non-digit characters (except + for country code)
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                // Remove any non-digit characters except +
+                let value = e.target.value.replace(/[^0-9]/g, '');
+                
+                // Limit to 15 digits max for international numbers
+                if (value.length > 15) {
+                    value = value.substring(0, 15);
+                }
+                
+                e.target.value = value;
             });
         }
     });
