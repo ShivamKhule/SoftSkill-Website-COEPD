@@ -321,9 +321,8 @@ function sendEmailWithPHPMailer($to_email, $to_name, $subject, $message)
         $mail->SMTPAuth = true;
         $mail->Username = SMTP_USERNAME;
         $mail->Password = SMTP_PASSWORD;
-        $mail->SMTPSecure = SMTP_ENCRYPTION === 'ssl' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS :
-            (SMTP_ENCRYPTION === 'tls' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS :
-                PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_NONE);
+        $mail->SMTPSecure = SMTP_ENCRYPTION === 'ssl' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS : (SMTP_ENCRYPTION === 'tls' ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS :
+            PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_NONE);
         $mail->Port = SMTP_PORT;
         $mail->SMTPDebug = 0; // DISABLE debugging to prevent output to browser
         $mail->Timeout = 30; // Set timeout to 30 seconds
@@ -482,14 +481,14 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             <select id="course" name="course"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform focus:scale-[1.02] transition duration-300">
                                 <option value="">Select a course</option>
-                                <?php 
+                                <?php
                                 // Load all programs and filter out 'coming soon' ones
                                 $all_programs = loadData(__DIR__ . '/../data/programs.json');
                                 foreach ($all_programs as $program_item):
                                     if (!isset($program_item['status']) || $program_item['status'] !== 'coming_soon'):
                                 ?>
-                                    <option value="<?php echo $program_item['id']; ?>" <?php echo ($course == $program_item['id']) ? 'selected' : ''; ?>><?php echo $program_item['title']; ?></option>
-                                <?php 
+                                        <option value="<?php echo $program_item['id']; ?>" <?php echo ($course == $program_item['id']) ? 'selected' : ''; ?>><?php echo $program_item['title']; ?></option>
+                                    <?php
                                     endif;
                                 endforeach;
                                 foreach ($courses as $course_item): ?>
@@ -605,10 +604,20 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
 
                 <div
                     class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md contact-emergency-card animate-fade-in-up delay-2">
-                    <h3 class="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
-                    <p class="mb-4">For urgent inquiries, call our support line:</p>
-                    <p class="text-2xl font-bold">+91 9154829627</p>
-                    <p class="mt-4 text-blue-100">Available Monday-Friday, 9:00 AM - 6:00 PM</p>
+                    <div class="container mx-auto px-4 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Start Your Journey?</h2>
+                        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have
+                            advanced their careers with
+                            our proven training programs.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
+                            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
+                                class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore
+                                Courses</a>
+                            <!-- <a href="#"
+                                class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Free
+                                E-book</a> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -637,20 +646,12 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
 
 
 <!-- CTA Section -->
-<section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
+<section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in text-align-center">
     <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Start Your Journey?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have
-            advanced their careers with
-            our proven training programs.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
-            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
-                class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore
-                Courses</a>
-            <a href="#"
-                class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Free
-                E-book</a>
-        </div>
+        <h6 class="text-4xl font-bold mb-4">Need Immediate Assistance?</h6>
+        <p class="mb-4 text-xl">For urgent inquiries, call our support line:</p>
+        <p class="text-2xl font-bold">+91 9154829627</p>
+        <p class="mt-4 text-blue-100 text-2xl">Available Monday-Friday, 9:00 AM - 6:00 PM</p>
     </div>
 </section>
 
@@ -855,14 +856,14 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
 
 <script>
     // Add loading indicator functionality
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const loadingSpinner = document.getElementById('loadingSpinner');
 
         if (contactForm && submitBtn && btnText && loadingSpinner) {
-            contactForm.addEventListener('submit', function (e) {
+            contactForm.addEventListener('submit', function(e) {
                 // Show loading spinner
                 submitBtn.disabled = true;
                 btnText.textContent = '<?php echo $is_enrollment ? 'Completing Enrollment...' : 'Sending Message...'; ?>';
@@ -909,7 +910,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
     <?php endif; ?>
 
     // Load Notyf library
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         // Load Notyf CSS and JS if not already loaded
         if (typeof Notyf === 'undefined') {
             // Check if Notyf CSS is already loaded
@@ -932,7 +933,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
             // Load Notyf JS
             var script = document.createElement('script');
             script.src = 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js';
-            script.onload = function () {
+            script.onload = function() {
                 // If we have a success message, show it now that Notyf is loaded
                 <?php if ($show_success_alert): ?>
                     showNotification();

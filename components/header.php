@@ -130,7 +130,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     Free Resources
                 </a> -->
 
-                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
+                <a href="<?php echo BASE_PATH; ?>/pages/contact.php"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300 shadow-md hover:shadow-lg hidden lg:block">
                     Enroll Now
                 </a>
