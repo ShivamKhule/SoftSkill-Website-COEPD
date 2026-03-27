@@ -91,9 +91,9 @@
     ],
     "dailyFormat": {
       "warmup": "5 minutes",
-      "technique": "20 minutes",
-      "lab": "25 minutes",
-      "coaching": "10 minutes"
+      "technique": "10 minutes",
+      "lab": "10 minutes",
+      "coaching": "5 minutes"
     },
     "weeklyElements": [
       "Daily Speaking Practice",
