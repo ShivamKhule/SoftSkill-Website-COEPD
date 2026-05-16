@@ -429,8 +429,8 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                 <h3 class="text-2xl font-bold text-gray-800">Chat with us on WhatsApp</h3>
             </div>
             <p class="text-gray-600 mb-6">Get instant answers to your questions. Our team is here to help you choose the right program and answer any queries.</p>
-            <a href="https://wa.me/9336489704?text=Hi%20there!%20I%20have%20a%20question%20about%20your%20soft%20skills%20training%20programs."
-               class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+            <a href="https://wa.me/9336489704?text=Hi%20there!%20I%20have%20a%20question%20about%20your%20soft%20skills%20training%20programs." target="_blank"
+                class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
                 <i class="fab fa-whatsapp mr-2"></i>
                 Start Chat Now
             </a>
@@ -630,7 +630,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
                                 <p class="text-gray-600">+91 93364 89704</p>
-                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/93364 89704"
+                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/9336489704?text=Hi%20there!%20I%20have%20a%20question%20about%20your%20soft%20skills%20training%20programs." target="_blank"
                                         class="text-green-600 hover:text-green-800 transform hover:underline">Chat with
                                         us</a></p>
                             </div>
@@ -929,19 +929,19 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                 // Allow form to submit normally
             });
         }
-        
+
         // Format phone number input to remove non-digit characters (except + for country code)
         const phoneInput = document.getElementById('phone');
         if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
                 // Remove any non-digit characters except +
                 let value = e.target.value.replace(/[^0-9]/g, '');
-                
+
                 // Limit to 15 digits max for international numbers
                 if (value.length > 15) {
                     value = value.substring(0, 15);
                 }
-                
+
                 e.target.value = value;
             });
         }

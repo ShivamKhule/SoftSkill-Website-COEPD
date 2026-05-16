@@ -399,6 +399,74 @@ $db->createDatabase();
     </div>
 </section>
 
+<!-- Free Demo CTA Section -->
+<section class="py-12 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 animate-fade-in">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
+            <div class="flex flex-col md:flex-row">
+                <!-- Left Side - Content -->
+                <div class="md:w-2/3 p-8 md:p-10">
+                    <div class="inline-block bg-gradient-to-r from-orange-100 to-red-100 text-orange-600 text-sm font-bold px-4 py-1 rounded-full mb-4 animate-pulse">
+                        🔥 LIMITED TIME OFFER
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+                        Try Before You Commit!
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        Experience our transformative soft skills training with a <span class="font-bold text-orange-600">FREE Demo Class</span>. See firsthand how we help professionals like you build confidence and communication skills.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Live interactive session with expert trainer
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Experience our proven teaching methodology
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Zero risk - 100% satisfaction guaranteed
+                        </li>
+                    </ul>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://razorpay.com/payment-link/plink_SpxS1lPNyca9v7" target="_blank"
+                            class="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-4 px-4 rounded-xl text-lg transition-all duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl">
+                            <i class="fas fa-bolt mr-4"></i>
+                            Book Demo @ ₹99 Only
+                        </a>
+                        <a href="https://wa.me/+919336489704?text=Hi%2C%20I%20am%20interested%20in%20the%20Free%20Demo%20Class.%20Please%20share%20more%20details." target="_blank"
+                            class="inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-xl text-lg transition-all duration-300 shadow-lg transform hover:scale-105">
+                            <i class="fab fa-whatsapp mr-4 text-xl"></i>
+                            Message for Details
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-orange-500"></i>
+                        Or call/message on: <span class="font-bold text-gray-700 ml-1">+91 9336489704</span>
+                    </p>
+                </div>
+                
+                <!-- Right Side - Visual -->
+                <div class="md:w-1/3 bg-gradient-to-br from-orange-400 via-red-400 to-pink-400 p-8 flex flex-col items-center justify-center text-white text-center">
+                    <div class="text-6xl mb-4">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="text-lg font-semibold mb-2">Demo Class</div>
+                    <div class="flex items-baseline justify-center mb-2">
+                        <span class="text-2xl line-through opacity-70 mr-2">₹499</span>
+                        <span class="text-5xl font-bold">₹99</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 text-sm font-medium">
+                        80% OFF Today!
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Lead Capture Form -->
 <section id="free-e-book" class="py-16 bg-gradient-to-br from-blue-50 to-teal-50 shadow-lg animate-fade-in">
     <div class="container mx-auto px-4 text-center">
