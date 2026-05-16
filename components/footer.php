@@ -27,14 +27,14 @@ require_once __DIR__ . '/../config.php';
                     <a href="https://www.instagram.com/soft_skill_mentor?igsh=MWowdTB4NGk5anl3bA==" class="text-gray-400 hover:text-red-400 transition duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="https://wa.me/9154829627" target="_blank"
+                    <a href="https://wa.me/93364 89704" target="_blank"
                         class="text-gray-400 hover:text-green-500 transition duration-300">
                         <i class="fab fa-whatsapp text-xl"></i>
                     </a>
                 </div>
                 <div class="flex items-center text-gray-400">
                     <i class="fas fa-phone mr-2"></i>
-                    <span>+91 9154829627</span>
+                    <span>+91 93364 89704</span>
                 </div>
             </div>
 
@@ -87,7 +87,7 @@ require_once __DIR__ . '/../config.php';
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-phone mr-3"></i>
-                        <span>+91 9154829627</span>
+                        <span>+91 93364 89704</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-envelope mr-3"></i>

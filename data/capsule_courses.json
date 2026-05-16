@@ -1,0 +1,111 @@
+[
+  {
+    "id": "interview-english",
+    "title": "Interview English",
+    "subtitle": "Answer Confidently, Not Just Correctly",
+    "audience": "Fresher / Job Seekers",
+    "bestFor": "Final-year students, recent graduates, job switchers",
+    "problem": "You know the answer but nerves, grammar errors, or lack of structure make you sound unsure.",
+    "benefits": [
+      "Structure your answers using proven frameworks (no mugging up)",
+      "Speak in confident, clear English even under pressure",
+      "Handle tricky questions like 'Tell me about yourself' and 'Why should we hire you?'",
+      "Control pace, tone, and pauses like a pro",
+      "Walk out of every interview feeling prepared, not lucky"
+    ],
+    "format": "5 Live Sessions on Zoom | 45 minutes/day",
+    "listPrice": "₹999",
+    "gst": "₹179",
+    "totalPrice": "₹1,179",
+    "sessions": 5,
+    "duration": "45 min"
+  },
+  {
+    "id": "speak-up-at-work",
+    "title": "Speak Up at Work",
+    "subtitle": "Be Heard in Meetings, Not Just Present",
+    "audience": "Mid-Career Professionals",
+    "bestFor": "Professionals with 3–10 years of experience",
+    "problem": "You have ideas but someone else gets the credit. You speak but no one really listens.",
+    "benefits": [
+      "Make your point clearly and concisely in any meeting",
+      "Handle interruptions and regain the floor gracefully",
+      "Build a speaking presence that commands attention",
+      "Use structured communication to sound credible, not just loud",
+      "Stop over-explaining - say more with fewer words"
+    ],
+    "format": "5 Live Sessions on Zoom | 60 minutes/day",
+    "listPrice": "₹1,999",
+    "gst": "₹359",
+    "totalPrice": "₹2,359",
+    "sessions": 5,
+    "duration": "60 min",
+    "includes": "Includes real meeting scenario practice in every session"
+  },
+  {
+    "id": "storytelling-career-changers",
+    "title": "Storytelling for Career Changers",
+    "subtitle": "Make Your Pivot Sound Intentional",
+    "audience": "Career Switchers",
+    "bestFor": "Professionals changing industry, role, or returning after a break",
+    "problem": "Every interviewer asks 'Why are you switching?' Most people stumble.",
+    "benefits": [
+      "Build a compelling career story that explains your shift without apology",
+      "Turn gaps and detours into proof of growth",
+      "Answer 'Why the change?' with confidence and clarity",
+      "Communicate transferable skills in language the new industry understands",
+      "Sound intentional- not desperate or confused"
+    ],
+    "format": "5 Live Sessions on Zoom | 60 minutes/day",
+    "listPrice": "₹1,999",
+    "gst": "₹359",
+    "totalPrice": "₹2,359",
+    "sessions": 5,
+    "duration": "60 min",
+    "includes": "Personalised story framework built during the course"
+  },
+  {
+    "id": "client-communication-tech",
+    "title": "Client Communication for Tech Professionals",
+    "subtitle": "Emails, Calls, Escalations - Handled",
+    "audience": "IT / Ops Professionals",
+    "bestFor": "Developers, PMs, QA engineers, BPO/ops leads",
+    "problem": "Technical work is strong but emails go unanswered, calls feel awkward, and escalations spiral.",
+    "benefits": [
+      "Write emails that get responses not ignored",
+      "Handle difficult client conversations without losing the relationship",
+      "Manage escalations with confidence and professionalism",
+      "Structure project updates and status calls clearly",
+      "Say no, push back, and set boundaries professionally"
+    ],
+    "format": "5 Live Sessions on Zoom | 60 minutes/day",
+    "listPrice": "₹2,499",
+    "gst": "₹449",
+    "totalPrice": "₹2,949",
+    "sessions": 5,
+    "duration": "60 min",
+    "includes": "Real email and call templates you can use from Day 1"
+  },
+  {
+    "id": "lead-with-your-voice",
+    "title": "Lead with Your Voice",
+    "subtitle": "First 90 Days as a New Manager",
+    "audience": "New Managers",
+    "bestFor": "Professionals recently promoted to team lead or manager roles",
+    "problem": "You were great as an individual contributor. Now you lead a team and suddenly, how you communicate defines everything.",
+    "benefits": [
+      "Establish authority without sounding aggressive or unsure",
+      "Give feedback that people actually act on",
+      "Run team meetings that don't waste everyone's time",
+      "Communicate upward (to your boss) and downward (to your team) differently",
+      "Build trust through consistent, credible communication"
+    ],
+    "format": "5 Live Sessions on Zoom | 75 minutes/day",
+    "listPrice": "₹2,999",
+    "gst": "₹539",
+    "totalPrice": "₹3,539",
+    "sessions": 5,
+    "duration": "75 min",
+    "includes": "Includes leadership communication scenarios and role-play practice"
+  }
+]

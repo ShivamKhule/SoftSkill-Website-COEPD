@@ -193,7 +193,7 @@
 
     <!-- WhatsApp Widget -->
     <div class="whatsapp-widget">
-        <a href="https://wa.me/9154829627" target="_blank" title="Chat with us on WhatsApp">
+        <a href="https://wa.me/9336489704?text=Hi%20there!%20I%20have%20a%20question%20about%20your%20soft%20skills%20training%20programs." target="_blank" title="Chat with us on WhatsApp">
             <i class="fab fa-whatsapp text-3xl"></i>
         </a>
     </div>

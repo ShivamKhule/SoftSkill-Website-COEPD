@@ -420,6 +420,25 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
     </div>
 </section>
 
+<!-- WhatsApp CTA Section -->
+<section class="py-8 bg-green-50">
+    <div class="container mx-auto px-4 text-center">
+        <div class="bg-white rounded-xl shadow-md p-6 max-w-2xl mx-auto">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fab fa-whatsapp text-green-600 text-3xl mr-3"></i>
+                <h3 class="text-2xl font-bold text-gray-800">Chat with us on WhatsApp</h3>
+            </div>
+            <p class="text-gray-600 mb-6">Get instant answers to your questions. Our team is here to help you choose the right program and answer any queries.</p>
+            <a href="https://wa.me/9336489704?text=Hi%20there!%20I%20have%20a%20question%20about%20your%20soft%20skills%20training%20programs."
+               class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Start Chat Now
+            </a>
+            <p class="text-sm text-gray-500 mt-3">WhatsApp: +91 93364 89704</p>
+        </div>
+    </div>
+</section>
+
 <!-- Contact Section -->
 <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
@@ -578,6 +597,11 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             </svg>
                         </span>
                     </button>
+
+                    <p class="text-sm text-gray-500 mt-3 text-center">
+                        <i class="fas fa-clock mr-1"></i>
+                        We typically respond within 2 hours on working days
+                    </p>
                 </form>
             </div>
 
@@ -605,8 +629,8 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-1">Phone Number</h3>
-                                <p class="text-gray-600">+91 9154829627</p>
-                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/9154829627"
+                                <p class="text-gray-600">+91 93364 89704</p>
+                                <p class="text-gray-600 mt-1">WhatsApp: <a href="https://wa.me/93364 89704"
                                         class="text-green-600 hover:text-green-800 transform hover:underline">Chat with
                                         us</a></p>
                             </div>
@@ -639,7 +663,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
                     class="bg-gradient-to-br from-blue-600 to-teal-500 text-white p-8 rounded-xl shadow-md contact-emergency-card animate-fade-in-up delay-2">
                     <div class="container mx-auto px-4 text-center">
                         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Start Your Journey?</h2>
-                        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have
+                        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join 120+ professionals who have
                             advanced their careers with
                             our proven training programs.</p>
                         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
@@ -683,7 +707,7 @@ function sendContactNotificationEmail($name, $phone, $email, $course, $mode, $me
     <div class="container mx-auto px-4 text-center">
         <h6 class="text-4xl font-bold mb-4">Need Immediate Assistance?</h6>
         <p class="mb-4 text-xl">For urgent inquiries, call our support line:</p>
-        <p class="text-2xl font-bold">+91 9154829627</p>
+        <p class="text-2xl font-bold">+91 93364 89704</p>
         <p class="mt-4 text-blue-100 text-2xl">Available Monday-Friday, 9:00 AM - 6:00 PM</p>
     </div>
 </section>

@@ -1,0 +1,40 @@
+{
+  "columns": [
+    "Course",
+    "Audience",
+    "List Price (Ex-GST)",
+    "Total Charged (Incl. 18% GST)"
+  ],
+  "rows": [
+    [
+      "Interview English",
+      "Fresher / Job Seekers",
+      "₹999",
+      "₹1,179"
+    ],
+    [
+      "Speak Up at Work",
+      "Mid-Career Professionals",
+      "₹1,999",
+      "₹2,359"
+    ],
+    [
+      "Storytelling for Career Changers",
+      "Career Switchers",
+      "₹1,999",
+      "₹2,359"
+    ],
+    [
+      "Client Communication for Tech Professionals",
+      "IT / Ops Professionals",
+      "₹2,499",
+      "₹2,949"
+    ],
+    [
+      "Lead with Your Voice",
+      "New Managers",
+      "₹2,999",
+      "₹3,539"
+    ]
+  ]
+}

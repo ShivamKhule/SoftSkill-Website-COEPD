@@ -1,0 +1,92 @@
+{
+  "columns": [
+    "Feature",
+    "30-Day Program",
+    "45-Day Program (Recommended)",
+    "60-Day Program",
+    "90-Day Program",
+    "1:1 Premium"
+  ],
+  "rows": [
+    [
+      "Duration / Validity",
+      "30 Days",
+      "45 Days",
+      "60 Days",
+      "90 Days",
+      "Customized"
+    ],
+    [
+      "Sessions",
+      "20",
+      "33 + 2",
+      "43 + 2",
+      "64 —",
+      ""
+    ],
+    [
+      "Session Length",
+      "30 min",
+      "30 min",
+      "30 min",
+      "30 min",
+      "30 min"
+    ],
+    [
+      "Days / Week",
+      "5 Days",
+      "5 Days",
+      "5 Days",
+      "5 Days",
+      "Customized"
+    ],
+    [
+      "Base Price (Ex-GST)",
+      "₹8,474",
+      "₹11,864",
+      "₹15,253",
+      "₹17,796",
+      "₹800 / Session"
+    ],
+    [
+      "GST @ 18%",
+      "₹1,525",
+      "₹2,135",
+      "₹2,746",
+      "₹3,203",
+      "₹144"
+    ],
+    [
+      "Total Price (Incl. GST)",
+      "₹9,999",
+      "₹13,999",
+      "₹17,999",
+      "₹20,999",
+      "₹944"
+    ],
+    [
+      "Format",
+      "1:1 Live",
+      "1:1 Live",
+      "1:1 Live",
+      "1:1 Live",
+      "1:1 Live"
+    ],
+    [
+      "Post-program Support",
+      "—",
+      "30 Days WhatsApp Community",
+      "45 Days WhatsApp Community",
+      "60 Days WhatsApp Community",
+      "Depends on the Duration"
+    ],
+    [
+      "Best For",
+      "Finishing Touch",
+      "Fast-track starters",
+      "Advanced consistency",
+      "Most comprehensive",
+      "Executives / founders"
+    ]
+  ]
+}

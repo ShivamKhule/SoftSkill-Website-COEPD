@@ -241,6 +241,63 @@ $blog = loadData(__DIR__ . '/../data/blog.json');
     </div>
 </section>
 
+<!-- Student Outcomes Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Student Success Stories</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">Real results from our graduates who transformed their careers through our programs.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 student-outcomes-container">
+            <div class="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl shadow-md border border-green-100 transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-1">
+                <div class="text-green-600 text-3xl mb-4">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold mb-2">Amit K., 24, Pune</h3>
+                    <p class="text-gray-600 text-sm">Got placed at TCS 2 weeks after completing the 3-Month Program</p>
+                </div>
+                <div class="bg-green-100 p-3 rounded-lg">
+                    <p class="text-green-800 text-sm italic">"The interview preparation techniques helped me stand out from hundreds of applicants. I went from nervous candidate to confident professional."</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-md border border-blue-100 transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-2">
+                <div class="text-blue-600 text-3xl mb-4">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold mb-2">Priya S., 32, Working Professional</h3>
+                    <p class="text-gray-600 text-sm">Promoted to Team Lead within 4 months of completing our leadership program</p>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg">
+                    <p class="text-blue-800 text-sm italic">"The communication skills I learned helped me lead my team more effectively and earned me the promotion I deserved."</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-50 to-white p-6 rounded-xl shadow-md border border-purple-100 transform hover:scale-105 transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-3">
+                <div class="text-purple-600 text-3xl mb-4">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold mb-2">Rahul M., 28, Mumbai</h3>
+                    <p class="text-gray-600 text-sm">Switched careers from engineering to product management successfully</p>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-lg">
+                    <p class="text-purple-800 text-sm italic">"The storytelling techniques helped me articulate my career transition clearly and land my dream role in product management."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-10 animate-fade-in-delay-3">
+            <p class="text-gray-600 mb-4">Join thousands of professionals who have transformed their careers</p>
+            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">Start Your Journey Today</a>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Section -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">

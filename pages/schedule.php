@@ -239,35 +239,6 @@ if (empty($program)) {
                             <div class="text-center mb-4">
                                 <span class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Week <?php echo $week['week']; ?></span>
                                 <h4 class="text-lg font-bold mt-3"><?php echo $week['title']; ?></h4>
-                                
-                                <?php if (!empty($week['techniques'])): ?>
-                                <div class="mt-3 text-left">
-                                    <p class="font-semibold text-sm text-gray-700 mb-1">Techniques:</p>
-                                    <div class="flex flex-wrap gap-1">
-                                        <?php foreach ($week['techniques'] as $technique): ?>
-                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"><?php echo $technique; ?></span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                                <?php endif; ?>
-                                
-                                <?php if (!empty($week['add_ons'])): ?>
-                                <div class="mt-2 text-left">
-                                    <p class="font-semibold text-sm text-gray-700 mb-1">Add-ons:</p>
-                                    <div class="flex flex-wrap gap-1">
-                                        <?php foreach ($week['add_ons'] as $addon): ?>
-                                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"><?php echo $addon; ?></span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                                <?php endif; ?>
-                                
-                                <?php if (!empty($week['challenge'])): ?>
-                                <div class="mt-2 text-left">
-                                    <p class="font-semibold text-sm text-gray-700 mb-1">Challenge:</p>
-                                    <p class="bg-yellow-50 text-yellow-800 text-sm p-1 rounded"><?php echo $week['challenge']; ?></p>
-                                </div>
-                                <?php endif; ?>
                             </div>
                         </div>
                         <?php endforeach; ?>

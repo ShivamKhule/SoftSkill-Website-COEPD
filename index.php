@@ -44,8 +44,7 @@ $db->createDatabase();
                     Courses</a>
                 <!-- <a href="pages/downloads/" -->
                 <a href="#free-e-book"
-                    class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Free
-                    E-book</a>
+                    class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">BROCHURE</a>
             </div>
         </div>
     </div>
@@ -379,14 +378,19 @@ $db->createDatabase();
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Transform Your Skills?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join 120+ professionals who have
             advanced their careers with
             our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <!-- <a href="pages/courses/" -->
-            <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
-                class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105">Enroll
-                Now</a>
+            <div class="text-center">
+                <a href="<?php echo BASE_PATH; ?>/pages/programs.php"
+                    class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105 inline-block">Enroll
+                    Now</a>
+                <div class="text-xs text-green-300 mt-2 font-medium">
+                    7-day risk-free enrollment
+                </div>
+            </div>
             <!-- <a href="pages/contact.php" -->
             <a href="<?php echo BASE_PATH; ?>/pages/contact.php"
                 class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Schedule
@@ -399,7 +403,7 @@ $db->createDatabase();
 <section id="free-e-book" class="py-16 bg-gradient-to-br from-blue-50 to-teal-50 shadow-lg animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <div class="text-center mb-8 animate-fade-in">
-            <h2 class="text-3xl font-bold mb-4">Get Our Free E-book</h2>
+            <h2 class="text-3xl font-bold mb-4">Get Our Brochure</h2>
             <p class="text-gray-600 max-w-2xl mx-auto">Download "7-Day Communication Mastery Guide" - Transform your
                 communication skills in just one week!</p>
         </div>

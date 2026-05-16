@@ -8,6 +8,9 @@ require_once __DIR__ . '/../config.php';
 include __DIR__ . '/../includes/functions.php';
 
 $programs = loadData(__DIR__ . '/../data/programs.json');
+$comparisonTable = loadData(__DIR__ . '/../data/program_comparison.json');
+$capsuleCourses = loadData(__DIR__ . '/../data/capsule_courses.json');
+$coursesComparison = loadData(__DIR__ . '/../data/courses_comparison.json');
 ?>
 
 <?php ob_start(); ?>
@@ -133,15 +136,166 @@ $programs = loadData(__DIR__ . '/../data/programs.json');
                     <?php endif; ?>
                     
                     <div class="mt-6">
-                        <a href="<?php echo BASE_PATH; ?>/pages/schedule.php?program=<?php echo urlencode($program['id']); ?>" 
+                        <a href="<?php echo BASE_PATH; ?>/pages/schedule.php?program=<?php echo urlencode($program['id']); ?>"
                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 transform hover:scale-105 shadow-md text-center inline-block">
                             View Details & Enroll
                         </a>
+                        <div class="text-xs text-green-600 text-center mt-2 font-medium">
+                            7-day risk-free enrollment
+                        </div>
                     </div>
                 </div>
             </div>
             <?php endif; ?>
             <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Program Comparison Table -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Program Comparison</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">Compare our training programs to find the perfect fit for your goals.</p>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-300 bg-white shadow-lg rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-blue-600 text-white">
+                        <?php foreach ($comparisonTable['columns'] as $index => $column): ?>
+                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold <?php echo $index == 2 ? 'bg-blue-700' : ''; ?>">
+                            <?php echo htmlspecialchars($column); ?>
+                        </th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($comparisonTable['rows'] as $rowIndex => $row): ?>
+                    <tr class="<?php echo $rowIndex % 2 == 0 ? 'bg-white' : 'bg-gray-50'; ?> hover:bg-gray-100">
+                        <?php foreach ($row as $cellIndex => $cell): ?>
+                        <td class="border border-gray-300 px-4 py-3 <?php echo $cellIndex == 2 ? 'bg-blue-50 font-medium' : ''; ?>">
+                            <?php echo htmlspecialchars($cell); ?>
+                        </td>
+                        <?php endforeach; ?>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Capsule Courses -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Capsule Courses</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">Short, focused training programs designed to solve specific communication challenges.</p>
+        </div>
+
+        <div class="capsule-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <?php foreach ($capsuleCourses as $index => $course): ?>
+            <div class="capsule-card bg-gradient-to-br from-green-50 to-white rounded-xl shadow-md overflow-hidden border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"><?php echo htmlspecialchars($course['title']); ?></h3>
+                            <p class="text-green-600 text-sm mt-1"><?php echo htmlspecialchars($course['subtitle']); ?></p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                            <?php echo htmlspecialchars($course['sessions']); ?> Sessions
+                        </span>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="text-gray-700 text-sm">
+                            <strong>Best for:</strong> <?php echo htmlspecialchars($course['bestFor']); ?>
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="text-gray-600 text-sm mb-2">
+                            <strong>The Problem It Solves:</strong>
+                        </p>
+                        <p class="text-gray-700 text-sm"><?php echo htmlspecialchars($course['problem']); ?></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="text-gray-600 text-sm mb-2">
+                            <strong>What You Will Walk Away With:</strong>
+                        </p>
+                        <ul class="text-gray-700 text-sm list-disc list-inside space-y-1">
+                            <?php foreach ($course['benefits'] as $benefit): ?>
+                            <li><?php echo htmlspecialchars($benefit); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="text-gray-600 text-sm">
+                            <strong>Format:</strong> <?php echo htmlspecialchars($course['format']); ?>
+                        </p>
+                        <?php if (isset($course['includes'])): ?>
+                        <p class="text-green-600 text-sm mt-1">
+                            ✓ <?php echo htmlspecialchars($course['includes']); ?>
+                        </p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="mb-4 text-center">
+                        <div class="text-2xl font-bold text-green-600"><?php echo htmlspecialchars($course['totalPrice']); ?></div>
+                        <div class="text-sm text-gray-500">Incl. 18% GST</div>
+                    </div>
+
+                    <div class="mt-6">
+                        <a href="<?php echo BASE_PATH; ?>/pages/contact.php?course=<?php echo urlencode($course['id']); ?>"
+                           class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 transform hover:scale-105 shadow-md text-center inline-block">
+                            Enquire Now
+                        </a>
+                        <div class="text-xs text-green-600 text-center mt-2 font-medium">
+                            7-day risk-free enrollment
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Comparison Table -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl font-bold mb-4">Capsule Courses Comparison</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">Compare our capsule courses to find the right solution for your specific needs.</p>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-300 bg-white shadow-lg rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-green-600 text-white">
+                        <?php foreach ($coursesComparison['columns'] as $column): ?>
+                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">
+                            <?php echo htmlspecialchars($column); ?>
+                        </th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($coursesComparison['rows'] as $rowIndex => $row): ?>
+                    <tr class="<?php echo $rowIndex % 2 == 0 ? 'bg-white' : 'bg-gray-50'; ?> hover:bg-gray-100">
+                        <?php foreach ($row as $cell): ?>
+                        <td class="border border-gray-300 px-4 py-3">
+                            <?php echo htmlspecialchars($cell); ?>
+                        </td>
+                        <?php endforeach; ?>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
@@ -186,7 +340,7 @@ $programs = loadData(__DIR__ . '/../data/programs.json');
 <section class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white animate-fade-in">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse-slow">Ready to Transform Your Skills?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join thousands of professionals who have advanced their careers with our proven training programs.</p>
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">Join 120+ professionals who have advanced their careers with our proven training programs.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2">
             <a href="<?php echo BASE_PATH; ?>/pages/programs.php" 
                 class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore All Programs</a>
@@ -342,6 +496,13 @@ $programs = loadData(__DIR__ . '/../data/programs.json');
     .program-container .program-card:nth-child(4) { animation-delay: 0.4s; }
     .program-container .program-card:nth-child(5) { animation-delay: 0.5s; }
     .program-container .program-card:nth-child(6) { animation-delay: 0.6s; }
+
+    /* Stagger animations for capsule courses */
+    .capsule-container .capsule-card:nth-child(1) { animation-delay: 0.1s; }
+    .capsule-container .capsule-card:nth-child(2) { animation-delay: 0.2s; }
+    .capsule-container .capsule-card:nth-child(3) { animation-delay: 0.3s; }
+    .capsule-container .capsule-card:nth-child(4) { animation-delay: 0.4s; }
+    .capsule-container .capsule-card:nth-child(5) { animation-delay: 0.5s; }
 </style>
 
 <script>

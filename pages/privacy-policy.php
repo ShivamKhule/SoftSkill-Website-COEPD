@@ -274,7 +274,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             <p>info@softskillmentor.com</p>
                             
                             <p class="font-bold mt-4">By Phone:</p>
-                            <p>+91 9154829627</p>
+                            <p>+91 93364 89704</p>
                             
                             <p class="font-bold mt-4">By Mail:</p>
                             <p>SoftSkill Mentor Academy<br>

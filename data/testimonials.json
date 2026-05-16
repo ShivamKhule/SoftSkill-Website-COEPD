@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Samarth Gupta",
+    "name": "Samarth G.",
     "role": "MBA Student",
     "company": "Kanpur, Uttar Pradesh",
     "image": "/assets/testimonials/Samarth Gupta.jpeg",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "name": "Apoorvi Shrivastava",
+    "name": "Apoorvi S.",
     "role": "HR Trainee",
     "company": "KPMG, Noida",
     "image": "/assets/testimonials/Apoorvi Shrivastava.jpeg",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "name": "Abhishek Pandey",
+    "name": "Abhishek P.",
     "role": "Sales Associate",
     "company": "Noida",
     "image": "/assets/testimonials/Abhishek Pandey.jpeg",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "name": "Nidhi Thakur",
+    "name": "Nidhi T.",
     "role": "",
     "company": "Silchar, Assam",
     "image": "/assets/testimonials/Nidhi Thakur.jpeg",
