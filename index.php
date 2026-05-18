@@ -432,7 +432,7 @@ $db->createDatabase();
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://razorpay.com/payment-link/plink_SpxS1lPNyca9v7" target="_blank"
+                        <a href="https://rzp.io/rzp/wmSoiVXK" target="_blank"
                             class="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-4 px-4 rounded-xl text-lg transition-all duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl">
                             <i class="fas fa-bolt mr-4"></i>
                             Book Demo @ ₹99 Only
